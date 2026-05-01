@@ -19,6 +19,17 @@ El periodo `2014-1` tiene una estructura de columnas significativamente distinta
 
 Excluir `2014-1` mejora la consistencia del esquema longitudinal y reduce perdida de informacion util en variables comparables entre periodos.
 
+## Limpieza adicional por valores nulos
+
+Sobre el consolidado `bases_datos/v1_todos_los_datos.csv` se aplico exclusion de filas con al menos un valor nulo (`dropna` por fila).
+
+- Filas originales: `7,239,505`
+- Filas conservadas sin nulos: `4,821,037`
+- Filas excluidas por nulos: `2,418,468`
+- Porcentaje conservado: `66.5935%` (aprox. `66.59%`)
+
+Esta regla tambien quedo implementada en `bases_datos/merge_columnas_comunes.py`, para que el consolidado se exporte ya depurado de nulos.
+
 ## Columnas comunes conservadas (55)
 
 1. `cole_area_ubicacion`

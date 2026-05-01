@@ -110,6 +110,11 @@ def main() -> None:
         frames.append(leer_y_filtrar(archivo, COLUMNAS_COMUNES))
 
     df_unificado = pd.concat(frames, ignore_index=True)
+    filas_antes_dropna = len(df_unificado)
+    df_unificado = df_unificado.dropna(how="any").reset_index(drop=True)
+    filas_despues_dropna = len(df_unificado)
+    filas_eliminadas = filas_antes_dropna - filas_despues_dropna
+
     salida_general.parent.mkdir(parents=True, exist_ok=True)
     df_unificado.to_csv(salida_general, sep=";", index=False, encoding="utf-8")
 
@@ -123,6 +128,10 @@ def main() -> None:
     print(
         f"\nMerge finalizado. Filas: {len(df_unificado):,} | "
         f"Columnas: {len(df_unificado.columns)}"
+    )
+    print(
+        f"Filas eliminadas por NaN: {filas_eliminadas:,} "
+        f"(de {filas_antes_dropna:,} a {filas_despues_dropna:,})"
     )
     print(f"Archivo general: {salida_general}")
     print(f"Archivo urbano: {salida_urbano} | Filas: {len(df_urbano):,}")
