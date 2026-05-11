@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from src.data.data_module import DataModule
+from saber_xai.data.data_module import DataModule
 
 def test_data_module_initialization():
     dm = DataModule()

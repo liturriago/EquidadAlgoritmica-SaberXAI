@@ -1,8 +1,8 @@
 import pytest
 import torch
 import xgboost as xgb
-from src.models.mlp_model import MLP
-from src.models.xgb_model import XGBoostModel
+from saber_xai.models.mlp_model import MLP
+from saber_xai.models.xgb_model import XGBoostModel
 
 def test_mlp_forward():
     input_dim = 10
