@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "equidad-algoritmica-saber-xai"
+name = "saber_xai"
 version = "0.1.0"
 description = "Predicción del punt_global del ICFES usando XGBoost y PyTorch MLP"
 readme = "README.md"
@@ -25,3 +25,12 @@ dev = [
     "black",
     "flake8"
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = "-v -ra"
+
+[tool.setuptools.packages.find]
+where = ["src"]
