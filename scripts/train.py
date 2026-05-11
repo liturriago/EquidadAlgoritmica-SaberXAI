@@ -1,13 +1,30 @@
 """
 Script orquestador principal.
 """
+import argparse
+from saber_xai.config import config
 from saber_xai.data.data_module import DataModule
 from saber_xai.models.xgb_model import XGBoostModel
 from saber_xai.models.mlp_model import MLP, MLPTrainer
 from saber_xai.models.evaluator import ModelEvaluator
 import torch
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Pipeline de ML para ICFES")
+    parser.add_argument(
+        "--config", 
+        type=str, 
+        help="Ruta al archivo de configuración YAML (ej. configs/default.yaml)", 
+        default=None
+    )
+    return parser.parse_args()
+
 def main():
+    args = parse_args()
+    if args.config:
+        print(f"Cargando configuración desde: {args.config}")
+        config.load_from_yaml(args.config)
+        
     print("Iniciando Pipeline de ML para ICFES...")
     
     # 1. Preparación de datos

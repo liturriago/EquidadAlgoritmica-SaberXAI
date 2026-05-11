@@ -1,0 +1,31 @@
+# Configuración principal del sistema para ML
+# Puedes modificar estos valores para sobrescribir los valores por defecto en AppConfig
+
+# Rutas de datos
+data_path: "/kaggle/input/datasets/lucasiturriago/pruebassaber11/saber11_dataset.parquet"
+
+# Columnas importantes
+target_col: "punt_global"
+cat_col_to_encode: "cole_mcpio_ubicacion"
+
+# Hiperparámetros de la red neuronal MLP (PyTorch)
+mlp_hidden_dims:
+  - 128
+  - 64
+  - 32
+mlp_lr: 0.001
+mlp_batch_size: 256
+mlp_epochs: 100
+mlp_patience: 10
+
+# Hiperparámetros para XGBoost
+xgb_params:
+  max_depth: 6
+  learning_rate: 0.05
+  n_estimators: 200
+  objective: "reg:squarederror"
+  eval_metric: "rmse"
+  n_jobs: -1
+
+# Semilla aleatoria para reproducibilidad
+random_state: 42

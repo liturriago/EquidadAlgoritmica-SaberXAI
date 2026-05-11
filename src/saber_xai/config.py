@@ -4,6 +4,7 @@ Contiene los hiperparámetros y rutas para todo el proyecto.
 """
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any
+import yaml
 
 class AppConfig(BaseModel):
     """
@@ -43,6 +44,17 @@ class AppConfig(BaseModel):
     
     # Semilla aleatoria para reproducibilidad
     random_state: int = Field(default=42)
+
+    def load_from_yaml(self, yaml_path: str) -> None:
+        """Carga parámetros desde un archivo YAML y actualiza la configuración actual."""
+        with open(yaml_path, 'r', encoding='utf-8') as f:
+            data = yaml.safe_load(f)
+        if data:
+            for key, value in data.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
+                else:
+                    print(f"Advertencia: El parámetro '{key}' en el archivo YAML no está definido en AppConfig.")
 
 # Instancia global de configuración
 config = AppConfig()
