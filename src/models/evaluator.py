@@ -1,0 +1,59 @@
+"""
+Módulo para la evaluación del rendimiento de los modelos.
+"""
+import torch
+import numpy as np
+import xgboost as xgb
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from torch.utils.data import DataLoader
+import torch.nn as nn
+
+class ModelEvaluator:
+    """Clase utilitaria para evaluar modelos estandarizadamente."""
+    
+    def __init__(self, device: str = None):
+        self.device = device if device else ("cuda" if torch.cuda.is_available() else "cpu")
+
+    def evaluate_xgb(self, model: xgb.Booster, dtest: xgb.DMatrix):
+        """Evalúa el modelo XGBoost en el conjunto de prueba y calcula métricas."""
+        print("Evaluando XGBoost en test_loader...")
+        y_pred = model.predict(dtest)
+        y_true = dtest.get_label()
+        
+        self._print_metrics(y_true, y_pred, "XGBoost")
+
+    def evaluate_mlp(self, model: nn.Module, test_loader: DataLoader):
+        """Evalúa el modelo PyTorch MLP en el conjunto de prueba."""
+        print(f"Evaluando PyTorch MLP en {self.device}...")
+        model.to(self.device)
+        model.eval()
+        
+        y_true_list = []
+        y_pred_list = []
+        
+        with torch.no_grad():
+            for X_batch, y_batch in test_loader:
+                X_batch = X_batch.to(self.device)
+                outputs = model(X_batch)
+                
+                y_pred_list.append(outputs.cpu().numpy())
+                y_true_list.append(y_batch.numpy())
+                
+        # Unir todos los batches
+        y_true = np.vstack(y_true_list)
+        y_pred = np.vstack(y_pred_list)
+        
+        self._print_metrics(y_true, y_pred, "PyTorch MLP")
+
+    def _print_metrics(self, y_true: np.ndarray, y_pred: np.ndarray, model_name: str):
+        """Calcula e imprime métricas de regresión comunes."""
+        mse = mean_squared_error(y_true, y_pred)
+        rmse = np.sqrt(mse)
+        mae = mean_absolute_error(y_true, y_pred)
+        r2 = r2_score(y_true, y_pred)
+        
+        print(f"\n--- Resultados en Test: {model_name} ---")
+        print(f"RMSE: {rmse:.4f}")
+        print(f"MAE:  {mae:.4f}")
+        print(f"R^2:  {r2:.4f}")
+        print("-" * 40)
