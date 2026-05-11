@@ -1,10 +1,10 @@
 """
 Script orquestador principal.
 """
-from src.data.data_module import DataModule
-from src.models.xgb_model import XGBoostModel
-from src.models.mlp_model import MLP, MLPTrainer
-from src.models.evaluator import ModelEvaluator
+from saber_xai.data.data_module import DataModule
+from saber_xai.models.xgb_model import XGBoostModel
+from saber_xai.models.mlp_model import MLP, MLPTrainer
+from saber_xai.models.evaluator import ModelEvaluator
 import torch
 
 def main():

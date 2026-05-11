@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
-from src.utils.config import config
+from saber_xai.config import config
 import os
 
 class MLP(nn.Module):

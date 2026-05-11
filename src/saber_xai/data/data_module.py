@@ -11,7 +11,7 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import TargetEncoder
 
-from src.config import config
+from saber_xai.config import config
 
 class ICFESDataset(Dataset):
     """Dataset de PyTorch para los datos del ICFES."""
