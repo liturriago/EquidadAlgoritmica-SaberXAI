@@ -12,17 +12,17 @@ from saber_xai.config import config
 class ICFESDataset(Dataset):
     """Dataset de PyTorch para los datos del ICFES.
 
-    Los arrays numpy se convierten a tensores UNA SOLA VEZ en __init__.
-    Esto es mucho más eficiente que llamar a torch.tensor() por cada ítem
-    en __getitem__, que generaría millones de llamadas de conversión por época.
-    Los datos ya vienen en float32 y escalados, así que el overhead de RAM
-    es idéntico al enfoque lazy pero sin el coste de CPU por batch.
+    Soporta dos modos de operación:
+    - ``device='cpu'`` (default): tensores en RAM, transferencia por batch.
+    - ``device='cuda'``: tensores pre-cargados en VRAM una sola vez. Elimina
+      todas las transferencias CPU→GPU durante el entrenamiento. Requiere que
+      el dataset completo quepa en la VRAM disponible.
     """
-    def __init__(self, X: np.ndarray, y: np.ndarray):
+    def __init__(self, X: np.ndarray, y: np.ndarray, device: str = "cpu"):
         # Polars devuelve arrays read-only; .copy() garantiza un buffer escribible
         # antes de pasarlo a from_numpy (evita el UserWarning de PyTorch).
-        self.X = torch.from_numpy(np.ascontiguousarray(X).copy())
-        self.y = torch.from_numpy(np.ascontiguousarray(y.reshape(-1, 1)).copy())
+        self.X = torch.from_numpy(np.ascontiguousarray(X).copy()).to(device)
+        self.y = torch.from_numpy(np.ascontiguousarray(y.reshape(-1, 1)).copy()).to(device)
 
     def __len__(self):
         return len(self.X)
@@ -163,19 +163,32 @@ class DataModule:
     def get_dataloaders(self) -> tuple[DataLoader, DataLoader, DataLoader]:
         """Retorna objetos DataLoader listos para el entrenamiento de la MLP.
 
-        Notas de rendimiento:
-        - num_workers=0 en Windows: el modelo spawn de multiprocessing añade
-          overhead de serialización por batch que supera el beneficio en datos
-          tabulares ya en RAM. En Linux/macOS se puede subir a 2-4.
-        - pin_memory=True solo tiene efecto si hay CUDA disponible.
-        - persistent_workers requiere num_workers > 0.
-        """
-        num_workers = 2  # spawn de Windows penaliza datos tabulares en RAM
-        pin_memory = torch.cuda.is_available()
+        Si CUDA está disponible, los tres datasets se pre-cargan completos en
+        VRAM (GPU-resident tensors). Esto elimina todas las transferencias
+        CPU→GPU durante el entrenamiento a cambio de consumo fijo de VRAM.
 
-        train_ds = ICFESDataset(self.X_train.to_numpy(), self.y_train.to_numpy())
-        val_ds = ICFESDataset(self.X_val.to_numpy(), self.y_val.to_numpy())
-        test_ds = ICFESDataset(self.X_test.to_numpy(), self.y_test.to_numpy())
+        Restricciones del modo GPU-resident:
+        - ``num_workers`` debe ser 0: los tensores CUDA no pueden ser
+          compartidos entre procesos worker (spawn/fork no lo soportan).
+        - ``pin_memory`` debe ser False: los tensores ya están en VRAM,
+          no en memoria paginable de CPU.
+        """
+        cuda_available = torch.cuda.is_available()
+        dataset_device = "cuda" if cuda_available else "cpu"
+
+        # num_workers > 0 es incompatible con tensores CUDA en el dataset;
+        # en CPU se puede usar workers pero para datos tabulares en RAM
+        # el overhead de spawn en Windows/Kaggle suele no compensar.
+        num_workers = 0
+        pin_memory = False  # False si los tensores ya están en GPU
+
+        train_ds = ICFESDataset(self.X_train.to_numpy(), self.y_train.to_numpy(), device=dataset_device)
+        val_ds = ICFESDataset(self.X_val.to_numpy(), self.y_val.to_numpy(), device=dataset_device)
+        test_ds = ICFESDataset(self.X_test.to_numpy(), self.y_test.to_numpy(), device=dataset_device)
+
+        if cuda_available:
+            print(f"[DataLoader] Datos pre-cargados en GPU ({dataset_device}). "
+                  "Transferencias CPU→GPU eliminadas.")
 
         return (
             DataLoader(train_ds, batch_size=self.config.mlp_batch_size, shuffle=True,
