@@ -11,23 +11,23 @@ from saber_xai.config import config
 
 class ICFESDataset(Dataset):
     """Dataset de PyTorch para los datos del ICFES.
-    
-    Los arrays numpy se guardan en disco y se convierten a tensor de forma
-    lazy en __getitem__ para evitar duplicar toda la RAM con tensores.
+
+    Los arrays numpy se convierten a tensores UNA SOLA VEZ en __init__.
+    Esto es mucho más eficiente que llamar a torch.tensor() por cada ítem
+    en __getitem__, que generaría millones de llamadas de conversión por época.
+    Los datos ya vienen en float32 y escalados, así que el overhead de RAM
+    es idéntico al enfoque lazy pero sin el coste de CPU por batch.
     """
     def __init__(self, X: np.ndarray, y: np.ndarray):
-        self.X = X  # numpy float32, NO se convierte a tensor aquí
-        self.y = y.reshape(-1)  # 1D para indexar por ítem
+        # from_numpy comparte memoria con el array (sin copia extra)
+        self.X = torch.from_numpy(np.ascontiguousarray(X))
+        self.y = torch.from_numpy(np.ascontiguousarray(y.reshape(-1, 1)))
 
     def __len__(self):
         return len(self.X)
 
     def __getitem__(self, idx):
-        # La conversión a tensor ocurre por ítem, no sobre todo el dataset
-        return (
-            torch.tensor(self.X[idx], dtype=torch.float32),
-            torch.tensor(self.y[idx], dtype=torch.float32).unsqueeze(0)
-        )
+        return self.X[idx], self.y[idx]
 
 
 class DataModule:
@@ -160,15 +160,29 @@ class DataModule:
         self.y_test = self.y_test.cast(pl.Float32)
 
     def get_dataloaders(self) -> tuple[DataLoader, DataLoader, DataLoader]:
-        """Retorna objetos DataLoader listos para el entrenamiento de la MLP."""
+        """Retorna objetos DataLoader listos para el entrenamiento de la MLP.
+
+        Notas de rendimiento:
+        - num_workers=0 en Windows: el modelo spawn de multiprocessing añade
+          overhead de serialización por batch que supera el beneficio en datos
+          tabulares ya en RAM. En Linux/macOS se puede subir a 2-4.
+        - pin_memory=True solo tiene efecto si hay CUDA disponible.
+        - persistent_workers requiere num_workers > 0.
+        """
+        num_workers = 0  # spawn de Windows penaliza datos tabulares en RAM
+        pin_memory = torch.cuda.is_available()
+
         train_ds = ICFESDataset(self.X_train.to_numpy(), self.y_train.to_numpy())
         val_ds = ICFESDataset(self.X_val.to_numpy(), self.y_val.to_numpy())
         test_ds = ICFESDataset(self.X_test.to_numpy(), self.y_test.to_numpy())
 
         return (
-            DataLoader(train_ds, batch_size=self.config.mlp_batch_size, shuffle=True, num_workers=4, pin_memory=True),
-            DataLoader(val_ds, batch_size=self.config.mlp_batch_size, shuffle=False, num_workers=4, pin_memory=True),
-            DataLoader(test_ds, batch_size=self.config.mlp_batch_size, shuffle=False, num_workers=4, pin_memory=True)
+            DataLoader(train_ds, batch_size=self.config.mlp_batch_size, shuffle=True,
+                       num_workers=num_workers, pin_memory=pin_memory),
+            DataLoader(val_ds, batch_size=self.config.mlp_batch_size, shuffle=False,
+                       num_workers=num_workers, pin_memory=pin_memory),
+            DataLoader(test_ds, batch_size=self.config.mlp_batch_size, shuffle=False,
+                       num_workers=num_workers, pin_memory=pin_memory),
         )
 
     def get_dmatrices(self) -> tuple[xgb.DMatrix, xgb.DMatrix, xgb.DMatrix]:

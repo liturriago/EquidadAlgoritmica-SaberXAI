@@ -51,7 +51,7 @@ class MLPTrainer:
             for X_batch, y_batch in train_loader:
                 X_batch, y_batch = X_batch.to(self.device), y_batch.to(self.device)
                 
-                self.optimizer.zero_grad()
+                self.optimizer.zero_grad(set_to_none=True)
                 outputs = self.model(X_batch)
                 loss = self.criterion(outputs, y_batch)
                 loss.backward()
