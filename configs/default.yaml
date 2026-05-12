@@ -13,8 +13,8 @@ mlp_hidden_dims:
   - 128
   - 64
   - 32
-mlp_lr: 0.001
-mlp_batch_size: 256
+mlp_lr: 0.005
+mlp_batch_size: 8192
 mlp_epochs: 100
 mlp_patience: 10
 
