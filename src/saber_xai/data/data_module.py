@@ -19,9 +19,10 @@ class ICFESDataset(Dataset):
     es idéntico al enfoque lazy pero sin el coste de CPU por batch.
     """
     def __init__(self, X: np.ndarray, y: np.ndarray):
-        # from_numpy comparte memoria con el array (sin copia extra)
-        self.X = torch.from_numpy(np.ascontiguousarray(X))
-        self.y = torch.from_numpy(np.ascontiguousarray(y.reshape(-1, 1)))
+        # Polars devuelve arrays read-only; .copy() garantiza un buffer escribible
+        # antes de pasarlo a from_numpy (evita el UserWarning de PyTorch).
+        self.X = torch.from_numpy(np.ascontiguousarray(X).copy())
+        self.y = torch.from_numpy(np.ascontiguousarray(y.reshape(-1, 1)).copy())
 
     def __len__(self):
         return len(self.X)
@@ -169,7 +170,7 @@ class DataModule:
         - pin_memory=True solo tiene efecto si hay CUDA disponible.
         - persistent_workers requiere num_workers > 0.
         """
-        num_workers = 0  # spawn de Windows penaliza datos tabulares en RAM
+        num_workers = 2  # spawn de Windows penaliza datos tabulares en RAM
         pin_memory = torch.cuda.is_available()
 
         train_ds = ICFESDataset(self.X_train.to_numpy(), self.y_train.to_numpy())
