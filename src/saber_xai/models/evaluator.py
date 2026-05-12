@@ -37,7 +37,7 @@ class ModelEvaluator:
                 outputs = model(X_batch)
                 
                 y_pred_list.append(outputs.cpu().numpy())
-                y_true_list.append(y_batch.numpy())
+                y_true_list.append(y_batch.cpu().numpy())
                 
         # Unir todos los batches
         y_true = np.vstack(y_true_list)
@@ -63,14 +63,23 @@ class ModelEvaluator:
                 self._print_metrics(y_true_flat[mask_urbano], y_pred_flat[mask_urbano], f"{model_name} (Urbano)")
 
     def _print_metrics(self, y_true: np.ndarray, y_pred: np.ndarray, model_name: str):
-        """Calcula e imprime métricas de regresión comunes."""
-        mse = mean_squared_error(y_true, y_pred)
-        rmse = np.sqrt(mse)
-        mae = mean_absolute_error(y_true, y_pred)
-        r2 = r2_score(y_true, y_pred)
+        """Calcula e imprime métricas de regresión incluyendo sesgo medio.
+        
+        El Mean Bias Error (MBE) es la métrica clave de equidad: un valor
+        negativo indica que el modelo subestima sistemáticamente a ese grupo;
+        positivo indica sobreestimación. El RMSE por sí solo no detecta esto.
+        """
+        y_true_f = y_true.flatten()
+        y_pred_f = y_pred.flatten()
+        
+        rmse = np.sqrt(mean_squared_error(y_true_f, y_pred_f))
+        mae  = mean_absolute_error(y_true_f, y_pred_f)
+        r2   = r2_score(y_true_f, y_pred_f)
+        mbe  = np.mean(y_pred_f - y_true_f)  # + sobreestima, - subestima
         
         print(f"\n--- Resultados en Test: {model_name} ---")
         print(f"RMSE: {rmse:.4f}")
         print(f"MAE:  {mae:.4f}")
-        print(f"R^2:  {r2:.4f}")
+        print(f"R²:   {r2:.4f}")
+        print(f"MBE:  {mbe:+.4f}  {'(⚠ sobreestima)' if mbe > 1 else '(⚠ subestima)' if mbe < -1 else '(sin sesgo relevante)'}")
         print("-" * 40)
