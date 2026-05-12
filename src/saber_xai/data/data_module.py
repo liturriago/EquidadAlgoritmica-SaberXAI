@@ -1,26 +1,33 @@
 import polars as pl
 import polars.selectors as cs
 import numpy as np
+import gc
 import xgboost as xgb
 import torch
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import TargetEncoder, StandardScaler
 
-# Asumiendo que 'config' es un objeto con tus rutas e hiperparámetros
 from saber_xai.config import config
 
 class ICFESDataset(Dataset):
-    """Dataset de PyTorch para los datos del ICFES."""
+    """Dataset de PyTorch para los datos del ICFES.
+    
+    Los arrays numpy se guardan en disco y se convierten a tensor de forma
+    lazy en __getitem__ para evitar duplicar toda la RAM con tensores.
+    """
     def __init__(self, X: np.ndarray, y: np.ndarray):
-        # Aseguramos que los datos entren como tensores de punto flotante de 32 bits
-        self.X = torch.tensor(X, dtype=torch.float32)
-        self.y = torch.tensor(y, dtype=torch.float32).reshape(-1, 1)
+        self.X = X  # numpy float32, NO se convierte a tensor aquí
+        self.y = y.reshape(-1)  # 1D para indexar por ítem
 
     def __len__(self):
         return len(self.X)
 
     def __getitem__(self, idx):
-        return self.X[idx], self.y[idx]
+        # La conversión a tensor ocurre por ítem, no sobre todo el dataset
+        return (
+            torch.tensor(self.X[idx], dtype=torch.float32),
+            torch.tensor(self.y[idx], dtype=torch.float32).unsqueeze(0)
+        )
 
 
 class DataModule:
@@ -75,6 +82,10 @@ class DataModule:
         if 'cole_area_ubicacion' in self.X_test.columns:
             self.test_area = self.X_test.get_column('cole_area_ubicacion').to_numpy()
 
+        # Liberar el DataFrame original y los splits intermedios de memoria
+        del df, df_train, df_val, df_test
+        gc.collect()
+
         # 3. Imputación de valores nulos (Mediana)
         # Se calcula en train y se aplica en todos para evitar sesgos
         num_cols = self.X_train.select(cs.numeric()).columns
@@ -123,9 +134,21 @@ class DataModule:
 
         # 6. Escalado Estándar (Z-Score)
         cols = self.X_train.columns
-        self.X_train = pl.DataFrame(self.scaler.fit_transform(self.X_train.to_numpy()), schema=cols, orient="row")
-        self.X_val = pl.DataFrame(self.scaler.transform(self.X_val.to_numpy()), schema=cols, orient="row")
-        self.X_test = pl.DataFrame(self.scaler.transform(self.X_test.to_numpy()), schema=cols, orient="row")
+        X_train_np = self.X_train.to_numpy()
+        self.X_train = None  # Liberar Polars antes de crear la copia escalada
+        self.X_train = pl.DataFrame(self.scaler.fit_transform(X_train_np), schema=cols, orient="row")
+        del X_train_np
+
+        X_val_np = self.X_val.to_numpy()
+        self.X_val = None
+        self.X_val = pl.DataFrame(self.scaler.transform(X_val_np), schema=cols, orient="row")
+        del X_val_np
+
+        X_test_np = self.X_test.to_numpy()
+        self.X_test = None
+        self.X_test = pl.DataFrame(self.scaler.transform(X_test_np), schema=cols, orient="row")
+        del X_test_np
+        gc.collect()
 
         # 7. Asegurar tipo Float32 para PyTorch
         self.X_train = self.X_train.cast(pl.Float32)

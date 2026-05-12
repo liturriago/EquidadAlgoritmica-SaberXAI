@@ -3,7 +3,6 @@ Modelo XGBoost con Cross-Validation.
 """
 import xgboost as xgb
 import numpy as np
-from sklearn.model_selection import KFold
 from saber_xai.config import config
 import json
 import os
