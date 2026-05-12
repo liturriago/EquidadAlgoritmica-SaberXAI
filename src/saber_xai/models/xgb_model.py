@@ -24,14 +24,15 @@ class XGBoostModel:
             num_boost_round=self.config.xgb_params.get("n_estimators", 100),
             early_stopping_rounds=10,
             metrics="rmse",
-            as_pandas=True,
+            as_pandas=False,
             seed=self.config.random_state
         )
-        print("CV Finalizado. Mejor RMSE:")
-        print(cv_results.tail(1))
+        print("CV Finalizado. Mejores métricas en la última iteración:")
+        for k, v in cv_results.items():
+            print(f"{k}: {v[-1]}")
         
         # Entrenar en todo el train set para guardar el modelo final
-        best_num_boost_round = len(cv_results)
+        best_num_boost_round = len(cv_results['test-rmse-mean'])
         self.model = xgb.train(
             params=self.config.xgb_params,
             dtrain=dtrain,

@@ -54,7 +54,9 @@ def main():
     # 4. Evaluación
     print("\n--- Fase 4: Evaluación de Modelos (Test Set) ---")
     evaluator = ModelEvaluator()
-    evaluator.evaluate_xgb(xgb_model.model, dtest)
+    
+    # Evaluar XGBoost global y por subgrupos
+    evaluator.evaluate_xgb(xgb_model.model, dtest, test_groups=data_module.test_area)
     
     # Cargar los mejores pesos para MLP si se guardaron en el early stopping
     try:
@@ -62,7 +64,8 @@ def main():
     except FileNotFoundError:
         pass # Si no hay, evalúa con los pesos de la última época
         
-    evaluator.evaluate_mlp(mlp, test_loader)
+    # Evaluar MLP global y por subgrupos
+    evaluator.evaluate_mlp(mlp, test_loader, test_groups=data_module.test_area)
     
     print("\nPipeline completado exitosamente.")
 

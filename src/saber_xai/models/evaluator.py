@@ -14,15 +14,15 @@ class ModelEvaluator:
     def __init__(self, device: str = None):
         self.device = device if device else ("cuda" if torch.cuda.is_available() else "cpu")
 
-    def evaluate_xgb(self, model: xgb.Booster, dtest: xgb.DMatrix):
+    def evaluate_xgb(self, model: xgb.Booster, dtest: xgb.DMatrix, test_groups: np.ndarray = None):
         """Evalúa el modelo XGBoost en el conjunto de prueba y calcula métricas."""
         print("Evaluando XGBoost en test_loader...")
         y_pred = model.predict(dtest)
         y_true = dtest.get_label()
         
-        self._print_metrics(y_true, y_pred, "XGBoost")
+        self._evaluate_groups(y_true, y_pred, "XGBoost", test_groups)
 
-    def evaluate_mlp(self, model: nn.Module, test_loader: DataLoader):
+    def evaluate_mlp(self, model: nn.Module, test_loader: DataLoader, test_groups: np.ndarray = None):
         """Evalúa el modelo PyTorch MLP en el conjunto de prueba."""
         print(f"Evaluando PyTorch MLP en {self.device}...")
         model.to(self.device)
@@ -43,7 +43,24 @@ class ModelEvaluator:
         y_true = np.vstack(y_true_list)
         y_pred = np.vstack(y_pred_list)
         
-        self._print_metrics(y_true, y_pred, "PyTorch MLP")
+        self._evaluate_groups(y_true, y_pred, "PyTorch MLP", test_groups)
+
+    def _evaluate_groups(self, y_true: np.ndarray, y_pred: np.ndarray, model_name: str, test_groups: np.ndarray):
+        """Evalúa globalmente y por subgrupos si están disponibles."""
+        self._print_metrics(y_true, y_pred, f"{model_name} (Global)")
+        
+        if test_groups is not None:
+            # Es posible que y_true sea de dimensión [N, 1], mientras que mask es de dimensión [N]
+            y_true_flat = y_true.flatten()
+            y_pred_flat = y_pred.flatten()
+            
+            mask_rural = (test_groups == 'Rural')
+            if np.any(mask_rural):
+                self._print_metrics(y_true_flat[mask_rural], y_pred_flat[mask_rural], f"{model_name} (Rural)")
+                
+            mask_urbano = (test_groups == 'Urbano')
+            if np.any(mask_urbano):
+                self._print_metrics(y_true_flat[mask_urbano], y_pred_flat[mask_urbano], f"{model_name} (Urbano)")
 
     def _print_metrics(self, y_true: np.ndarray, y_pred: np.ndarray, model_name: str):
         """Calcula e imprime métricas de regresión comunes."""

@@ -1,5 +1,5 @@
 import pytest
-import pandas as pd
+import polars as pl
 import numpy as np
 from saber_xai.data.data_module import DataModule
 
@@ -24,8 +24,8 @@ def test_target_encoding_leakage():
     dm = DataModule()
     dm.prepare_data()
     cat_col = dm.config.cat_col_to_encode
-    assert dm.X_train[cat_col].dtype == float
-    assert dm.X_val[cat_col].dtype == float
+    assert dm.X_train.schema[cat_col] in (pl.Float32, pl.Float64)
+    assert dm.X_val.schema[cat_col] in (pl.Float32, pl.Float64)
     
 def test_dataloaders():
     dm = DataModule()

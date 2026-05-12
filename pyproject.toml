@@ -9,7 +9,7 @@ description = "Predicción del punt_global del ICFES usando XGBoost y PyTorch ML
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "pandas>=2.0.0",
+    "polars>=0.20.0",
     "numpy>=1.24.0",
     "scikit-learn>=1.3.0",
     "xgboost>=2.0.0",
