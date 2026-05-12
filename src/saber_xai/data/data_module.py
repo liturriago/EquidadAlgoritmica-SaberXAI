@@ -166,9 +166,9 @@ class DataModule:
         test_ds = ICFESDataset(self.X_test.to_numpy(), self.y_test.to_numpy())
 
         return (
-            DataLoader(train_ds, batch_size=self.config.mlp_batch_size, shuffle=True),
-            DataLoader(val_ds, batch_size=self.config.mlp_batch_size, shuffle=False),
-            DataLoader(test_ds, batch_size=self.config.mlp_batch_size, shuffle=False)
+            DataLoader(train_ds, batch_size=self.config.mlp_batch_size, shuffle=True, num_workers=4, pin_memory=True),
+            DataLoader(val_ds, batch_size=self.config.mlp_batch_size, shuffle=False, num_workers=4, pin_memory=True),
+            DataLoader(test_ds, batch_size=self.config.mlp_batch_size, shuffle=False, num_workers=4, pin_memory=True)
         )
 
     def get_dmatrices(self) -> tuple[xgb.DMatrix, xgb.DMatrix, xgb.DMatrix]:
