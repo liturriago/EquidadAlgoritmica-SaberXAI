@@ -39,22 +39,19 @@ class MLPTrainer:
         self.optimizer = optim.Adam(self.model.parameters(), lr=self.config.mlp_lr)
         
     def train(self, train_loader: DataLoader, val_loader: DataLoader):
-        """Ciclo de entrenamiento por épocas con Early Stopping y OneCycleLR.
-        
-        OneCycleLR es especialmente útil con batches grandes: aplica warmup
-        hasta max_lr y luego decae, compensando el mayor ruido de gradiente.
-        Se inicializa aquí para conocer steps_per_epoch del loader real.
+        """Ciclo de entrenamiento por épocas con Early Stopping y CosineAnnealingLR.
+
+        CosineAnnealingLR decae suavemente el lr desde el valor inicial hasta
+        cerca de cero a lo largo de todas las épocas, sin warmup. Es compatible
+        con Adam porque no eleva el lr por encima del valor inicial.
         """
         best_val_loss = float('inf')
         patience_counter = 0
 
-        scheduler = optim.lr_scheduler.OneCycleLR(
+        scheduler = optim.lr_scheduler.CosineAnnealingLR(
             self.optimizer,
-            max_lr=self.config.mlp_lr,
-            steps_per_epoch=len(train_loader),
-            epochs=self.config.mlp_epochs,
-            pct_start=0.3,       # 30% de los pasos en warmup
-            anneal_strategy='cos',
+            T_max=self.config.mlp_epochs,  # épocas hasta lr mínimo
+            eta_min=self.config.mlp_lr * 0.01,  # lr mínimo = 1% del inicial
         )
         
         print(f"Iniciando entrenamiento MLP en {self.device}")
@@ -70,11 +67,11 @@ class MLPTrainer:
                 loss = self.criterion(outputs, y_batch)
                 loss.backward()
                 self.optimizer.step()
-                scheduler.step()  # OneCycleLR se actualiza por batch, no por época
                 
                 train_loss += loss.item() * X_batch.size(0)
                 
             train_loss /= len(train_loader.dataset)
+            scheduler.step()  # CosineAnnealingLR se actualiza por época
             
             # Validación
             self.model.eval()
