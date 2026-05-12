@@ -42,7 +42,7 @@ def main():
     dtrain, dval, dtest = data_module.get_dmatrices()
     
     xgb_model = XGBoostModel()
-    xgb_model.train_cv(dtrain)
+    xgb_model.train_with_early_stopping(dtrain, dval)
     xgb_model.save_model()
 
     # Evaluación XGBoost — en este punto todavía no existen los tensores de PyTorch

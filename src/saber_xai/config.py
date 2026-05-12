@@ -31,14 +31,14 @@ class AppConfig(BaseModel):
     mlp_patience: int = Field(default=10, description="Paciencia para el Early Stopping")
     
     # Hiperparámetros para XGBoost
+    xgb_n_estimators: int = Field(default=200, description="Número de árboles (num_boost_round)")
     xgb_params: Dict[str, Any] = Field(
         default_factory=lambda: {
             "max_depth": 6,
             "learning_rate": 0.05,
-            "n_estimators": 200,
             "objective": "reg:squarederror",
             "eval_metric": "rmse",
-            "n_jobs": -1
+            "nthread": -1
         }
     )
     
