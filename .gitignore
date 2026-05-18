@@ -1,0 +1,20 @@
+# Artefactos grandes (modelos, embeddings, índices)
+artifacts/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pycache/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Entornos virtuales
+.venv/
+venv/
+base_teorica_y_decisoria/PhD_Thesis_Jenny_RevF2.pdf

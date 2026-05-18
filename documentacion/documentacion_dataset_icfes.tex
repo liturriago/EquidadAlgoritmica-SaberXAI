@@ -1,0 +1,749 @@
+\documentclass[12pt, a4paper]{article}
+
+% ── Codificación y tipografía ──────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ── Geometría ─────────────────────────────────────────────────────────────────
+\usepackage[
+  top=2.8cm, bottom=2.8cm,
+  left=3.2cm, right=3.2cm,
+  headheight=15pt
+]{geometry}
+
+% ── Color y gráficos ──────────────────────────────────────────────────────────
+\usepackage[dvipsnames, table]{xcolor}
+\definecolor{primary}{HTML}{1A237E}
+\definecolor{secondary}{HTML}{1565C0}
+\definecolor{accent}{HTML}{0277BD}
+\definecolor{codebg}{HTML}{F5F5F5}
+\definecolor{tabheader}{HTML}{1565C0}
+\definecolor{rowalt}{HTML}{EEF4FB}
+\definecolor{rulecolor}{HTML}{90CAF9}
+
+% ── Encabezado y pie de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{secondary}{Equidad Algorítmica – SaberXAI}}
+\fancyhead[R]{\small\textcolor{secondary}{Documentación del Dataset}}
+\fancyfoot[C]{\small\textcolor{gray}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ── Secciones con color ───────────────────────────────────────────────────────
+\usepackage{titlesec}
+\titleformat{\section}
+  {\Large\bfseries\color{primary}}
+  {\thesection.}{0.6em}{}[{\color{rulecolor}\titlerule[0.8pt]}]
+\titleformat{\subsection}
+  {\large\bfseries\color{secondary}}
+  {\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{accent}}
+  {\thesubsubsection.}{0.4em}{}
+\titlespacing{\section}{0pt}{18pt}{8pt}
+\titlespacing{\subsection}{0pt}{12pt}{4pt}
+\titlespacing{\subsubsection}{0pt}{8pt}{3pt}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\renewcommand{\arraystretch}{1.35}
+
+% ── Código ────────────────────────────────────────────────────────────────────
+\usepackage{listings}
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  framerule=0.4pt,
+  rulecolor=\color{gray!40},
+  xleftmargin=8pt,
+  xrightmargin=8pt,
+  aboveskip=8pt,
+  belowskip=6pt,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  language=Python,
+  keywordstyle=\color{secondary}\bfseries,
+  stringstyle=\color{accent},
+  commentstyle=\color{gray}\itshape,
+}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[
+  colorlinks=true,
+  linkcolor=secondary,
+  urlcolor=accent,
+  citecolor=secondary,
+  pdftitle={Documentación del Dataset ICFES Saber 11},
+  pdfauthor={Jacobo Ayala},
+  pdfsubject={Decisiones de preparación del dataset para análisis de equidad}
+]{hyperref}
+
+% ── Utilidades ────────────────────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.4em, itemsep=2pt, topsep=4pt}
+\setlist[enumerate]{leftmargin=1.4em, itemsep=2pt, topsep=4pt}
+\usepackage{parskip}
+\setlength{\parskip}{5pt}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf, labelsep=period}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+\newtcolorbox{nota}{
+  enhanced, breakable,
+  colback=rowalt,
+  colframe=secondary,
+  boxrule=0.6pt,
+  left=8pt, right=8pt, top=5pt, bottom=5pt,
+  fonttitle=\bfseries\small,
+  title=Nota,
+}
+\newtcolorbox{decision}{
+  enhanced, breakable,
+  colback=codebg,
+  colframe=accent,
+  boxrule=0.5pt,
+  left=8pt, right=8pt, top=5pt, bottom=5pt,
+}
+
+% ── Comando auxiliar para celdas de encabezado de tabla ───────────────────────
+\newcommand{\thead}[1]{\cellcolor{tabheader}\textcolor{white}{\textbf{#1}}}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── Portada ───────────────────────────────────────────────────────────────────
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  {\color{primary}\rule{\linewidth}{1.5pt}}\vspace{0.6cm}
+
+  {\Huge\bfseries\color{primary} Documentación del Dataset\\[0.3em]
+  ICFES Saber 11}\vspace{0.5cm}
+
+  {\color{primary}\rule{\linewidth}{1.5pt}}\vspace{1.2cm}
+
+  {\large\color{secondary} Proyecto: Equidad Algorítmica — SaberXAI}\vspace{0.4cm}
+
+  {\normalsize Predicción de puntaje global con deep learning\\
+  e interpretabilidad orientada a brechas de equidad}\vspace{2cm}
+
+  \begin{tabular}{rl}
+    \textbf{Autor:}    & Jacobo Ayala \\[4pt]
+    \textbf{Periodos:} & 2014-2 a 2024-2 (21 semestres) \\[4pt]
+    \textbf{Fuente:}   & ICFES — Examen Saber 11 \\[4pt]
+    \textbf{Dataset:}  & \texttt{jacoboayala/datos-icfes-11} (Kaggle) \\[4pt]
+    \textbf{Fecha:}    & \today \\
+  \end{tabular}
+
+  \vfill
+  {\small\color{gray}
+  Este documento consolida las decisiones técnicas y analíticas tomadas
+  durante la construcción y limpieza del dataset. Cubre la selección de
+  variables, la exclusión de periodos, las transformaciones aplicadas y las
+  justificaciones metodológicas de cada elección.}
+\end{titlepage}
+
+% ── Tabla de contenidos ───────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Contexto del proyecto}
+% ══════════════════════════════════════════════════════════════════════════════
+
+Este proyecto aplica deep learning sobre el dataset ICFES Saber 11 para predecir
+\texttt{punt\_global} como variable objetivo. El objetivo central es dar
+\textbf{interpretabilidad al modelo} para analizar brechas de equidad a lo largo
+de cinco dimensiones:
+
+\begin{itemize}
+  \item Área geográfica (urbano / rural)
+  \item Estrato socioeconómico
+  \item Género del estudiante
+  \item Tipo y naturaleza del colegio
+  \item Departamento de ubicación
+\end{itemize}
+
+La selección de variables y todas las decisiones de preparación del dataset están
+guiadas por tres principios:
+
+\begin{enumerate}
+  \item Eliminar \textit{data leakage} que haría el modelo trivial.
+  \item Conservar únicamente \textit{features} que expliquen condiciones del
+        estudiante, no sus resultados.
+  \item Garantizar que los métodos de interpretabilidad (SHAP u otros) reflejen
+        factores reales de equidad.
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Estructura del dataset longitudinal}
+% ══════════════════════════════════════════════════════════════════════════════
+
+El dataset consolidado cubre \textbf{21 periodos semestrales} (2014-2 a 2024-2).
+Cada periodo proviene de un archivo \texttt{.txt} separado con delimitador
+\texttt{;} publicado por el ICFES.
+
+\subsection{Variación de esquemas entre periodos}
+
+Los archivos no comparten un esquema homogéneo. Se identificaron \textbf{10
+esquemas distintos}; la siguiente tabla resume los grupos principales:
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l c X}
+  \toprule
+  \thead{Grupo de archivos} & \thead{Columnas} & \thead{Periodos} \\
+  \midrule
+  \rowcolor{rowalt}
+  20142                              & 57 & Semestre de referencia mínimo \\
+  20151                              & 58 & +\texttt{fami\_numlibros} \\
+  \rowcolor{rowalt}
+  20152                              & 59 & +\texttt{estu\_tieneetnia} \\
+  20161–20162                        & 72 & +13 columnas de desempeño y percentiles \\
+  \rowcolor{rowalt}
+  20171–20181, 20182–20201, 20212    & 85 & +13 columnas de hábitos y familia \\
+  20202, 20211, 20221–20242          & 83–84 & Esquema estabilizado reciente \\
+  \rowcolor{rowalt}
+  \textbf{20141}                     & \textbf{138} & \textbf{Excluido (ver \S\ref{sec:exclusion})} \\
+  \bottomrule
+\end{tabularx}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Exclusión del periodo 2014-1}
+\label{sec:exclusion}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Decisión}
+
+El archivo \texttt{Examen\_Saber\_11\_20141.txt} se excluye del análisis principal.
+
+\subsection{Razón técnica}
+
+El periodo 2014-1 tiene una estructura de columnas significativamente distinta
+al resto:
+
+\begin{itemize}
+  \item \textbf{2014-1}: 138 columnas (incluye variables vocacionales, de
+        trayectoria escolar y puntajes por módulo del esquema anterior al
+        rediseño ICFES de 2014).
+  \item \textbf{Demás periodos}: entre 57 y 85 columnas.
+\end{itemize}
+
+El impacto en la intersección de columnas comunes es determinante:
+
+\vspace{4pt}
+\begin{tabular}{lcc}
+  \toprule
+  \thead{Escenario} & \thead{Columnas en la intersección} \\
+  \midrule
+  \rowcolor{rowalt}
+  Incluyendo 2014-1 & 46 \\
+  Excluyendo 2014-1 & \textbf{55} \\
+  \bottomrule
+\end{tabular}
+\vspace{6pt}
+
+Excluir 2014-1 mejora la consistencia del esquema longitudinal y reduce la pérdida
+de información útil en variables comparables entre periodos.
+
+\subsection{Implementación}
+
+La exclusión está codificada en \texttt{merge\_columnas\_comunes.py}:
+
+\begin{lstlisting}
+def listar_archivos_datos(carpeta_datos: Path) -> Iterable[Path]:
+    archivos = sorted(carpeta_datos.glob("Examen_Saber_11_*.txt"))
+    return [a for a in archivos if "20141" not in a.stem]
+\end{lstlisting}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Construcción del dataset base (55 columnas)}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Lectura con \texttt{dtype=str}}
+
+Todos los archivos crudos se leen forzando \texttt{dtype=str}:
+
+\begin{lstlisting}
+df = pd.read_csv(archivo, sep=";", dtype=str, encoding="utf-8")
+\end{lstlisting}
+
+Los 21 periodos presentan esquemas distintos; \texttt{pandas} inferiría tipos de
+forma inconsistente. Por ejemplo, un campo que en 2014-2 contiene sólo valores
+numéricos se leería como \texttt{int64}, pero en 2020-1 podría incluir \texttt{"N/A"}
+y cambiaría a \texttt{object}. Forzar \texttt{dtype=str} garantiza que la
+concatenación no falle ni produzca coerciones silenciosas. La conversión a tipos
+definitivos ocurre en el notebook de presentación, después del merge.
+
+\subsection{Columnas faltantes en periodos antiguos}
+
+Cuando un periodo no contiene una columna de las 55 comunes, se rellena con
+\texttt{pd.NA} en lugar de omitir el archivo:
+
+\begin{lstlisting}
+faltantes = [c for c in columnas_objetivo if c not in df.columns]
+for col in faltantes:
+    df[col] = pd.NA
+\end{lstlisting}
+
+Esto preserva la estructura uniforme y permite el \texttt{concat} sin pérdida de
+filas.
+
+\subsection{Limpieza de nulos}
+
+Sobre el consolidado se aplica eliminación de filas con al menos un valor nulo:
+
+\vspace{4pt}
+\begin{tabular}{lr}
+  \toprule
+  \thead{Métrica} & \thead{Valor} \\
+  \midrule
+  \rowcolor{rowalt}
+  Filas originales                 & 7\,239\,505 \\
+  Filas conservadas (sin nulos)    & 4\,821\,037 \\
+  \rowcolor{rowalt}
+  Filas excluidas                  & 2\,418\,468 \\
+  Porcentaje conservado            & 66.59\% \\
+  \bottomrule
+\end{tabular}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Selección de variables}
+\label{sec:features}
+% ══════════════════════════════════════════════════════════════════════════════
+
+Se parte de las 55 columnas comunes y se eliminan 29, quedando 28 variables más
+el target (\texttt{punt\_global}).
+
+\subsection{Variables eliminadas}
+
+\subsubsection{Data leakage — sub-puntajes}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l X}
+  \toprule
+  \thead{Variable} & \thead{Razón} \\
+  \midrule
+  \rowcolor{rowalt}
+  punt\_matematicas          & Componente directo de \texttt{punt\_global} \\
+  punt\_lectura\_critica     & Componente directo de \texttt{punt\_global} \\
+  \rowcolor{rowalt}
+  punt\_c\_naturales         & Componente directo de \texttt{punt\_global} \\
+  punt\_sociales\_ciudadanas & Componente directo de \texttt{punt\_global} \\
+  \rowcolor{rowalt}
+  punt\_ingles               & Componente directo de \texttt{punt\_global} \\
+  desemp\_ingles             & Nivel de desempeño derivado de \texttt{punt\_ingles} \\
+  \bottomrule
+\end{tabularx}
+\vspace{6pt}
+
+\texttt{punt\_global} se calcula como función directa de estos sub-puntajes.
+Incluirlos como \textit{features} haría que el modelo simplemente reconstruyera
+la fórmula del ICFES, y los métodos de interpretabilidad mostrarían que
+``matemáticas importa'' por construcción matemática, no por hallazgos de equidad.
+
+\subsubsection{Identificadores administrativos}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l X}
+  \toprule
+  \thead{Variable} & \thead{Razón} \\
+  \midrule
+  \rowcolor{rowalt}
+  estu\_estudiante                & Número de documento — identificador puro \\
+  estu\_consecutivo               & Número secuencial ICFES por periodo \\
+  \rowcolor{rowalt}
+  cole\_cod\_dane\_establecimiento & Código DANE — sin valor predictivo \\
+  cole\_cod\_dane\_sede           & Código DANE sede \\
+  \rowcolor{rowalt}
+  cole\_cod\_depto\_ubicacion     & Redundante con \texttt{cole\_depto\_ubicacion} \\
+  cole\_cod\_mcpio\_ubicacion     & Redundante con \texttt{cole\_mcpio\_ubicacion} \\
+  \rowcolor{rowalt}
+  cole\_codigo\_icfes             & Código interno ICFES \\
+  estu\_cod\_depto\_presentacion  & Redundante con \texttt{estu\_depto\_presentacion} \\
+  \rowcolor{rowalt}
+  estu\_cod\_mcpio\_presentacion  & Redundante con \texttt{estu\_mcpio\_presentacion} \\
+  estu\_cod\_reside\_depto        & Redundante con \texttt{estu\_depto\_reside} \\
+  \rowcolor{rowalt}
+  estu\_cod\_reside\_mcpio        & Redundante con \texttt{estu\_mcpio\_reside} \\
+  \bottomrule
+\end{tabularx}
+
+\subsubsection{Nombres de alta cardinalidad}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l X}
+  \toprule
+  \thead{Variable} & \thead{Razón} \\
+  \midrule
+  \rowcolor{rowalt}
+  cole\_nombre\_establecimiento & Texto libre con miles de valores únicos \\
+  cole\_nombre\_sede            & Ídem; la información geográfica relevante
+                                  ya está en \texttt{cole\_depto\_ubicacion} \\
+  \bottomrule
+\end{tabularx}
+
+\subsubsection{Redundantes con columnas conservadas}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l l X}
+  \toprule
+  \thead{Variable} & \thead{Redundante con} & \thead{Razón} \\
+  \midrule
+  \rowcolor{rowalt}
+  periodo                  & \texttt{anio + semestre} & Se descompuso en variables más útiles \\
+  estu\_depto\_presentacion & \texttt{cole\_depto\_ubicacion} & El lugar de examen coincide con el colegio en la mayoría de casos \\
+  \rowcolor{rowalt}
+  estu\_mcpio\_presentacion & \texttt{cole\_depto\_ubicacion} & Mayor cardinalidad sin ganancia informativa \\
+  estu\_mcpio\_reside       & \texttt{estu\_depto\_reside} & El departamento es suficiente para capturar geografía de residencia \\
+  \bottomrule
+\end{tabularx}
+
+\subsubsection{Varianza casi nula}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l l X}
+  \toprule
+  \thead{Variable} & \thead{Distribución} & \thead{Razón} \\
+  \midrule
+  \rowcolor{rowalt}
+  estu\_privado\_libertad & 100\% N & Sin varianza útil \\
+  estu\_pais\_reside      & 99.57\% COLOMBIA & 97 valores únicos pero concentrado en uno \\
+  \rowcolor{rowalt}
+  estu\_nacionalidad      & 99.43\% COLOMBIA & Ídem \\
+  \bottomrule
+\end{tabularx}
+
+\subsubsection{Índices socioeconómicos compuestos}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l X}
+  \toprule
+  \thead{Variable} & \thead{Razón} \\
+  \midrule
+  \rowcolor{rowalt}
+  estu\_inse\_individual & INSE calculado por ICFES a partir de variables \texttt{fami\_*}. Redundante si se conservan las variables base. \\
+  estu\_nse\_individual  & NSE individual — mismo argumento. \\
+  \bottomrule
+\end{tabularx}
+\vspace{6pt}
+
+Se prefieren las variables \texttt{fami\_*} desagregadas porque son más
+interpretables para el análisis de equidad: permiten identificar qué dimensión
+específica del nivel socioeconómico (educación de padres, bienes del hogar,
+estrato) tiene mayor impacto.
+
+\subsubsection{Flag administrativo derivado}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l X}
+  \toprule
+  \thead{Variable} & \thead{Razón} \\
+  \midrule
+  \rowcolor{rowalt}
+  estu\_agregado & Indica si el estudiante entra en estadísticas agregadas del colegio. Flag derivado de condiciones ya capturadas por otras variables. No es una causa del desempeño. \\
+  \bottomrule
+\end{tabularx}
+
+\subsection{Resumen de eliminaciones}
+
+\vspace{4pt}
+\begin{tabular}{lc}
+  \toprule
+  \thead{Categoría} & \thead{Columnas eliminadas} \\
+  \midrule
+  \rowcolor{rowalt}
+  Data leakage                    & 6  \\
+  Identificadores administrativos & 11 \\
+  \rowcolor{rowalt}
+  Alta cardinalidad               & 2  \\
+  Redundantes                     & 4  \\
+  \rowcolor{rowalt}
+  Baja varianza                   & 3  \\
+  Compuestos redundantes          & 2  \\
+  \rowcolor{rowalt}
+  Flags administrativos           & 1  \\
+  \midrule
+  \textbf{Total eliminadas}       & \textbf{29} \\
+  \textbf{Total conservadas}      & \textbf{28} \\
+  \bottomrule
+\end{tabular}
+
+\subsection{Variables conservadas (28)}
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{l X}
+  \toprule
+  \thead{Grupo} & \thead{Variables} \\
+  \midrule
+  \rowcolor{rowalt}
+  Colegio     & \texttt{cole\_area\_ubicacion}, \texttt{cole\_bilingue},
+                \texttt{cole\_calendario}, \texttt{cole\_caracter},
+                \texttt{cole\_depto\_ubicacion}, \texttt{cole\_genero},
+                \texttt{cole\_jornada}, \texttt{cole\_mcpio\_ubicacion},
+                \texttt{cole\_naturaleza}, \texttt{cole\_sede\_principal} \\
+  Estudiante  & \texttt{estu\_depto\_reside}, \texttt{estu\_fechanacimiento},
+                \texttt{estu\_genero}, \texttt{estu\_grado},
+                \texttt{estu\_tipodocumento} \\
+  \rowcolor{rowalt}
+  Familia     & \texttt{fami\_estratovivienda}, \texttt{fami\_educacionmadre},
+                \texttt{fami\_educacionpadre}, \texttt{fami\_cuartoshogar},
+                \texttt{fami\_personashogar}, \texttt{fami\_tienecomputador},
+                \texttt{fami\_tieneinternet}, \texttt{fami\_tienelavadora},
+                \texttt{fami\_tieneautomovil}, \texttt{fami\_tieneserviciotv} \\
+  Temporal    & \texttt{anio}, \texttt{semestre} \\
+  \rowcolor{rowalt}
+  Target      & \texttt{punt\_global} \\
+  \bottomrule
+\end{tabularx}
+
+\subsection{Notas sobre variables con justificación no obvia}
+
+\subsubsection{\texttt{estu\_grado}}
+
+Se conserva a pesar de que el 88\% de los registros corresponden a grado 11.
+El 11.91\% restante corresponde al \textbf{grado 26 (validantes de bachillerato)}:
+adultos que certifican su bachillerato a través del examen sin haber cursado
+grado 11 en una institución. Esta población tiene características socioeconómicas
+y de desempeño sistemáticamente distintas, relevante para el análisis de equidad.
+
+\subsubsection{\texttt{cole\_mcpio\_ubicacion}}
+
+Aporta granularidad geográfica dentro de cada departamento, relevante para
+análisis de brechas entre municipios capitales y no capitales.
+\texttt{cole\_depto\_ubicacion} sola no captura esta variación intra-departamental.
+Cardinalidad tras normalización: 1\,081 valores únicos; se asume que los embeddings
+del modelo de deep learning la manejarán adecuadamente.
+
+\subsubsection{\texttt{estu\_tipodocumento}}
+
+Actúa como proxy del estatus migratorio del estudiante (CC, TI, CE, pasaporte,
+etc.). Estudiantes con Cédula de Extranjería o pasaporte representan una población
+con condiciones de acceso diferenciadas, relevante para el análisis de equidad.
+Cardinalidad: menos de 10 categorías; no genera presión en los embeddings.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Transformaciones aplicadas al dataset}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Normalización geográfica con \texttt{strip\_accents}}
+
+El ICFES registra nombres con y sin tilde según el periodo
+(e.g., \emph{Bogotá} vs.\ \emph{Bogota}, \emph{Córdoba} vs.\ \emph{Cordoba}).
+Se aplica normalización Unicode NFKD seguida de conversión a ASCII y
+\texttt{.title()}:
+
+\begin{lstlisting}
+def strip_accents(s):
+    return unicodedata.normalize("NFKD", str(s)) \
+        .encode("ascii", "ignore").decode("ascii").strip().title()
+
+GEO_COLS = ["cole_depto_ubicacion", "cole_mcpio_ubicacion", "estu_depto_reside"]
+for col in GEO_COLS:
+    df[col] = df[col].map(strip_accents)
+\end{lstlisting}
+
+\textbf{Impacto medido:}
+
+\vspace{4pt}
+\begin{tabular}{lrrr}
+  \toprule
+  \thead{Columna} & \thead{Antes} & \thead{Después} & \thead{Reducción} \\
+  \midrule
+  \rowcolor{rowalt}
+  \texttt{cole\_depto\_ubicacion} & 34 & 33 & $-1$ \\
+  \texttt{cole\_mcpio\_ubicacion} & 1\,396 & 1\,081 & $-315$ \\
+  \rowcolor{rowalt}
+  \texttt{estu\_depto\_reside}    & 35 & 34 & $-1$ \\
+  \bottomrule
+\end{tabular}
+\vspace{6pt}
+
+Sin esta normalización el modelo aprendería representaciones distintas para el
+mismo lugar, contaminando los \textit{embeddings} geográficos y los análisis de
+brecha departamental.
+
+\subsection{Descomposición de \texttt{periodo} en \texttt{anio} y \texttt{semestre}}
+
+\begin{lstlisting}
+df["periodo"] = df["periodo"].astype(str)
+df["anio"]     = df["periodo"].str[:4].astype(int)
+df["semestre"] = df["periodo"].str[4:]
+\end{lstlisting}
+
+La descomposición permite al modelo capturar:
+
+\begin{itemize}
+  \item \textbf{Tendencia temporal continua} a través de \texttt{anio} —
+        efectos de política educativa, pandemia COVID-19 en 2020--2021.
+  \item \textbf{Efecto de semestre} de forma independiente — el semestre 1 y
+        el semestre 2 pueden tener perfiles de estudiantes distintos.
+\end{itemize}
+
+Mantener \texttt{periodo} como entero (20142, 20151\ldots) crearía una variable
+con saltos irregulares que el modelo trataría incorrectamente como escala
+numérica continua.
+
+\subsection{Normalización de etiquetas categóricas}
+
+\begin{lstlisting}
+df["cole_area_ubicacion"] = df["cole_area_ubicacion"].str.strip().str.title()
+df["cole_naturaleza"]     = df["cole_naturaleza"].str.strip().str.title()
+df["estu_genero"]         = df["estu_genero"].str.strip().str.upper()
+\end{lstlisting}
+
+Los archivos crudos presentan inconsistencias de capitalización entre periodos
+(\texttt{"URBANO"}, \texttt{"Urbano"}, \texttt{"urbano"}). La normalización es
+necesaria antes de cualquier agrupación o filtro para evitar categorías duplicadas.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Segmentación por área: urbano / rural}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Criterio de segmentación}
+
+Los subconjuntos \texttt{v2\_datos\_urbano.csv} y \texttt{v2\_datos\_rural.csv}
+se generan filtrando por \texttt{cole\_area\_ubicacion} (área de ubicación del
+\textbf{colegio}), no por la residencia del estudiante.
+
+\textbf{Justificación:} el área del colegio define el contexto educativo que el
+modelo intentará explicar: infraestructura disponible, cuerpo docente, jornada
+escolar. La residencia del estudiante es relevante para acceso, pero muchos
+estudiantes rurales asisten a colegios urbanos y viceversa. Usar el área del
+colegio mantiene la coherencia entre el target (puntaje obtenido en ese colegio)
+y el contexto institucional.
+
+\subsection{Distribución resultante}
+
+\vspace{4pt}
+\begin{tabular}{lrr}
+  \toprule
+  \thead{Área} & \thead{Filas} & \thead{Porcentaje} \\
+  \midrule
+  \rowcolor{rowalt}
+  Urbano         & 4\,185\,434 & 86.82\% \\
+  Rural          &   635\,603  & 13.18\% \\
+  \midrule
+  \textbf{Total} & \textbf{4\,821\,037} & \textbf{100\%} \\
+  \bottomrule
+\end{tabular}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Impacto en memoria y relevancia para deep learning}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Reducción de peso en RAM}
+
+\vspace{4pt}
+\begin{tabular}{lcr}
+  \toprule
+  \thead{Dataset} & \thead{Columnas} & \thead{Peso en memoria} \\
+  \midrule
+  \rowcolor{rowalt}
+  Original & 57  & 12\,706.9 MB ($\approx$12.4 GB) \\
+  Limpio   & 28  & 7\,606.4 MB ($\approx$7.4 GB) \\
+  \midrule
+  \textbf{Reducción} & $\mathbf{-29}$ & \textbf{$-$5\,030.6 MB ($\approx$39.6\%)} \\
+  \bottomrule
+\end{tabular}
+
+\subsection{Por qué importa en deep learning}
+
+\begin{itemize}
+  \item \textbf{Tiempo de entrenamiento.} Cada época procesa todos los registros.
+        Cargar $\approx$5 GB menos por época reduce el tiempo de I/O y el
+        movimiento de datos entre RAM y GPU/CPU de forma acumulativa a lo largo
+        de cientos de épocas.
+
+  \item \textbf{Presión sobre la VRAM.} Los batches se mueven a memoria de GPU.
+        Un dataset más liviano permite usar \textit{batch sizes} más grandes, lo
+        que estabiliza el gradiente y acelera la convergencia. Con 12 GB en RAM,
+        mantener el dataset completo en VRAM de una GPU estándar (8--16 GB) era
+        inviable; con 7.4 GB hay más margen.
+
+  \item \textbf{Ruido en los gradientes.} Las columnas eliminadas (identificadores,
+        flags, variables de baja varianza) no aportan señal pero sí ruido durante
+        el \textit{backpropagation}. Cada columna irrelevante obliga a la red a
+        aprender que su peso debe ser $\approx$0, desperdiciando capacidad del
+        modelo y ralentizando la convergencia.
+
+  \item \textbf{Embeddings categoriales.} Las redes neuronales representan
+        variables categóricas como embeddings. Eliminar columnas de alta
+        cardinalidad sin semántica útil (\texttt{cole\_nombre\_establecimiento}
+        con miles de valores únicos) evita embeddings masivos que consumirían
+        parámetros sin aportar poder predictivo.
+\end{itemize}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Análisis exploratorio: decisiones metodológicas}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Filtro de edad al derivar \texttt{edad\_examen}}
+
+La edad al momento del examen se calcula como:
+
+\begin{lstlisting}
+edad_tmp["fnac"]         = pd.to_datetime(
+    edad_tmp["estu_fechanacimiento"], dayfirst=True, errors="coerce")
+edad_tmp["edad_examen"]  = edad_tmp["anio"] - edad_tmp["fnac"].dt.year
+edad_df = edad_tmp[edad_tmp["edad_examen"].between(14, 60)]
+\end{lstlisting}
+
+El campo \texttt{estu\_fechanacimiento} contiene errores de captura frecuentes
+(años imposibles: 1900, 2090, fechas con formato inválido). El rango 14--60 cubre:
+
+\begin{itemize}
+  \item Mínimo realista para grado 11 (14 años).
+  \item Máximo razonable para validantes de bachillerato adultos (grado 26).
+\end{itemize}
+
+\begin{nota}
+  Este filtro es exclusivamente analítico (notebook exploratorio) y
+  \textbf{no se aplica} al dataset de entrenamiento.
+\end{nota}
+
+\subsection{Codificación ordinal para correlación de Spearman}
+
+Para calcular la correlación de Spearman entre variables categóricas y
+\texttt{punt\_global}, se aplican mapeos ordinales manuales:
+
+\vspace{4pt}
+\begin{tabularx}{\textwidth}{>{\ttfamily}l X}
+  \toprule
+  \thead{Variable} & \thead{Escala} \\
+  \midrule
+  \rowcolor{rowalt}
+  fami\_estratovivienda  & Sin Estrato=0, Estrato 1=1, \ldots, Estrato 6=6 \\
+  cole\_area\_ubicacion  & Rural=0, Urbano=1 \\
+  \rowcolor{rowalt}
+  cole\_naturaleza       & Oficial=0, No Oficial=1 \\
+  fami\_tieneX           & No=0, Si=1 \\
+  \rowcolor{rowalt}
+  fami\_educacionmadre/padre & Ninguno=0, \ldots, Postgrado=9 \\
+  fami\_personashogar    & Una=1, Dos=2, \ldots, Diez O Más=10 \\
+  \bottomrule
+\end{tabularx}
+\vspace{6pt}
+
+Los mapeos respetan el orden natural de las categorías, haciendo la correlación
+interpretable como ``a mayor nivel, mayor/menor puntaje''. Usar \textit{one-hot
+encoding} para este análisis produciría correlaciones sin sentido direccional.
+
+\begin{nota}
+  Estos mapeos son solo para el análisis exploratorio. El modelo de deep
+  learning usará embeddings o codificación específica para cada variable.
+\end{nota}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\end{document}
