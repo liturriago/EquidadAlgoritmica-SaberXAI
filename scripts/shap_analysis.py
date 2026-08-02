@@ -88,6 +88,30 @@ def compute_shap_xgb(model_path: Path, X: np.ndarray, feature_names: List[str]) 
     xgb_model.model = xgb.Booster()
     xgb_model.model.load_model(str(model_path))
     
+    # Extraer feature names del modelo
+    model_feature_names = xgb_model.model.feature_names
+    
+    # Si el modelo tiene feature names, alinear los datos
+    if model_feature_names is not None:
+        # Crear diccionario de features disponibles
+        feature_to_idx = {name: idx for idx, name in enumerate(feature_names)}
+        
+        # Verificar que todas las features del modelo estén disponibles
+        missing_features = [f for f in model_feature_names if f not in feature_to_idx]
+        if missing_features:
+            print(f"    ⚠ Features faltantes en datos: {missing_features[:5]}...")
+            # Crear matriz con ceros para features faltantes
+            X_aligned = np.zeros((X.shape[0], len(model_feature_names)), dtype=np.float32)
+            for i, model_feat in enumerate(model_feature_names):
+                if model_feat in feature_to_idx:
+                    X_aligned[:, i] = X[:, feature_to_idx[model_feat]]
+            X = X_aligned
+            feature_names = model_feature_names
+        else:
+            # Seleccionar solo las features que el modelo espera, en el orden correcto
+            X = X[:, [feature_to_idx[f] for f in model_feature_names]]
+            feature_names = model_feature_names
+    
     print(f"  Calculando SHAP values...")
     
     # Intentar TreeExplainer (rápido) primero
@@ -103,7 +127,7 @@ def compute_shap_xgb(model_path: Path, X: np.ndarray, feature_names: List[str]) 
         booster = xgb_model.model
         
         def predict_fn(X_data):
-            dmatrix = xgb.DMatrix(X_data)
+            dmatrix = xgb.DMatrix(X_data, feature_names=feature_names)
             return booster.predict(dmatrix)
         
         background = X[:min(100, len(X))]
