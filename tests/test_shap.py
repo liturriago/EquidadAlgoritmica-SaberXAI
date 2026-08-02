@@ -136,9 +136,10 @@ def test_compute_shap_xgb_function():
         
         # Calcular SHAP
         X_test = np.random.randn(20, 5)
-        shap_values = compute_shap_xgb(model_path, X_test, [f"feat_{i}" for i in range(5)])
+        shap_values, feature_names = compute_shap_xgb(model_path, X_test, [f"feat_{i}" for i in range(5)])
         
         assert shap_values.shape == (20, 5)
+        assert len(feature_names) == 5
         assert not np.isnan(shap_values).any()
         
     finally:
@@ -165,9 +166,10 @@ def test_compute_shap_mlp_function():
         
         # Calcular SHAP
         X_test = np.random.randn(20, 5).astype(np.float32)
-        shap_values = compute_shap_mlp(model_path, X_test, input_dim, [f"feat_{i}" for i in range(5)])
+        shap_values, feature_names = compute_shap_mlp(model_path, X_test, input_dim, [f"feat_{i}" for i in range(5)])
         
         assert shap_values.shape == (20, 5)
+        assert len(feature_names) == 5
         assert not np.isnan(shap_values).any()
         
     finally:

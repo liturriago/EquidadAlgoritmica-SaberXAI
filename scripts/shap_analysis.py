@@ -17,6 +17,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from saber_xai.config import config
+from saber_xai.data.data_module import DataModule
 from saber_xai.models.mlp_model import MLP
 from saber_xai.models.xgb_model import XGBoostModel
 
@@ -41,32 +42,28 @@ def parse_args():
 
 
 def load_cluster_data(data_dir: Path, cluster_id: int) -> Tuple[np.ndarray, np.ndarray, List[str]]:
-    """Carga datos de un clúster y retorna X, y, feature_names."""
+    """Carga datos de un clúster usando el mismo pipeline que DataModule."""
     parquet_path = data_dir / f"clase_{cluster_id}.parquet"
     
     if not parquet_path.exists():
         raise FileNotFoundError(f"No se encontró {parquet_path}")
     
-    df = pl.read_parquet(parquet_path)
+    # Usar DataModule para garantizar consistencia con el entrenamiento
+    dm = DataModule()
     
-    # Separar features y target
-    y = df.select("punt_global").to_numpy().flatten()
+    # Configurar para cargar el parquet específico del clúster
+    config.data_path = str(parquet_path)
+    config.cat_col_to_encode = None  # Deshabilitar target encoding para SHAP
     
-    # Eliminar columnas que no son features (si existen)
-    cols_to_drop = ["punt_global"]
-    for col in ["clase_lca", "prob_max_lca"]:
-        if col in df.columns:
-            cols_to_drop.append(col)
+    # Preparar datos (esto hace todo el preprocesamiento consistente)
+    dm.prepare_data()
     
-    X_df = df.drop(cols_to_drop)
+    # Combinar train + val + test para tener todo el dataset
+    X = np.vstack([dm.X_train, dm.X_val, dm.X_test])
+    y = np.concatenate([dm.y_train, dm.y_val, dm.y_test])
     
-    # One-hot encoding para categóricas
-    cat_cols = [col for col in X_df.columns if X_df.schema[col] in (pl.String, pl.Categorical)]
-    if cat_cols:
-        X_df = X_df.to_dummies(cat_cols, drop_first=True)
-    
-    feature_names = X_df.columns
-    X = X_df.to_numpy().astype(np.float32)
+    # Obtener feature names
+    feature_names = dm.X_train.columns
     
     return X, y, feature_names
 
@@ -81,8 +78,12 @@ def sample_data(X: np.ndarray, y: np.ndarray, max_samples: int, random_state: in
     return X[indices], y[indices]
 
 
-def compute_shap_xgb(model_path: Path, X: np.ndarray, feature_names: List[str]) -> np.ndarray:
-    """Calcula SHAP values para modelo XGBoost."""
+def compute_shap_xgb(model_path: Path, X: np.ndarray, feature_names: List[str]) -> Tuple[np.ndarray, List[str]]:
+    """Calcula SHAP values para modelo XGBoost.
+    
+    Returns:
+        Tuple de (shap_values, aligned_feature_names)
+    """
     print(f"  Cargando XGBoost desde {model_path}...")
     xgb_model = XGBoostModel()
     xgb_model.model = xgb.Booster()
@@ -135,12 +136,16 @@ def compute_shap_xgb(model_path: Path, X: np.ndarray, feature_names: List[str]) 
         shap_values = explainer.shap_values(X)
         print(f"    ✓ KernelExplainer exitoso")
     
-    return shap_values
+    return shap_values, feature_names
 
 
 def compute_shap_mlp(model_path: Path, X: np.ndarray, input_dim: int, 
-                     feature_names: List[str], max_background: int = 100) -> np.ndarray:
-    """Calcula SHAP values para modelo MLP usando DeepExplainer."""
+                     feature_names: List[str], max_background: int = 100) -> Tuple[np.ndarray, List[str]]:
+    """Calcula SHAP values para modelo MLP usando DeepExplainer.
+    
+    Returns:
+        Tuple de (shap_values, feature_names)
+    """
     print(f"  Cargando MLP desde {model_path}...")
     mlp = MLP(input_dim=input_dim)
     mlp.load_state_dict(torch.load(model_path, map_location="cpu", weights_only=True))
@@ -159,7 +164,7 @@ def compute_shap_mlp(model_path: Path, X: np.ndarray, input_dim: int,
     if shap_values.ndim == 3:
         shap_values = shap_values.squeeze(-1)
     
-    return shap_values
+    return shap_values, feature_names
 
 
 def plot_summary_comparison(all_shap_values: Dict[int, np.ndarray], 
@@ -385,8 +390,10 @@ def main():
                 continue
             
             try:
-                shap_values = compute_shap_xgb(model_path, all_X[cluster_id], all_feature_names[cluster_id])
+                shap_values, aligned_feature_names = compute_shap_xgb(model_path, all_X[cluster_id], all_feature_names[cluster_id])
                 all_shap_xgb[cluster_id] = shap_values
+                # Actualizar feature names con los alineados
+                all_feature_names[cluster_id] = aligned_feature_names
                 print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
             except Exception as e:
                 print(f"  ✗ Error: {e}")
@@ -427,8 +434,10 @@ def main():
             
             try:
                 input_dim = len(all_feature_names[cluster_id])
-                shap_values = compute_shap_mlp(model_path, all_X[cluster_id], input_dim, all_feature_names[cluster_id])
+                shap_values, aligned_feature_names = compute_shap_mlp(model_path, all_X[cluster_id], input_dim, all_feature_names[cluster_id])
                 all_shap_mlp[cluster_id] = shap_values
+                # Actualizar feature names con los alineados
+                all_feature_names[cluster_id] = aligned_feature_names
                 print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
             except Exception as e:
                 print(f"  ✗ Error: {e}")
