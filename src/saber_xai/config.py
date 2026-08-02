@@ -3,7 +3,7 @@ Módulo de configuración centralizado usando Pydantic.
 Contiene los hiperparámetros y rutas para todo el proyecto.
 """
 from pydantic import BaseModel, Field
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 import yaml
 
 class AppConfig(BaseModel):
@@ -18,9 +18,19 @@ class AppConfig(BaseModel):
     
     # Columnas importantes
     target_col: str = Field(default="punt_global", description="Variable objetivo")
-    cat_col_to_encode: str = Field(
+    cat_col_to_encode: Optional[str] = Field(
         default="cole_mcpio_ubicacion", 
-        description="Columna categórica para aplicar Target Encoding"
+        description="Columna categórica para aplicar Target Encoding (None para deshabilitar)"
+    )
+    
+    # Configuración para entrenamiento por clúster LCA
+    cluster_id: Optional[int] = Field(
+        default=None,
+        description="ID del clúster LCA para entrenar modelos separados (0-6)"
+    )
+    data_dir: Optional[str] = Field(
+        default=None,
+        description="Directorio base para archivos parquet por clúster (ej. 'data/')"
     )
     
     # Hiperparámetros de la red neuronal MLP (PyTorch)

@@ -6,6 +6,7 @@ import xgboost as xgb
 import torch
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import TargetEncoder, StandardScaler
+from pathlib import Path
 
 from saber_xai.config import config
 
@@ -51,8 +52,14 @@ class DataModule:
         Flujo completo de ingeniería de datos protegiendo la integridad científica.
         """
         try:
-            # Carga desde Parquet serializado
-            df = pl.read_parquet(self.config.data_path)
+            # Construir ruta de datos
+            if self.config.cluster_id is not None and self.config.data_dir is not None:
+                data_path = Path(self.config.data_dir) / f"clase_{self.config.cluster_id}.parquet"
+                print(f"Cargando datos del clúster LCA {self.config.cluster_id}: {data_path}")
+            else:
+                data_path = Path(self.config.data_path)
+            
+            df = pl.read_parquet(data_path)
         except Exception as e:
             print(f"Advertencia: Error al cargar Parquet: {e}. Generando datos dummy...")
             df = self._generate_dummy_data()
@@ -97,9 +104,9 @@ class DataModule:
                 self.X_val = self.X_val.with_columns(pl.col(col).fill_null(median_val))
                 self.X_test = self.X_test.with_columns(pl.col(col).fill_null(median_val))
 
-        # 4. Target Encoding (Específico para Municipio)
-        cat_to_encode = self.config.cat_col_to_encode # ej. 'cole_mcpio_ubicacion'
-        if cat_to_encode in self.X_train.columns:
+        # 4. Target Encoding (Específico para Municipio) — Solo si está configurado
+        cat_to_encode = self.config.cat_col_to_encode
+        if cat_to_encode is not None and cat_to_encode in self.X_train.columns:
             # Fit solo en Train para prevenir data leakage
             X_train_cat = self.X_train.select(cat_to_encode).to_numpy()
             y_train_np = self.y_train.to_numpy().flatten()
@@ -113,6 +120,8 @@ class DataModule:
             X_test_cat = self.X_test.select(cat_to_encode).to_numpy()
             encoded_test = self.target_encoder.transform(X_test_cat)
             self.X_test = self.X_test.with_columns(pl.Series(cat_to_encode, encoded_test.flatten()))
+        elif cat_to_encode is not None:
+            print(f"Advertencia: cat_col_to_encode='{cat_to_encode}' no encontrada en los datos. Saltando Target Encoding.")
 
         # 5. One-Hot Encoding para categorías restantes
         remaining_cats = [col for col in self.X_train.columns if self.X_train.schema[col] in (pl.String, pl.Categorical)]
@@ -211,8 +220,11 @@ class DataModule:
         """Generador de datos sintéticos para pruebas de integración."""
         np.random.seed(self.config.random_state)
         n = 1000
+        
+        cat_col_name = self.config.cat_col_to_encode if self.config.cat_col_to_encode else "dummy_category"
+        
         data = {
-            self.config.cat_col_to_encode: np.random.choice(['MUN_A', 'MUN_B', 'MUN_C'], n),
+            cat_col_name: np.random.choice(['MUN_A', 'MUN_B', 'MUN_C'], n),
             'cole_area_ubicacion': np.random.choice(['Rural', 'Urbano'], n),
             'cole_naturaleza': np.random.choice(['OFICIAL', 'NO OFICIAL'], n),
             'fami_estrato': np.random.randint(1, 7, n),

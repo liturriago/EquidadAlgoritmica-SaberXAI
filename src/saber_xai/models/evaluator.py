@@ -62,6 +62,38 @@ class ModelEvaluator:
             if np.any(mask_urbano):
                 self._print_metrics(y_true_flat[mask_urbano], y_pred_flat[mask_urbano], f"{model_name} (Urbano)")
 
+    def evaluate_by_cluster(self, y_true: np.ndarray, y_pred: np.ndarray, 
+                            cluster_labels: np.ndarray, model_name: str = "Modelo") -> dict:
+        """Evalúa el modelo por cada clúster LCA (territorio funcional).
+        
+        Args:
+            y_true: Valores reales del target
+            y_pred: Predicciones del modelo
+            cluster_labels: Etiquetas de clúster LCA (0-6)
+            model_name: Nombre del modelo para los prints
+            
+        Returns:
+            Diccionario con métricas por clúster: {cluster_id: {metric: value}}
+        """
+        y_true_flat = y_true.flatten()
+        y_pred_flat = y_pred.flatten()
+        
+        results = {}
+        unique_clusters = np.unique(cluster_labels)
+        
+        print(f"\n{'='*60}")
+        print(f"  Evaluación por territorio funcional (LCA) — {model_name}")
+        print(f"{'='*60}")
+        
+        for cluster_id in sorted(unique_clusters):
+            mask = (cluster_labels == cluster_id)
+            if np.any(mask):
+                metrics = self._compute_metrics(y_true_flat[mask], y_pred_flat[mask])
+                results[cluster_id] = metrics
+                self._print_metrics_dict(metrics, f"{model_name} (Clúster {cluster_id})")
+        
+        return results
+
     def _print_metrics(self, y_true: np.ndarray, y_pred: np.ndarray, model_name: str):
         """Calcula e imprime métricas de regresión incluyendo sesgo medio.
         
@@ -69,17 +101,29 @@ class ModelEvaluator:
         negativo indica que el modelo subestima sistemáticamente a ese grupo;
         positivo indica sobreestimación. El RMSE por sí solo no detecta esto.
         """
+        metrics = self._compute_metrics(y_true, y_pred)
+        self._print_metrics_dict(metrics, model_name)
+    
+    def _compute_metrics(self, y_true: np.ndarray, y_pred: np.ndarray) -> dict:
+        """Calcula métricas de regresión y retorna como diccionario."""
         y_true_f = y_true.flatten()
         y_pred_f = y_pred.flatten()
         
-        rmse = np.sqrt(mean_squared_error(y_true_f, y_pred_f))
-        mae  = mean_absolute_error(y_true_f, y_pred_f)
-        r2   = r2_score(y_true_f, y_pred_f)
-        mbe  = np.mean(y_pred_f - y_true_f)  # + sobreestima, - subestima
+        return {
+            "rmse": np.sqrt(mean_squared_error(y_true_f, y_pred_f)),
+            "mae": mean_absolute_error(y_true_f, y_pred_f),
+            "r2": r2_score(y_true_f, y_pred_f),
+            "mbe": np.mean(y_pred_f - y_true_f),
+        }
+    
+    def _print_metrics_dict(self, metrics: dict, model_name: str):
+        """Imprime métricas desde un diccionario."""
+        mbe = metrics["mbe"]
+        mbe_label = '(⚠ sobreestima)' if mbe > 1 else '(⚠ subestima)' if mbe < -1 else '(sin sesgo relevante)'
         
         print(f"\n--- Resultados en Test: {model_name} ---")
-        print(f"RMSE: {rmse:.4f}")
-        print(f"MAE:  {mae:.4f}")
-        print(f"R²:   {r2:.4f}")
-        print(f"MBE:  {mbe:+.4f}  {'(⚠ sobreestima)' if mbe > 1 else '(⚠ subestima)' if mbe < -1 else '(sin sesgo relevante)'}")
+        print(f"RMSE: {metrics['rmse']:.4f}")
+        print(f"MAE:  {metrics['mae']:.4f}")
+        print(f"R²:   {metrics['r2']:.4f}")
+        print(f"MBE:  {mbe:+.4f}  {mbe_label}")
         print("-" * 40)

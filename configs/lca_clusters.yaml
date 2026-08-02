@@ -1,0 +1,32 @@
+# Configuración para entrenamiento por clúster LCA
+# Entrena modelos separados (XGBoost + MLP) para cada territorio funcional
+
+# Configuración de datos por clúster
+data_dir: "/kaggle/input/datasets/lucasiturriago/pruebassaber11"
+# cluster_id se establece dinámicamente en el script de entrenamiento
+
+# Columnas importantes
+target_col: "punt_global"
+cat_col_to_encode: null  # Los datos LCA no tienen municipio
+
+# Hiperparámetros de la red neuronal MLP (PyTorch)
+mlp_hidden_dims:
+  - 128
+  - 64
+  - 32
+mlp_lr: 0.001
+mlp_batch_size: 4096
+mlp_epochs: 100
+mlp_patience: 10
+
+# Hiperparámetros para XGBoost
+xgb_n_estimators: 350
+xgb_params:
+  max_depth: 6
+  learning_rate: 0.05
+  objective: "reg:squarederror"
+  eval_metric: "rmse"
+  nthread: -1
+
+# Semilla aleatoria para reproducibilidad
+random_state: 42
