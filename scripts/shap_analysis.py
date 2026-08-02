@@ -10,6 +10,7 @@ import torch
 import numpy as np
 import polars as pl
 import matplotlib.pyplot as plt
+import xgboost as xgb
 from pathlib import Path
 from typing import Dict, List, Tuple
 import warnings
@@ -80,6 +81,7 @@ def compute_shap_xgb(model_path: Path, X: np.ndarray, feature_names: List[str]) 
     """Calcula SHAP values para modelo XGBoost."""
     print(f"  Cargando XGBoost desde {model_path}...")
     xgb_model = XGBoostModel()
+    xgb_model.model = xgb.Booster()
     xgb_model.model.load_model(str(model_path))
     
     print(f"  Calculando SHAP values (TreeExplainer)...")
@@ -105,6 +107,10 @@ def compute_shap_mlp(model_path: Path, X: np.ndarray, input_dim: int,
     explainer = shap.DeepExplainer(mlp, background)
     X_tensor = torch.tensor(X, dtype=torch.float32)
     shap_values = explainer.shap_values(X_tensor)
+    
+    # Squeeze para remover dimensión extra si existe
+    if shap_values.ndim == 3:
+        shap_values = shap_values.squeeze(-1)
     
     return shap_values
 

@@ -88,3 +88,66 @@ def test_load_cluster_data_not_found():
     
     with pytest.raises(FileNotFoundError):
         load_cluster_data(Path("/nonexistent"), cluster_id=99)
+
+
+def test_compute_shap_xgb_function():
+    """Test para la función de cálculo SHAP con XGBoost."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    from shap_analysis import compute_shap_xgb
+    
+    # Crear modelo XGBoost de prueba
+    import xgboost as xgb
+    
+    # Datos de entrenamiento simples
+    X_train = np.random.randn(100, 5)
+    y_train = np.random.randn(100)
+    
+    dtrain = xgb.DMatrix(X_train, label=y_train)
+    params = {"max_depth": 3, "eta": 0.1, "objective": "reg:squarederror"}
+    model = xgb.train(params, dtrain, num_boost_round=10)
+    
+    # Guardar modelo temporalmente
+    temp_dir = tempfile.mkdtemp()
+    try:
+        model_path = Path(temp_dir) / "test_model.json"
+        model.save_model(str(model_path))
+        
+        # Calcular SHAP
+        X_test = np.random.randn(20, 5)
+        shap_values = compute_shap_xgb(model_path, X_test, [f"feat_{i}" for i in range(5)])
+        
+        assert shap_values.shape == (20, 5)
+        assert not np.isnan(shap_values).any()
+        
+    finally:
+        shutil.rmtree(temp_dir)
+
+
+def test_compute_shap_mlp_function():
+    """Test para la función de cálculo SHAP con MLP."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    from shap_analysis import compute_shap_mlp
+    import torch
+    from saber_xai.models.mlp_model import MLP
+    
+    # Crear modelo MLP de prueba
+    input_dim = 5
+    model = MLP(input_dim=input_dim)
+    
+    # Guardar modelo temporalmente
+    temp_dir = tempfile.mkdtemp()
+    try:
+        model_path = Path(temp_dir) / "test_mlp.pth"
+        torch.save(model.state_dict(), model_path)
+        
+        # Calcular SHAP
+        X_test = np.random.randn(20, 5).astype(np.float32)
+        shap_values = compute_shap_mlp(model_path, X_test, input_dim, [f"feat_{i}" for i in range(5)])
+        
+        assert shap_values.shape == (20, 5)
+        assert not np.isnan(shap_values).any()
+        
+    finally:
+        shutil.rmtree(temp_dir)
