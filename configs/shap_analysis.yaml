@@ -1,0 +1,12 @@
+# Configuración para análisis SHAP por territorios funcionales (LCA)
+
+# Directorios
+shap_models_dir: "models"
+shap_output_dir: "shap_results"
+
+# Parámetros de análisis
+shap_max_samples: 10000
+
+# Clústeres a analizar (0-6)
+# Si se especifica en CLI con --clusters, sobrescribe este valor
+# clusters: [0, 1, 2, 3, 4, 5, 6]

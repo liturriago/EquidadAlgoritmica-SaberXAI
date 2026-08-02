@@ -23,6 +23,8 @@ from saber_xai.models.xgb_model import XGBoostModel
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Análisis SHAP por territorios LCA")
+    parser.add_argument("--config", type=str, default=None,
+                        help="Ruta al archivo de configuración YAML")
     parser.add_argument("--models-dir", type=str, default="models",
                         help="Directorio con los modelos entrenados")
     parser.add_argument("--data-dir", type=str, default="data",
@@ -84,9 +86,28 @@ def compute_shap_xgb(model_path: Path, X: np.ndarray, feature_names: List[str]) 
     xgb_model.model = xgb.Booster()
     xgb_model.model.load_model(str(model_path))
     
-    print(f"  Calculando SHAP values (TreeExplainer)...")
-    explainer = shap.TreeExplainer(xgb_model.model)
-    shap_values = explainer.shap_values(X)
+    print(f"  Calculando SHAP values...")
+    
+    # Intentar TreeExplainer (rápido) primero
+    # Si falla por incompatibilidad SHAP/XGBoost 3.x, usar KernelExplainer (lento pero compatible)
+    try:
+        explainer = shap.TreeExplainer(xgb_model.model)
+        shap_values = explainer.shap_values(X)
+        print(f"    ✓ TreeExplainer exitoso")
+    except (ValueError, AttributeError) as e:
+        # Fallback: KernelExplainer (más lento pero compatible con XGBoost 3.x)
+        print(f"    ⚠ TreeExplainer falló: {e}")
+        print(f"    → Usando KernelExplainer (fallback)...")
+        booster = xgb_model.model
+        
+        def predict_fn(X_data):
+            dmatrix = xgb.DMatrix(X_data)
+            return booster.predict(dmatrix)
+        
+        background = X[:min(100, len(X))]
+        explainer = shap.KernelExplainer(predict_fn, background)
+        shap_values = explainer.shap_values(X)
+        print(f"    ✓ KernelExplainer exitoso")
     
     return shap_values
 
@@ -266,9 +287,18 @@ def analyze_differential_importance(importance_xgb: Dict, importance_mlp: Dict,
 def main():
     args = parse_args()
     
+    # Cargar configuración YAML si se proporciona
+    if args.config:
+        print(f"Cargando configuración desde: {args.config}")
+        config.load_from_yaml(args.config)
+    
+    # Los argumentos CLI sobrescriben la configuración YAML
     models_dir = Path(args.models_dir)
     data_dir = Path(args.data_dir)
     output_dir = Path(args.output_dir)
+    max_samples = args.max_samples
+    clusters = args.clusters
+    
     output_dir.mkdir(parents=True, exist_ok=True)
     
     print(f"{'='*70}")
@@ -277,8 +307,8 @@ def main():
     print(f"Modelos: {models_dir}")
     print(f"Datos: {data_dir}")
     print(f"Output: {output_dir}")
-    print(f"Clústeres: {args.clusters}")
-    print(f"Max samples: {args.max_samples:,}")
+    print(f"Clústeres: {clusters}")
+    print(f"Max samples: {max_samples:,}")
     
     # Cargar datos de todos los clústeres
     all_X = {}
@@ -289,11 +319,11 @@ def main():
     print("  CARGANDO DATOS POR CLÚSTER")
     print(f"{'='*70}")
     
-    for cluster_id in args.clusters:
+    for cluster_id in clusters:
         print(f"\nClúster {cluster_id}...")
         try:
             X, y, feature_names = load_cluster_data(data_dir, cluster_id)
-            X_sampled, y_sampled = sample_data(X, y, args.max_samples)
+            X_sampled, y_sampled = sample_data(X, y, max_samples)
             all_X[cluster_id] = X_sampled
             all_y[cluster_id] = y_sampled
             print(f"  ✓ {len(X_sampled):,} muestras (de {len(X):,} totales)")
@@ -311,7 +341,7 @@ def main():
     print(f"{'='*70}")
     
     all_shap_xgb = {}
-    for cluster_id in args.clusters:
+    for cluster_id in clusters:
         if cluster_id not in all_X:
             continue
         
@@ -348,7 +378,7 @@ def main():
     all_shap_mlp = {}
     input_dim = len(feature_names)
     
-    for cluster_id in args.clusters:
+    for cluster_id in clusters:
         if cluster_id not in all_X:
             continue
         
