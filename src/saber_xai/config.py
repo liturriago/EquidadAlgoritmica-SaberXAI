@@ -46,6 +46,14 @@ class AppConfig(BaseModel):
         default="models",
         description="Directorio con los modelos entrenados"
     )
+    shap_data_dir: str = Field(
+        default="data",
+        description="Directorio con los datos por clúster"
+    )
+    shap_clusters: List[int] = Field(
+        default_factory=lambda: [0, 1, 2, 3, 4, 5, 6],
+        description="Lista de IDs de clústeres LCA a analizar"
+    )
     shap_model_type: str = Field(
         default="both",
         description="Tipo de modelo para SHAP: 'xgb', 'mlp' o 'both'"

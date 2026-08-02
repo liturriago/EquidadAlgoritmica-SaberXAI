@@ -25,15 +25,15 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Análisis SHAP por territorios LCA")
     parser.add_argument("--config", type=str, default=None,
                         help="Ruta al archivo de configuración YAML")
-    parser.add_argument("--models-dir", type=str, default="models",
+    parser.add_argument("--models-dir", type=str, default=None,
                         help="Directorio con los modelos entrenados")
-    parser.add_argument("--data-dir", type=str, default="data",
+    parser.add_argument("--data-dir", type=str, default=None,
                         help="Directorio con los datos por clúster")
-    parser.add_argument("--output-dir", type=str, default="shap_results",
+    parser.add_argument("--output-dir", type=str, default=None,
                         help="Directorio de salida para plots y resultados")
-    parser.add_argument("--max-samples", type=int, default=10000,
+    parser.add_argument("--max-samples", type=int, default=None,
                         help="Máximo de muestras para calcular SHAP")
-    parser.add_argument("--clusters", type=int, nargs="+", default=[0, 1, 2, 3, 4, 5, 6],
+    parser.add_argument("--clusters", type=int, nargs="+", default=None,
                         help="IDs de clústeres a analizar")
     parser.add_argument("--model-type", type=str, default=None, choices=["xgb", "mlp", "both"],
                         help="Tipo de modelo para SHAP: 'xgb', 'mlp' o 'both'")
@@ -295,15 +295,13 @@ def main():
         print(f"Cargando configuración desde: {args.config}")
         config.load_from_yaml(args.config)
     
-    # Los argumentos CLI sobrescriben la configuración YAML
-    models_dir = Path(args.models_dir)
-    data_dir = Path(args.data_dir)
-    output_dir = Path(args.output_dir)
-    max_samples = args.max_samples
-    clusters = args.clusters
-    
-    # Determinar tipo de modelo (CLI > YAML > default)
-    model_type = args.model_type if args.model_type else config.shap_model_type
+    # Los argumentos CLI sobrescriben la configuración YAML (CLI > YAML > default)
+    models_dir = Path(args.models_dir if args.models_dir is not None else config.shap_models_dir)
+    data_dir = Path(args.data_dir if args.data_dir is not None else config.shap_data_dir)
+    output_dir = Path(args.output_dir if args.output_dir is not None else config.shap_output_dir)
+    max_samples = args.max_samples if args.max_samples is not None else config.shap_max_samples
+    clusters = args.clusters if args.clusters is not None else config.shap_clusters
+    model_type = args.model_type if args.model_type is not None else config.shap_model_type
     
     output_dir.mkdir(parents=True, exist_ok=True)
     

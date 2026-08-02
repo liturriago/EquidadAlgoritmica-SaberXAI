@@ -86,23 +86,37 @@ def test_shap_config():
     assert hasattr(config, 'shap_max_samples')
     assert hasattr(config, 'shap_output_dir')
     assert hasattr(config, 'shap_models_dir')
+    assert hasattr(config, 'shap_data_dir')
+    assert hasattr(config, 'shap_clusters')
     assert hasattr(config, 'shap_model_type')
     
     # Verificar valores por defecto
     assert config.shap_max_samples == 10000
     assert config.shap_output_dir == "shap_results"
     assert config.shap_models_dir == "models"
+    assert config.shap_data_dir == "data"
+    assert config.shap_clusters == [0, 1, 2, 3, 4, 5, 6]
     assert config.shap_model_type == "both"
     
     # Test de modificación
     original_samples = config.shap_max_samples
     original_model_type = config.shap_model_type
+    original_data_dir = config.shap_data_dir
+    original_clusters = config.shap_clusters.copy()
     try:
         config.shap_max_samples = 5000
         assert config.shap_max_samples == 5000
         
         config.shap_model_type = "xgb"
         assert config.shap_model_type == "xgb"
+        
+        config.shap_data_dir = "custom_data"
+        assert config.shap_data_dir == "custom_data"
+        
+        config.shap_clusters = [0, 1, 2]
+        assert config.shap_clusters == [0, 1, 2]
     finally:
         config.shap_max_samples = original_samples
         config.shap_model_type = original_model_type
+        config.shap_data_dir = original_data_dir
+        config.shap_clusters = original_clusters
