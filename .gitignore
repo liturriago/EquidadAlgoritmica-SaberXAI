@@ -18,3 +18,9 @@ __pycache__/
 .venv/
 venv/
 base_teorica_y_decisoria/PhD_Thesis_Jenny_RevF2.pdf
+
+# Datos
+data/
+
+# Egg-info (build artifacts)
+*.egg-info/
