@@ -33,6 +33,20 @@ class AppConfig(BaseModel):
         description="Directorio base para archivos parquet por clúster (ej. 'data/')"
     )
     
+    # Configuración para análisis SHAP
+    shap_max_samples: int = Field(
+        default=10000,
+        description="Máximo de muestras para calcular SHAP values"
+    )
+    shap_output_dir: str = Field(
+        default="shap_results",
+        description="Directorio de salida para resultados SHAP"
+    )
+    shap_models_dir: str = Field(
+        default="models",
+        description="Directorio con los modelos entrenados"
+    )
+    
     # Hiperparámetros de la red neuronal MLP (PyTorch)
     mlp_hidden_dims: List[int] = Field(default_factory=lambda: [128, 64, 32])
     mlp_lr: float = Field(default=0.001)

@@ -46,7 +46,14 @@ def load_cluster_data(data_dir: Path, cluster_id: int) -> Tuple[np.ndarray, np.n
     
     # Separar features y target
     y = df.select("punt_global").to_numpy().flatten()
-    X_df = df.drop(["punt_global", "clase_lca", "prob_max_lca"])
+    
+    # Eliminar columnas que no son features (si existen)
+    cols_to_drop = ["punt_global"]
+    for col in ["clase_lca", "prob_max_lca"]:
+        if col in df.columns:
+            cols_to_drop.append(col)
+    
+    X_df = df.drop(cols_to_drop)
     
     # One-hot encoding para categóricas
     cat_cols = [col for col in X_df.columns if X_df.schema[col] in (pl.String, pl.Categorical)]

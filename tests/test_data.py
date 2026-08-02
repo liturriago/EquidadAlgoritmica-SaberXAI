@@ -79,3 +79,23 @@ def test_dataloaders():
         assert batch_X.shape[1] == dm.X_train.shape[1]
         assert batch_y.shape[1] == 1
         break
+
+def test_shap_config():
+    """Test para configuración de análisis SHAP."""
+    # Verificar que los campos de configuración SHAP existen
+    assert hasattr(config, 'shap_max_samples')
+    assert hasattr(config, 'shap_output_dir')
+    assert hasattr(config, 'shap_models_dir')
+    
+    # Verificar valores por defecto
+    assert config.shap_max_samples == 10000
+    assert config.shap_output_dir == "shap_results"
+    assert config.shap_models_dir == "models"
+    
+    # Test de modificación
+    original_samples = config.shap_max_samples
+    try:
+        config.shap_max_samples = 5000
+        assert config.shap_max_samples == 5000
+    finally:
+        config.shap_max_samples = original_samples
