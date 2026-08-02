@@ -22,5 +22,8 @@ base_teorica_y_decisoria/PhD_Thesis_Jenny_RevF2.pdf
 # Datos
 data/
 
+# Checkpoints de modelos (pesos entrenados)
+checkpoints/
+
 # Egg-info (build artifacts)
 *.egg-info/
