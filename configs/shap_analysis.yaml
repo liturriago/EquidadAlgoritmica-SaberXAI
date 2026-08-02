@@ -1,9 +1,9 @@
 # Configuración para análisis SHAP por territorios funcionales (LCA)
 
 # Directorios
-shap_models_dir: "models"
-shap_data_dir: "data"
-shap_output_dir: "shap_results"
+shap_models_dir: "/kaggle/input/notebooks/lucasiturriago/saber11-xgboost-mlp/EquidadAlgoritmica-SaberXAI/models"
+shap_data_dir: "/kaggle/input/datasets/lucasiturriago/pruebassaber11"
+shap_output_dir: "./shap_results"
 
 # Parámetros de análisis
 shap_max_samples: 10000
