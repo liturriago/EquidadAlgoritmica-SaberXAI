@@ -46,6 +46,10 @@ class AppConfig(BaseModel):
         default="models",
         description="Directorio con los modelos entrenados"
     )
+    shap_model_type: str = Field(
+        default="both",
+        description="Tipo de modelo para SHAP: 'xgb', 'mlp' o 'both'"
+    )
     
     # Hiperparámetros de la red neuronal MLP (PyTorch)
     mlp_hidden_dims: List[int] = Field(default_factory=lambda: [128, 64, 32])

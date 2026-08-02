@@ -7,6 +7,9 @@ shap_output_dir: "shap_results"
 # Parámetros de análisis
 shap_max_samples: 10000
 
+# Tipo de modelo para SHAP: 'xgb', 'mlp' o 'both'
+shap_model_type: "xgb"
+
 # Clústeres a analizar (0-6)
 # Si se especifica en CLI con --clusters, sobrescribe este valor
 # clusters: [0, 1, 2, 3, 4, 5, 6]

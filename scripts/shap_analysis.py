@@ -35,6 +35,8 @@ def parse_args():
                         help="Máximo de muestras para calcular SHAP")
     parser.add_argument("--clusters", type=int, nargs="+", default=[0, 1, 2, 3, 4, 5, 6],
                         help="IDs de clústeres a analizar")
+    parser.add_argument("--model-type", type=str, default=None, choices=["xgb", "mlp", "both"],
+                        help="Tipo de modelo para SHAP: 'xgb', 'mlp' o 'both'")
     return parser.parse_args()
 
 
@@ -299,6 +301,9 @@ def main():
     max_samples = args.max_samples
     clusters = args.clusters
     
+    # Determinar tipo de modelo (CLI > YAML > default)
+    model_type = args.model_type if args.model_type else config.shap_model_type
+    
     output_dir.mkdir(parents=True, exist_ok=True)
     
     print(f"{'='*70}")
@@ -309,6 +314,7 @@ def main():
     print(f"Output: {output_dir}")
     print(f"Clústeres: {clusters}")
     print(f"Max samples: {max_samples:,}")
+    print(f"Tipo de modelo: {model_type}")
     
     # Cargar datos de todos los clústeres
     all_X = {}
@@ -336,76 +342,86 @@ def main():
         return
     
     # Análisis XGBoost
-    print(f"\n{'='*70}")
-    print("  ANÁLISIS SHAP — XGBOOST")
-    print(f"{'='*70}")
-    
-    all_shap_xgb = {}
-    for cluster_id in clusters:
-        if cluster_id not in all_X:
-            continue
-        
-        print(f"\nClúster {cluster_id}...")
-        model_path = models_dir / f"xgb_cluster_{cluster_id}.json"
-        
-        if not model_path.exists():
-            print(f"  ✗ Modelo no encontrado: {model_path}")
-            continue
-        
-        try:
-            shap_values = compute_shap_xgb(model_path, all_X[cluster_id], feature_names)
-            all_shap_xgb[cluster_id] = shap_values
-            print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
-        except Exception as e:
-            print(f"  ✗ Error: {e}")
-    
-    if all_shap_xgb:
+    importance_xgb = {}
+    if model_type in ["xgb", "both"]:
         print(f"\n{'='*70}")
-        print("  VISUALIZACIONES XGBOOST")
+        print("  ANÁLISIS SHAP — XGBOOST")
         print(f"{'='*70}")
         
-        plot_summary_comparison(all_shap_xgb, all_X, feature_names, output_dir, "XGBoost")
-        importance_xgb = export_importance_metrics(all_shap_xgb, feature_names, output_dir, "XGBoost")
+        all_shap_xgb = {}
+        for cluster_id in clusters:
+            if cluster_id not in all_X:
+                continue
+            
+            print(f"\nClúster {cluster_id}...")
+            model_path = models_dir / f"xgb_cluster_{cluster_id}.json"
+            
+            if not model_path.exists():
+                print(f"  ✗ Modelo no encontrado: {model_path}")
+                continue
+            
+            try:
+                shap_values = compute_shap_xgb(model_path, all_X[cluster_id], feature_names)
+                all_shap_xgb[cluster_id] = shap_values
+                print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
+            except Exception as e:
+                print(f"  ✗ Error: {e}")
+        
+        if all_shap_xgb:
+            print(f"\n{'='*70}")
+            print("  VISUALIZACIONES XGBOOST")
+            print(f"{'='*70}")
+            
+            plot_summary_comparison(all_shap_xgb, all_X, feature_names, output_dir, "XGBoost")
+            importance_xgb = export_importance_metrics(all_shap_xgb, feature_names, output_dir, "XGBoost")
+        else:
+            print("\n✗ No se calcularon SHAP values para XGBoost.")
     else:
-        importance_xgb = {}
-        print("\n✗ No se calcularon SHAP values para XGBoost.")
+        print(f"\n{'='*70}")
+        print("  ANÁLISIS SHAP — XGBOOST (OMITIDO)")
+        print(f"{'='*70}")
     
     # Análisis MLP
-    print(f"\n{'='*70}")
-    print("  ANÁLISIS SHAP — MLP")
-    print(f"{'='*70}")
-    
-    all_shap_mlp = {}
-    input_dim = len(feature_names)
-    
-    for cluster_id in clusters:
-        if cluster_id not in all_X:
-            continue
-        
-        print(f"\nClúster {cluster_id}...")
-        model_path = models_dir / f"mlp_cluster_{cluster_id}.pth"
-        
-        if not model_path.exists():
-            print(f"  ✗ Modelo no encontrado: {model_path}")
-            continue
-        
-        try:
-            shap_values = compute_shap_mlp(model_path, all_X[cluster_id], input_dim, feature_names)
-            all_shap_mlp[cluster_id] = shap_values
-            print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
-        except Exception as e:
-            print(f"  ✗ Error: {e}")
-    
-    if all_shap_mlp:
+    importance_mlp = {}
+    if model_type in ["mlp", "both"]:
         print(f"\n{'='*70}")
-        print("  VISUALIZACIONES MLP")
+        print("  ANÁLISIS SHAP — MLP")
         print(f"{'='*70}")
         
-        plot_summary_comparison(all_shap_mlp, all_X, feature_names, output_dir, "MLP")
-        importance_mlp = export_importance_metrics(all_shap_mlp, feature_names, output_dir, "MLP")
+        all_shap_mlp = {}
+        input_dim = len(feature_names)
+        
+        for cluster_id in clusters:
+            if cluster_id not in all_X:
+                continue
+            
+            print(f"\nClúster {cluster_id}...")
+            model_path = models_dir / f"mlp_cluster_{cluster_id}.pth"
+            
+            if not model_path.exists():
+                print(f"  ✗ Modelo no encontrado: {model_path}")
+                continue
+            
+            try:
+                shap_values = compute_shap_mlp(model_path, all_X[cluster_id], input_dim, feature_names)
+                all_shap_mlp[cluster_id] = shap_values
+                print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
+            except Exception as e:
+                print(f"  ✗ Error: {e}")
+        
+        if all_shap_mlp:
+            print(f"\n{'='*70}")
+            print("  VISUALIZACIONES MLP")
+            print(f"{'='*70}")
+            
+            plot_summary_comparison(all_shap_mlp, all_X, feature_names, output_dir, "MLP")
+            importance_mlp = export_importance_metrics(all_shap_mlp, feature_names, output_dir, "MLP")
+        else:
+            print("\n✗ No se calcularon SHAP values para MLP.")
     else:
-        importance_mlp = {}
-        print("\n✗ No se calcularon SHAP values para MLP.")
+        print(f"\n{'='*70}")
+        print("  ANÁLISIS SHAP — MLP (OMITIDO)")
+        print(f"{'='*70}")
     
     # Análisis comparativo
     if importance_xgb and importance_mlp:

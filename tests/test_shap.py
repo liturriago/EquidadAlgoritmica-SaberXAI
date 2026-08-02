@@ -14,16 +14,25 @@ def test_shap_config_defaults():
     assert config.shap_max_samples == 10000
     assert config.shap_output_dir == "shap_results"
     assert config.shap_models_dir == "models"
+    assert config.shap_model_type == "both"
 
 
 def test_shap_config_modification():
     """Verifica que se puede modificar la configuración SHAP."""
-    original = config.shap_max_samples
+    original_samples = config.shap_max_samples
+    original_model_type = config.shap_model_type
     try:
         config.shap_max_samples = 5000
         assert config.shap_max_samples == 5000
+        
+        config.shap_model_type = "xgb"
+        assert config.shap_model_type == "xgb"
+        
+        config.shap_model_type = "mlp"
+        assert config.shap_model_type == "mlp"
     finally:
-        config.shap_max_samples = original
+        config.shap_max_samples = original_samples
+        config.shap_model_type = original_model_type
 
 
 def test_sample_data_function():
