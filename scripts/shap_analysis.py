@@ -139,10 +139,10 @@ def compute_shap_mlp(model_path: Path, X: np.ndarray, input_dim: int,
 
 
 def plot_summary_comparison(all_shap_values: Dict[int, np.ndarray], 
-                           all_X: Dict[int, np.ndarray],
-                           feature_names: List[str],
-                           output_dir: Path,
-                           model_type: str):
+                            all_X: Dict[int, np.ndarray],
+                            all_feature_names: Dict[int, List[str]],
+                            output_dir: Path,
+                            model_type: str):
     """Genera summary plots comparativos entre clústeres."""
     print("  Generando summary plots comparativos...")
     
@@ -150,9 +150,9 @@ def plot_summary_comparison(all_shap_values: Dict[int, np.ndarray],
     for cluster_id, shap_vals in all_shap_values.items():
         fig, ax = plt.subplots(figsize=(12, 8))
         shap.summary_plot(shap_vals, all_X[cluster_id], 
-                         feature_names=feature_names, 
-                         show=False,
-                         plot_size=(12, 8))
+                          feature_names=all_feature_names[cluster_id], 
+                          show=False,
+                          plot_size=(12, 8))
         plt.title(f"SHAP Summary — Clúster {cluster_id} ({model_type})", fontsize=14)
         plt.tight_layout()
         plt.savefig(output_dir / f"shap_summary_cluster_{cluster_id}_{model_type}.png", dpi=150)
@@ -166,6 +166,7 @@ def plot_summary_comparison(all_shap_values: Dict[int, np.ndarray],
         if idx >= 7:
             break
         
+        feature_names = all_feature_names[cluster_id]
         mean_abs_shap = np.abs(all_shap_values[cluster_id]).mean(axis=0)
         top_indices = np.argsort(mean_abs_shap)[-10:][::-1]
         top_features = [feature_names[i] for i in top_indices]
@@ -179,7 +180,6 @@ def plot_summary_comparison(all_shap_values: Dict[int, np.ndarray],
         ax.set_title(f"Clúster {cluster_id}", fontsize=12, fontweight='bold')
         ax.invert_yaxis()
     
-    # Ocultar subplot vacío si hay menos de 7 clústeres
     for idx in range(len(all_shap_values), 7):
         axes[idx].set_visible(False)
     
@@ -191,7 +191,7 @@ def plot_summary_comparison(all_shap_values: Dict[int, np.ndarray],
 
 
 def export_importance_metrics(all_shap_values: Dict[int, np.ndarray],
-                              feature_names: List[str],
+                              all_feature_names: Dict[int, List[str]],
                               output_dir: Path,
                               model_type: str):
     """Exporta métricas de importancia a CSV y JSON."""
@@ -200,6 +200,7 @@ def export_importance_metrics(all_shap_values: Dict[int, np.ndarray],
     # Matriz: clústeres × features
     importance_matrix = {}
     for cluster_id, shap_vals in all_shap_values.items():
+        feature_names = all_feature_names[cluster_id]
         mean_abs_shap = np.abs(shap_vals).mean(axis=0)
         importance_matrix[cluster_id] = {
             feature_names[i]: float(mean_abs_shap[i]) 
@@ -319,7 +320,7 @@ def main():
     # Cargar datos de todos los clústeres
     all_X = {}
     all_y = {}
-    feature_names = None
+    all_feature_names = {}
     
     print(f"\n{'='*70}")
     print("  CARGANDO DATOS POR CLÚSTER")
@@ -332,6 +333,7 @@ def main():
             X_sampled, y_sampled = sample_data(X, y, max_samples)
             all_X[cluster_id] = X_sampled
             all_y[cluster_id] = y_sampled
+            all_feature_names[cluster_id] = feature_names
             print(f"  ✓ {len(X_sampled):,} muestras (de {len(X):,} totales)")
             print(f"  ✓ {len(feature_names)} features")
         except Exception as e:
@@ -361,7 +363,7 @@ def main():
                 continue
             
             try:
-                shap_values = compute_shap_xgb(model_path, all_X[cluster_id], feature_names)
+                shap_values = compute_shap_xgb(model_path, all_X[cluster_id], all_feature_names[cluster_id])
                 all_shap_xgb[cluster_id] = shap_values
                 print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
             except Exception as e:
@@ -372,8 +374,8 @@ def main():
             print("  VISUALIZACIONES XGBOOST")
             print(f"{'='*70}")
             
-            plot_summary_comparison(all_shap_xgb, all_X, feature_names, output_dir, "XGBoost")
-            importance_xgb = export_importance_metrics(all_shap_xgb, feature_names, output_dir, "XGBoost")
+            plot_summary_comparison(all_shap_xgb, all_X, all_feature_names, output_dir, "XGBoost")
+            importance_xgb = export_importance_metrics(all_shap_xgb, all_feature_names, output_dir, "XGBoost")
         else:
             print("\n✗ No se calcularon SHAP values para XGBoost.")
     else:
@@ -389,7 +391,6 @@ def main():
         print(f"{'='*70}")
         
         all_shap_mlp = {}
-        input_dim = len(feature_names)
         
         for cluster_id in clusters:
             if cluster_id not in all_X:
@@ -403,7 +404,8 @@ def main():
                 continue
             
             try:
-                shap_values = compute_shap_mlp(model_path, all_X[cluster_id], input_dim, feature_names)
+                input_dim = len(all_feature_names[cluster_id])
+                shap_values = compute_shap_mlp(model_path, all_X[cluster_id], input_dim, all_feature_names[cluster_id])
                 all_shap_mlp[cluster_id] = shap_values
                 print(f"  ✓ SHAP calculado: shape {shap_values.shape}")
             except Exception as e:
@@ -414,8 +416,8 @@ def main():
             print("  VISUALIZACIONES MLP")
             print(f"{'='*70}")
             
-            plot_summary_comparison(all_shap_mlp, all_X, feature_names, output_dir, "MLP")
-            importance_mlp = export_importance_metrics(all_shap_mlp, feature_names, output_dir, "MLP")
+            plot_summary_comparison(all_shap_mlp, all_X, all_feature_names, output_dir, "MLP")
+            importance_mlp = export_importance_metrics(all_shap_mlp, all_feature_names, output_dir, "MLP")
         else:
             print("\n✗ No se calcularon SHAP values para MLP.")
     else:
