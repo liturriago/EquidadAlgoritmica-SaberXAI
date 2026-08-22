@@ -1,7 +1,7 @@
 import polars as pl
 from pathlib import Path
 
-INPUT_PATH = Path(__file__).resolve().parent.parent / "data" / "saber11_lca_clases.parquet"
+INPUT_PATH = Path(__file__).resolve().parent.parent / "data" / "saber11_lca_clases_multinomial.parquet"
 OUTPUT_DIR = INPUT_PATH.parent
 
 # --- Mapeos ordinales ---
@@ -32,7 +32,7 @@ cols_categoricas = [
     "cole_naturaleza", "estu_genero",
 ]
 
-cols_a_eliminar = ["clase_lca", "prob_max_lca"]
+cols_a_eliminar = ["clase_lca_mult", "prob_max_lca_mult"]
 
 
 def transformar(df: pl.DataFrame) -> pl.DataFrame:
@@ -62,12 +62,12 @@ def main():
     df = pl.read_parquet(INPUT_PATH)
     print(f"Total: {len(df):,} filas")
 
-    clases = sorted(df["clase_lca"].unique().to_list())
+    clases = sorted(df["clase_lca_mult"].unique().to_list())
     print(f"Clases LCA detectadas: {clases}")
 
     for clase in clases:
         print(f"\nProcesando clase {clase}...")
-        df_clase = df.filter(pl.col("clase_lca") == clase)
+        df_clase = df.filter(pl.col("clase_lca_mult") == clase)
         df_procesado = transformar(df_clase)
 
         out_path = OUTPUT_DIR / f"clase_{clase}.parquet"
