@@ -1,0 +1,162 @@
+[
+  {
+    "oracion": "En el panorama contemporáneo de las políticas públicas y la sociología cuantitativa, la minería de datos educativos (EDM, por sus siglas en inglés) ha transitado de ser una disciplina puramente descriptiva a convertirse en el núcleo estratégico de los sistemas predictivos y prescriptivos gubernamentales.",
+    "query": "educational data mining",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Esta necesidad de intervención temprana y precisión en la asignación de recursos se ha agudizado de manera crítica tras las severas pérdidas de aprendizaje generadas por la pandemia global en América Latina.",
+    "query": "learning loss pandemic",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Históricamente, los enfoques estadísticos y econométricos empleados en el análisis de la educación pública se basaban en modelos lineales generalizados que fracasaban sistemáticamente al intentar capturar las complejas interacciones multidimensionales, no lineales y sinérgicas inherentes a los datos sociodemográficos reales.",
+    "query": "generalized linear model",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "La adopción reciente de arquitecturas de aprendizaje automático, particularmente los ensambles de árboles potenciados por gradiente (como XGBoost y LightGBM), ha catalizado un salto cuantitativo en la exactitud predictiva.",
+    "query": "XGBoost gradient boosting",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Sin embargo, modelar datos tabulares masivos a escala gubernamental presenta desafíos matemáticos singulares debido a la mezcla de características numéricas continuas y variables categóricas nominales de altísima cardinalidad.",
+    "query": "tabular data high cardinality",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "La inmensa capacidad predictiva de estos ensambles conlleva un costo ético y operativo ineludible: la pérdida casi total de interpretabilidad humana, consolidando el problema de la \"caja negra\" algorítmica.",
+    "query": "black box interpretability",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Para resolver esta opacidad, el campo analítico se ha volcado hacia metodologías de Inteligencia Artificial Explicable (XAI) agnósticas al modelo, predominando herramientas como SHAP y LIME.",
+    "query": "explainable AI SHAP",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "SHAP, fundamentado en la teoría de juegos cooperativos, asigna a cada característica sociodemográfica una contribución marginal promedio, ofreciendo una interpretabilidad que es simultáneamente precisa a nivel local y consistente a nivel global.",
+    "query": "SHAP Shapley",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Siguiendo a Fernández et al. (2023), se entiende por territorio funcional un conjunto caracterizado por condiciones materiales, económicas y sociales compartidas, es decir, una unidad definida por la convergencia de vulnerabilidades y no por un límite político-administrativo.",
+    "query": "functional territory CEPAL",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "La evidencia empírica reciente demuestra que la vulnerabilidad educativa tiende a organizarse según esa lógica funcional, atravesando la línea dicotómica urbano/rural\nDe ahí que la frontera investigativa en EDM deba desplazarse hacia métodos no supervisados probabilísticos capaces de descubrir empíricamente dicha estructura latente (mediante técnicas como el Análisis de Clases Latentes (LCA) aplicadas sobre covariables categóricas) en lugar de imponer separaciones a priori.",
+    "query": "latent class analysis",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "El paradigma estándar de minimización del riesgo empírico (ERM, por sus siglas en inglés) optimiza el error promedio, una métrica dominada algorítmicamente por los grupos demográficos mayoritarios que, por diseño matemático, puede tolerar un desempeño predictivo deficiente en las subpoblaciones más pequeñas o vulnerables.",
+    "query": "empirical risk minimization",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "En paralelo, es imperativo revaluar el papel de técnicas orientadas a la transferencia de conocimiento, como la Adaptación de Dominio Profundo (Deep DA) y las Redes Neuronales Adversariales de Dominio (DANN).",
+    "query": "domain adversarial neural network",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Sin embargo, eliminar deliberadamente la información del contexto (el dominio) opera en sentido diametralmente opuesto al objetivo de auditar la equidad, el cual exige hacer visible y explicable la desigualdad estructural en lugar de ocultarla\nPor consiguiente, la consecución de la equidad algorítmica (Algorithmic Fairness) demanda imperiosamente abandonar métricas agregadas y adoptar operativamente la teoría sociológica de la interseccionalidad.",
+    "query": "intersectionality algorithmic fairness",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Aunque la literatura de aprendizaje automático ha propuesto enfoques como la optimización distribucionalmente robusta por grupos (Group DRO; Sagawa et al., 2020) para minimizar el error del peor grupo en un único modelo, la mitigación definitiva del sesgo exige un cambio de paradigma: abandonar la búsqueda de un estimador universal y transitar hacia el entrenamiento de modelos de ensamble (XGBoost) independientes, donde cada algoritmo se especializa de forma exclusiva en las dinámicas de su respectivo territorio funcional.",
+    "query": "XGBoost gradient boosting",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "La equidad no se persigue forzando al modelo a desaprender las asociaciones vinculadas a variables sensibles (lo cual equivaldría a ignorar la desigualdad empírica), sino garantizando una modelación rigurosa por subgrupo y haciendo visible, a través de valores SHAP segmentados, cómo se entrelazan y mutan las desventajas dentro de cada clúster latente.",
+    "query": "SHAP Shapley",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Así, la interseccionalidad deja de ser un riesgo invisibilizado para convertirse en un objeto explícito de medición.",
+    "query": "intersectionality algorithmic fairness",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "En primer lugar, aproximaciones como las de Suaza-Medina et al. (2024) y Delprato (2025) aplican exitosamente algoritmos como XGBoost y SHAP para identificar determinantes del rendimiento, pero lo hacen entrenando bajo minimización de riesgo empírico tradicional y analizando los valores de explicabilidad de forma agregada o macrorregional, sin desglosar la interpretación según una estructura latente.",
+    "query": "XGBoost gradient boosting",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Interseccionalidad y la deconstrucción empírica de las fronteras burocráticas\nEn el análisis de políticas públicas contemporáneo, el logro académico no puede entenderse como el resultado de variables aisladas, sino a través de la teoría sociológica de la interseccionalidad.",
+    "query": "intersectionality algorithmic fairness",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Sin embargo, la operativización de esta teoría en la minería de datos educativos suele tropezar con un obstáculo estructural: la dependencia de categorías sociodemográficas predefinidas.",
+    "query": "educational data mining",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  },
+  {
+    "oracion": "Las proyecciones geométricas avanzadas revelan un solapamiento profundo entre las poblaciones urbanas y rurales, demostrando que no existen regiones separables que justifiquen técnicas de transferencia de conocimiento, como las Redes Neuronales Adversariales de Dominio (DANN), cuyo propósito es eliminar la información del contexto.",
+    "query": "domain adversarial neural network",
+    "cita": "",
+    "apa": "No encontrado",
+    "doi": "",
+    "titulo": ""
+  }
+]

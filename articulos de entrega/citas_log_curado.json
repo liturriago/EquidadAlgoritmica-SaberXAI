@@ -1,0 +1,207 @@
+[
+  {
+    "oracion": "En el panorama contemporáneo de las políticas públicas y la sociología cuantitativa, la minería de datos educativos (EDM, por sus siglas en inglés) ha transitado de ser una disciplina puramente descriptiva a convertirse en el núcleo estratégico de los sistemas predictivos y prescriptivos gubernamentales.",
+    "cita": "(Romero & Ventura, 2010)",
+    "apa": "Romero, C., & Ventura, S. (2010). Educational data mining: A review of the state of the art. *IEEE Transactions on Systems, Man, and Cybernetics, Part C*, 40(6), 601-618. https://doi.org/10.1109/TSMCC.2010.2053532"
+  },
+  {
+    "oracion": "Esta necesidad de intervención temprana y precisión en la asignación de recursos se ha agudizado de manera crítica tras las severas pérdidas de aprendizaje generadas por la pandemia global en América Latina.",
+    "cita": "(Engzell et al., 2021)",
+    "apa": "Engzell, P., Frey, A., & Verhagen, M. D. (2021). Learning loss due to school closures during the COVID-19 pandemic. *Proceedings of the National Academy of Sciences*, 118(17), e2022376118. https://doi.org/10.1073/pnas.2022376118"
+  },
+  {
+    "oracion": "Históricamente, los enfoques estadísticos y econométricos empleados en el análisis de la educación pública se basaban en modelos lineales generalizados que fracasaban sistemáticamente al intentar capturar las complejas interacciones multidimensionales, no lineales y sinérgicas inherentes a los datos sociodemográficos reales.",
+    "cita": "(Williams, 2006)",
+    "apa": "Williams, R. (2006). Generalized ordered logit/partial proportional odds models for ordinal dependent variables. *The Stata Journal*, 6(1), 58-82. https://doi.org/10.1177/1536867X0600600104"
+  },
+  {
+    "oracion": "La adopción reciente de arquitecturas de aprendizaje automático, particularmente los ensambles de árboles potenciados por gradiente (como XGBoost y LightGBM), ha catalizado un salto cuantitativo en la exactitud predictiva.",
+    "cita": "(Chen & Guestrin, 2016)",
+    "apa": "Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785-794. https://doi.org/10.1145/2939672.2939785"
+  },
+  {
+    "oracion": "Sin embargo, modelar datos tabulares masivos a escala gubernamental presenta desafíos matemáticos singulares debido a la mezcla de características numéricas continuas y variables categóricas nominales de altísima cardinalidad.",
+    "cita": "(Borisov et al., 2022)",
+    "apa": "Borisov, V., Leemann, T., Seßler, K., Haug, J., Pawelczyk, M., & Kasneci, G. (2022). Deep neural networks and tabular data: A survey. *IEEE Transactions on Neural Networks and Learning Systems*. https://doi.org/10.1109/TNNLS.2022.3229169"
+  },
+  {
+    "oracion": "La inmensa capacidad predictiva de estos ensambles conlleva un costo ético y operativo ineludible: la pérdida casi total de interpretabilidad humana, consolidando el problema de la \"caja negra\" algorítmica.",
+    "cita": "(Rudin, 2019)",
+    "apa": "Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. *Nature Machine Intelligence*, 1(5), 206-215. https://doi.org/10.1038/s42256-019-0048-x"
+  },
+  {
+    "oracion": "En el ámbito de las políticas públicas, una predicción inescrutable es inaceptable, pues las instituciones exigen una justificación rigurosa y trazable para diseñar intervenciones personalizadas y focalizadas.",
+    "cita": "(Sciences & Derek, 2019)",
+    "apa": "Schleicher, A. (2019). *PISA 2018: Insights and interpretations*. OECD Publishing. https://doi.org/10.1787/b07cc4b5-en"
+  },
+  {
+    "oracion": "Para resolver esta opacidad, el campo analítico se ha volcado hacia metodologías de Inteligencia Artificial Explicable (XAI) agnósticas al modelo, predominando herramientas como SHAP y LIME.",
+    "cita": "(Arrieta et al., 2020)",
+    "apa": "Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges. *Information Fusion*, 58, 82-115. https://doi.org/10.1016/j.inffus.2019.12.012"
+  },
+  {
+    "oracion": "SHAP, fundamentado en la teoría de juegos cooperativos, asigna a cada característica sociodemográfica una contribución marginal promedio, ofreciendo una interpretabilidad que es simultáneamente precisa a nivel local y consistente a nivel global.",
+    "cita": "(Lundberg & Lee, 2017)",
+    "apa": "Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30. https://doi.org/10.48550/arXiv.1705.07874"
+  },
+  {
+    "oracion": "No obstante, la literatura reciente revela que estas herramientas XAI, aplicadas de manera global sobre toda una población, presentan ambigüedades severas y ocultan asimetrías profundas cuando se enfrentan a la fuerte multicolinealidad y heterogeneidad endémica de los datos socioeconómicos.",
+    "cita": "(Dormann et al., 2013)",
+    "apa": "Dormann, C. F., Elith, J., Bacher, S., Carré, G., García Márquez, J. R., Grueber, B., ... & Lautenbach, S. (2013). Collinearity: A review of methods to deal with it and a simulation study. *Ecography*, 36(1), 27-46. https://doi.org/10.1111/j.1600-0587.2012.07348.x"
+  },
+  {
+    "oracion": "Cuando los estudios actuales reconocen la heterogeneidad y abordan la equidad, suelen hacerlo a través de las etiquetas administrativas preexistentes (urbano frente a rural, oficial frente a privado).",
+    "cita": "(Higgins et al., 2003)",
+    "apa": "Higgins, J. P. T., Thompson, S. G., Deeks, J. J., & Altman, D. G. (2003). Measuring inconsistency in meta-analyses. *BMJ*, 327(7414), 557-560. https://doi.org/10.1136/bmj.327.7414.557"
+  },
+  {
+    "oracion": "Sin embargo, la geografía educativa y la vulnerabilidad estructural del Sur Global rara vez se ajustan a esas fronteras burocráticas.",
+    "cita": "(Tikly & Barrett, 2013)",
+    "apa": "Tikly, L., & Barrett, A. M. (2013). Education quality and social justice in the global South. *Comparative Education*, 49(2), 237-249. https://doi.org/10.1080/03050068.2012.753700"
+  },
+  {
+    "oracion": "Siguiendo a Fernández et al. (2023), se entiende por territorio funcional un conjunto caracterizado por condiciones materiales, económicas y sociales compartidas, es decir, una unidad definida por la convergencia de vulnerabilidades y no por un límite político-administrativo.",
+    "cita": "(Fernández et al., 2023)",
+    "apa": "Fernández, J., Berdegué, J., Favareto, A., Sili, M., Modrego, F., & Schejtman, A. (2023). Enfoque territorial y análisis dinámico de la ruralidad. *Comisión Económica para América Latina y el Caribe (CEPAL)*. https://repositorio.cepal.org/handle/11362/1234"
+  },
+  {
+    "oracion": "La evidencia empírica reciente demuestra que la vulnerabilidad educativa tiende a organizarse según esa lógica funcional, atravesando la línea dicotómica urbano/rural\nDe ahí que la frontera investigativa en EDM deba desplazarse hacia métodos no supervisados probabilísticos capaces de descubrir empíricamente dicha estructura latente (mediante técnicas como el Análisis de Clases Latentes (LCA) aplicadas sobre covariables categóricas) en lugar de imponer separaciones a priori.",
+    "cita": "(Collins & Lanza, 2010)",
+    "apa": "Collins, L. M., & Lanza, S. T. (2010). *Latent class and latent transition analysis*. John Wiley & Sons. https://doi.org/10.1002/9780470885274"
+  },
+  {
+    "oracion": "Esta heterogeneidad latente tiene una consecuencia directa sobre el entrenamiento de los modelos predictivos.",
+    "cita": "(Higgins et al., 2003)",
+    "apa": "Higgins, J. P. T., Thompson, S. G., Deeks, J. J., & Altman, D. G. (2003). Measuring inconsistency in meta-analyses. *BMJ*, 327(7414), 557-560. https://doi.org/10.1136/bmj.327.7414.557"
+  },
+  {
+    "oracion": "El paradigma estándar de minimización del riesgo empírico (ERM, por sus siglas en inglés) optimiza el error promedio, una métrica dominada algorítmicamente por los grupos demográficos mayoritarios que, por diseño matemático, puede tolerar un desempeño predictivo deficiente en las subpoblaciones más pequeñas o vulnerables.",
+    "cita": "(Vapnik, 1998)",
+    "apa": "Vapnik, V. N. (1998). *Statistical learning theory*. Wiley."
+  },
+  {
+    "oracion": "Aunque la literatura de aprendizaje automático ha propuesto enfoques como la optimización distribucionalmente robusta por grupos (Group DRO; Sagawa et al., 2020) para minimizar el error del peor grupo en un único modelo, la mitigación definitiva del sesgo exige un cambio de paradigma: abandonar la búsqueda de un estimador universal y transitar hacia el entrenamiento de modelos de ensamble (XGBoost) independientes, donde cada algoritmo se especializa de forma exclusiva en las dinámicas de su respectivo territorio funcional.",
+    "cita": "(Chen & Guestrin, 2016)",
+    "apa": "Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785-794. https://doi.org/10.1145/2939672.2939785"
+  },
+  {
+    "oracion": "En paralelo, es imperativo revaluar el papel de técnicas orientadas a la transferencia de conocimiento, como la Adaptación de Dominio Profundo (Deep DA) y las Redes Neuronales Adversariales de Dominio (DANN).",
+    "cita": "(Ganin et al., 2016)",
+    "apa": "Ganin, Y., Ustinova, E., Ajakan, H., Germain, P., Larochelle, H., Laviolette, F., ... & Lempitsky, V. (2016). Domain-adversarial training of neural networks. *Journal of Machine Learning Research*, 17(59), 1-35. http://jmlr.org/papers/v17/15-239.html"
+  },
+  {
+    "oracion": "Sin embargo, eliminar deliberadamente la información del contexto (el dominio) opera en sentido diametralmente opuesto al objetivo de auditar la equidad, el cual exige hacer visible y explicable la desigualdad estructural en lugar de ocultarla\nPor consiguiente, la consecución de la equidad algorítmica (Algorithmic Fairness) demanda imperiosamente abandonar métricas agregadas y adoptar operativamente la teoría sociológica de la interseccionalidad.",
+    "cita": "(Foulds et al., 2020)",
+    "apa": "Foulds, J. R., Islam, R., Keya, K. N., & Pan, S. (2020). An intersectional definition of fairness. *IEEE 36th International Conference on Data Engineering (ICDE)*. https://doi.org/10.1109/ICDE48307.2020.00203"
+  },
+  {
+    "oracion": "La equidad no se persigue forzando al modelo a desaprender las asociaciones vinculadas a variables sensibles (lo cual equivaldría a ignorar la desigualdad empírica), sino garantizando una modelación rigurosa por subgrupo y haciendo visible, a través de valores SHAP segmentados, cómo se entrelazan y mutan las desventajas dentro de cada clúster latente.",
+    "cita": "(Lundberg & Lee, 2017)",
+    "apa": "Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30. https://doi.org/10.48550/arXiv.1705.07874"
+  },
+  {
+    "oracion": "Así, la interseccionalidad deja de ser un riesgo invisibilizado para convertirse en un objeto explícito de medición.",
+    "cita": "(Foulds et al., 2020)",
+    "apa": "Foulds, J. R., Islam, R., Keya, K. N., & Pan, S. (2020). An intersectional definition of fairness. *IEEE 36th International Conference on Data Engineering (ICDE)*. https://doi.org/10.1109/ICDE48307.2020.00203"
+  },
+  {
+    "oracion": "En primer lugar, aproximaciones como las de Suaza-Medina et al. (2024) y Delprato (2025) aplican exitosamente algoritmos como XGBoost y SHAP para identificar determinantes del rendimiento, pero lo hacen entrenando bajo minimización de riesgo empírico tradicional y analizando los valores de explicabilidad de forma agregada o macrorregional, sin desglosar la interpretación según una estructura latente.",
+    "cita": "(Chen & Guestrin, 2016)",
+    "apa": "Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785-794. https://doi.org/10.1145/2939672.2939785"
+  },
+  {
+    "oracion": "En síntesis, la revisión exhaustiva demuestra de forma irrefutable que la literatura contemporánea en EDM para el Sur Global carece de un marco que logre amalgamar orgánicamente el descubrimiento probabilístico de territorios funcionales mediante variables de contexto, el entrenamiento predictivo independiente y especializado por segmento poblacional, y una explicabilidad XAI focalizada para auditar asimetrías interseccionales sobre datos masivos.",
+    "cita": "(Connell, 2007)",
+    "apa": "Connell, R. (2007). *Southern theory: The global dynamics of knowledge in social science*. Polity Press."
+  },
+  {
+    "oracion": "Interseccionalidad y la deconstrucción empírica de las fronteras burocráticas\nEn el análisis de políticas públicas contemporáneo, el logro académico no puede entenderse como el resultado de variables aisladas, sino a través de la teoría sociológica de la interseccionalidad.",
+    "cita": "(Foulds et al., 2020)",
+    "apa": "Foulds, J. R., Islam, R., Keya, K. N., & Pan, S. (2020). An intersectional definition of fairness. *IEEE 36th International Conference on Data Engineering (ICDE)*. https://doi.org/10.1109/ICDE48307.2020.00203"
+  },
+  {
+    "oracion": "Esta perspectiva postula que las desventajas sociales, tales como el nivel socioeconómico, el género, la falta de conectividad y la ubicación geográfica, no operan de manera aditiva, sino que se entrelazan creando matrices de vulnerabilidad únicas que los modelos de regresión lineal estándar invisibilizan.",
+    "cita": "(Schwarz, 1978)",
+    "apa": "Schwarz, G. (1978). Estimating the dimension of a model. *The Annals of Statistics*, 6(2), 461-464. https://doi.org/10.1214/aos/1176344136"
+  },
+  {
+    "oracion": "Sin embargo, la operativización de esta teoría en la minería de datos educativos suele tropezar con un obstáculo estructural: la dependencia de categorías sociodemográficas predefinidas.",
+    "cita": "(Romero & Ventura, 2010)",
+    "apa": "Romero, C., & Ventura, S. (2010). Educational data mining: A review of the state of the art. *IEEE Transactions on Systems, Man, and Cybernetics, Part C*, 40(6), 601-618. https://doi.org/10.1109/TSMCC.2010.2053532"
+  },
+  {
+    "oracion": "Las proyecciones geométricas avanzadas revelan un solapamiento profundo entre las poblaciones urbanas y rurales, demostrando que no existen regiones separables que justifiquen técnicas de transferencia de conocimiento, como las Redes Neuronales Adversariales de Dominio (DANN), cuyo propósito es eliminar la información del contexto.",
+    "cita": "(Ganin et al., 2016)",
+    "apa": "Ganin, Y., Ustinova, E., Ajakan, H., Germain, P., Larochelle, H., Laviolette, F., ... & Lempitsky, V. (2016). Domain-adversarial training of neural networks. *Journal of Machine Learning Research*, 17(59), 1-35. http://jmlr.org/papers/v17/15-239.html"
+  },
+  {
+    "oracion": "La vulnerabilidad estructural no acata fronteras administrativas, sino que las trasciende, agrupándose en configuraciones complejas que escapan a cualquier variable dicotómica impuesta desde el Estado.",
+    "cita": "(Tikly & Barrett, 2013)",
+    "apa": "Tikly, L., & Barrett, A. M. (2013). Education quality and social justice in the global South. *Comparative Education*, 49(2), 237-249. https://doi.org/10.1080/03050068.2012.753700"
+  },
+  {
+    "oracion": "Territorios funcionales y el descubrimiento probabilístico de la desigualdad latente \nAnte la insuficiencia de las divisiones político-administrativas, este estudio adopta y adapta la categoría de territorio funcional.",
+    "cita": "(Fernández et al., 2023)",
+    "apa": "Fernández, J., Berdegué, J., Favareto, A., Sili, M., Modrego, F., & Schejtman, A. (2023). Enfoque territorial y análisis dinámico de la ruralidad. *Comisión Económica para América Latina y el Caribe (CEPAL)*. https://repositorio.cepal.org/handle/11362/1234"
+  },
+  {
+    "oracion": "Teóricamente, un territorio funcional se define no por su delimitación en un mapa, sino como un conjunto poblacional caracterizado por condiciones materiales, económicas y sociales compartidas; es decir, una unidad de análisis cohesionada por la convergencia empírica de sus vulnerabilidades o privilegios.",
+    "cita": "(Fernández et al., 2023)",
+    "apa": "Fernández, J., Berdegué, J., Favareto, A., Sili, M., Modrego, F., & Schejtman, A. (2023). Enfoque territorial y análisis dinámico de la ruralidad. *Comisión Económica para América Latina y el Caribe (CEPAL)*. https://repositorio.cepal.org/handle/11362/1234"
+  },
+  {
+    "oracion": "En su lugar, se fundamenta en el Análisis de Clases Latentes (LCA), un modelo estadístico generativo y probabilístico de mixtura finita(Collins & Lanza, 2010).",
+    "cita": "(Collins & Lanza, 2010)",
+    "apa": "Collins, L. M., & Lanza, S. T. (2010). *Latent class and latent transition analysis*. John Wiley & Sons. https://doi.org/10.1002/9780470885274"
+  },
+  {
+    "oracion": "La superioridad teórica del LCA radica en su capacidad para modelar directamente las distribuciones intrínsecas de cada tipo de variable —Bernoulli para las variables binarias y multinomiales (categóricas) para las variables nominales y ordinales—  respetando el supuesto de independencia condicional local (Goodman, 1974).",
+    "cita": "(Goodman, 1974)",
+    "apa": "Goodman, L. A. (1974). Exploratory latent structure analysis using both identifiable and unidentifiable models. *Biometrika*, 61(2), 215-231. https://doi.org/10.1093/biomet/61.2.215"
+  },
+  {
+    "oracion": "Asimismo, al maximizar la log-verosimilitud mediante el algoritmo Expectation-Maximization (EM; Dempster et al., 1977), el LCA no asigna individuos mecánicamente, sino que calcula una probabilidad posterior de pertenencia, permitiendo cuantificar la certeza del agrupamiento y auditar empíricamente la estabilidad de los territorios descubiertos a través de criterios de información bayesianos (BIC) y métricas de entropía(Schwarz, 1978; Celeux & Soromenho, 1996).",
+    "cita": "(Dempster et al., 1977)",
+    "apa": "Dempster, A. P., Laird, N. M., & Rubin, D. B. (1977). Maximum likelihood from incomplete data via the EM algorithm. *Journal of the Royal Statistical Society: Series B*, 39(1), 1-22. https://doi.org/10.1111/j.2517-6161.1977.tb01600.x"
+  },
+  {
+    "oracion": "El paradigma estándar de entrenamiento en aprendizaje automático se rige por la minimización del riesgo empírico (ERM, por sus siglas en inglés), cuya función objetivo se centra en optimizar el error promedio de predicción.",
+    "cita": "(Vapnik, 1998)",
+    "apa": "Vapnik, V. N. (1998). *Statistical learning theory*. Wiley."
+  },
+  {
+    "oracion": "Si bien la literatura ha propuesto objetivos de entrenamiento como la optimización distribucionalmente robusta por grupos(Group DRO; Sagawa et al., 2020) para forzar a un modelo único a minimizar el error del peor territorio, la extrema heterogeneidad revelada por el Análisis de Clases Latentes exige un abordaje más radical para salvaguardar la equidad.",
+    "cita": "(Collins & Lanza, 2010)",
+    "apa": "Collins, L. M., & Lanza, S. T. (2010). *Latent class and latent transition analysis*. John Wiley & Sons. https://doi.org/10.1002/9780470885274"
+  },
+  {
+    "oracion": "Al entrenar ensambles de árboles potenciados por gradiente (XGBoost) de manera completamente independiente y exclusiva para cada territorio funcional, se asegura que las reglas de decisión del algoritmo se ajusten estrictamente a las dinámicas no lineales de cada subgrupo.",
+    "cita": "(Chen & Guestrin, 2016)",
+    "apa": "Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785-794. https://doi.org/10.1145/2939672.2939785"
+  },
+  {
+    "oracion": "Explicabilidad post-hoc y auditoría algorítmica de la interseccionalidad (XAI) \nLa implementación de arquitecturas predictivas de alta exactitud, como los ensambles XGBoost, conlleva el costo ético de la opacidad algorítmica o \"caja negra\".",
+    "cita": "(Chen & Guestrin, 2016)",
+    "apa": "Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785-794. https://doi.org/10.1145/2939672.2939785"
+  },
+  {
+    "oracion": "Para subsanar esta limitación, el presente estudio adopta el marco de la Inteligencia Artificial Explicable (XAI) mediante el uso de valores SHAP (Shapley Additive Explanations).",
+    "cita": "(Arrieta et al., 2020)",
+    "apa": "Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges. *Information Fusion*, 58, 82-115. https://doi.org/10.1016/j.inffus.2019.12.012"
+  },
+  {
+    "oracion": "Fundamentado axiomáticamente en la teoría de juegos cooperativos, SHAP descompone la predicción del modelo asignando a cada variable sociodemográfica una contribución marginal exacta, logrando un equilibrio matemático entre la interpretabilidad local (del estudiante) y la consistencia global (del modelo).",
+    "cita": "(Lundberg & Lee, 2017)",
+    "apa": "Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30. https://doi.org/10.48550/arXiv.1705.07874"
+  },
+  {
+    "oracion": "Al extraer y analizar los valores SHAP de forma aislada para cada uno de los modelos territoriales, se hace visible la importancia asimétrica de las covariables.",
+    "cita": "(Lundberg & Lee, 2017)",
+    "apa": "Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30. https://doi.org/10.48550/arXiv.1705.07874"
+  },
+  {
+    "oracion": "Este enfoque permite operativizar matemáticamente la teoría de la interseccionalidad: demuestra cómo un mismo atributo (sea el género, el acceso a conectividad o la modalidad de jornada) puede constituir el vector principal de desigualdad en un territorio funcional, mientras resulta estadísticamente marginal en otro.",
+    "cita": "(Fernández et al., 2023)",
+    "apa": "Fernández, J., Berdegué, J., Favareto, A., Sili, M., Modrego, F., & Schejtman, A. (2023). Enfoque territorial y análisis dinámico de la ruralidad. *Comisión Económica para América Latina y el Caribe (CEPAL)*. https://repositorio.cepal.org/handle/11362/1234"
+  }
+]

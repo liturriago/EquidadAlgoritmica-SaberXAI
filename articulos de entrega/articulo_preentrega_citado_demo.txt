@@ -1,0 +1,9 @@
+En el panorama contemporáneo de las políticas públicas y la sociología cuantitativa, la minería de datos educativos (EDM, por sus siglas en inglés) ha transitado de ser una disciplina puramente descriptiva a convertirse en el núcleo estratégico de los sistemas predictivos y prescriptivos gubernamentales. (Chandrashekar et al., 2017)
+
+La inmensa capacidad predictiva de estos ensambles conlleva un costo ético y operativo ineludible: la pérdida casi total de interpretabilidad humana, consolidando el problema de la "caja negra" algorítmica. (LeCun et al., 1998)
+
+Más allá de la opacidad algorítmica, persiste un problema estructural en la forma en que la literatura contemporánea concibe e intenta mitigar la inequidad. (Delgado et al., 2025)
+
+El paradigma estándar de minimización del riesgo empírico (ERM, por sus siglas en inglés) optimiza el error promedio, una métrica dominada algorítmicamente por los grupos demográficos mayoritarios que, por diseño matemático, puede tolerar un desempeño predictivo deficiente en las subpoblaciones más pequeñas o vulnerables. (Jan et al., 2023)
+
+La equidad no se persigue forzando al modelo a desaprender las asociaciones vinculadas a variables sensibles (lo cual equivaldría a ignorar la desigualdad empírica), sino garantizando una modelación rigurosa por subgrupo y haciendo visible, a través de valores SHAP segmentados, cómo se entrelazan y mutan las desventajas dentro de cada clúster latente. (Arrieta et al., 2019)

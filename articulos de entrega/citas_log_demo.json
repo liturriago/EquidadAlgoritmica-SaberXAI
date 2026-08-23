@@ -1,0 +1,57 @@
+[
+  {
+    "oracion_original": "En el panorama contemporáneo de las políticas públicas y la sociología cuantitativa, la minería de datos educativos (EDM, por sus siglas en inglés) ha transitado de ser una disciplina puramente descriptiva a convertirse en el núcleo estratégico de los sistemas predictivos y prescriptivos gubernamentales.",
+    "keywords": "educational data mining computational social science",
+    "oracion_citada": "En el panorama contemporáneo de las políticas públicas y la sociología cuantitativa, la minería de datos educativos (EDM, por sus siglas en inglés) ha transitado de ser una disciplina puramente descriptiva a convertirse en el núcleo estratégico de los sistemas predictivos y prescriptivos gubernamentales. (Chandrashekar et al., 2017)",
+    "apa": "Chandrashekar et al. (2017). UALCAN: A Portal for Facilitating Tumor Subgroup Gene Expression and Survival Analyses. Neoplasia. https://doi.org/10.1016/j.neo.2017.05.002",
+    "doi": "https://doi.org/10.1016/j.neo.2017.05.002",
+    "titulo": "UALCAN: A Portal for Facilitating Tumor Subgroup Gene Expression and Survival Analyses",
+    "year": 2017,
+    "cited_by_count": 6578,
+    "openalex_id": "https://openalex.org/W2736730167"
+  },
+  {
+    "oracion_original": "La inmensa capacidad predictiva de estos ensambles conlleva un costo ético y operativo ineludible: la pérdida casi total de interpretabilidad humana, consolidando el problema de la \"caja negra\" algorítmica.",
+    "keywords": "black box algorithmic",
+    "oracion_citada": "La inmensa capacidad predictiva de estos ensambles conlleva un costo ético y operativo ineludible: la pérdida casi total de interpretabilidad humana, consolidando el problema de la \"caja negra\" algorítmica. (LeCun et al., 1998)",
+    "apa": "LeCun et al. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE. https://doi.org/10.1109/5.726791",
+    "doi": "https://doi.org/10.1109/5.726791",
+    "titulo": "Gradient-based learning applied to document recognition",
+    "year": 1998,
+    "cited_by_count": 59296,
+    "openalex_id": "https://openalex.org/W2112796928"
+  },
+  {
+    "oracion_original": "Más allá de la opacidad algorítmica, persiste un problema estructural en la forma en que la literatura contemporánea concibe e intenta mitigar la inequidad.",
+    "keywords": "allá opacidad algorítmica persiste problema estructural forma literatura",
+    "oracion_citada": "Más allá de la opacidad algorítmica, persiste un problema estructural en la forma en que la literatura contemporánea concibe e intenta mitigar la inequidad. (Delgado et al., 2025)",
+    "apa": "Delgado et al. (2025). Ética en la implementación de tecnologías emergentes en entornos educativos. Multidisciplinary Latin American Journal (MLAJ). https://doi.org/10.62131/mlaj-v3-n2-010",
+    "doi": "https://doi.org/10.62131/mlaj-v3-n2-010",
+    "titulo": "Ética en la implementación de tecnologías emergentes en entornos educativos",
+    "year": 2025,
+    "cited_by_count": 11,
+    "openalex_id": "https://openalex.org/W4410940054"
+  },
+  {
+    "oracion_original": "El paradigma estándar de minimización del riesgo empírico (ERM, por sus siglas en inglés) optimiza el error promedio, una métrica dominada algorítmicamente por los grupos demográficos mayoritarios que, por diseño matemático, puede tolerar un desempeño predictivo deficiente en las subpoblaciones más pequeñas o vulnerables.",
+    "keywords": "empirical risk minimization",
+    "oracion_citada": "El paradigma estándar de minimización del riesgo empírico (ERM, por sus siglas en inglés) optimiza el error promedio, una métrica dominada algorítmicamente por los grupos demográficos mayoritarios que, por diseño matemático, puede tolerar un desempeño predictivo deficiente en las subpoblaciones más pequeñas o vulnerables. (Jan et al., 2023)",
+    "apa": "Jan et al. (2023). Exploiting Generative AI to Scale up Intelligent Tutoring Systems. DROPS (Schloss Dagstuhl – Leibniz Center for Informatics). https://doi.org/10.4230/lipics.itp.2023.19",
+    "doi": "https://doi.org/10.4230/lipics.itp.2023.19",
+    "titulo": "Exploiting Generative AI to Scale up Intelligent Tutoring Systems",
+    "year": 2023,
+    "cited_by_count": 79073,
+    "openalex_id": "https://openalex.org/W4385245566"
+  },
+  {
+    "oracion_original": "La equidad no se persigue forzando al modelo a desaprender las asociaciones vinculadas a variables sensibles (lo cual equivaldría a ignorar la desigualdad empírica), sino garantizando una modelación rigurosa por subgrupo y haciendo visible, a través de valores SHAP segmentados, cómo se entrelazan y mutan las desventajas dentro de cada clúster latente.",
+    "keywords": "SHAP Shapley",
+    "oracion_citada": "La equidad no se persigue forzando al modelo a desaprender las asociaciones vinculadas a variables sensibles (lo cual equivaldría a ignorar la desigualdad empírica), sino garantizando una modelación rigurosa por subgrupo y haciendo visible, a través de valores SHAP segmentados, cómo se entrelazan y mutan las desventajas dentro de cada clúster latente. (Arrieta et al., 2019)",
+    "apa": "Arrieta et al. (2019). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion. https://doi.org/10.1016/j.inffus.2019.12.012",
+    "doi": "https://doi.org/10.1016/j.inffus.2019.12.012",
+    "titulo": "Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI",
+    "year": 2019,
+    "cited_by_count": 9575,
+    "openalex_id": "https://openalex.org/W2981731882"
+  }
+]
