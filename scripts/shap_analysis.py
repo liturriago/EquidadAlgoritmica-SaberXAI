@@ -219,45 +219,105 @@ def plot_summary_comparison(all_shap_values: Dict[int, np.ndarray],
     plt.close()
 
 
+def bootstrap_share_ci(shap_vals: np.ndarray, n_boot: int = 200,
+                       seed: int = 42) -> Tuple[np.ndarray, np.ndarray]:
+    """Intervalos de confianza bootstrap (percentil 2,5/97,5) del share de |SHAP|.
+
+    Remuestrea las FILAS con reemplazo y recalcula la participación relativa de
+    cada feature (mean|SHAP|_j / Σ_k mean|SHAP|_k), lo que cuantifica la
+    incertidumbre de la importancia relativa (Figura 6 del artículo).
+    """
+    rng = np.random.default_rng(seed)
+    n = shap_vals.shape[0]
+    abs_vals = np.abs(shap_vals)
+    shares = np.empty((n_boot, shap_vals.shape[1]))
+    for b in range(n_boot):
+        idx = rng.integers(0, n, n)
+        m = abs_vals[idx].mean(axis=0)
+        total = m.sum()
+        shares[b] = m / total if total > 0 else m
+    lo, hi = np.percentile(shares, [2.5, 97.5], axis=0)
+    return lo, hi
+
+
 def export_importance_metrics(all_shap_values: Dict[int, np.ndarray],
                               all_feature_names: Dict[int, List[str]],
                               output_dir: Path,
-                              model_type: str):
-    """Exporta métricas de importancia a CSV y JSON."""
+                              model_type: str,
+                              n_boot: int = 200,
+                              seed: int = 42):
+    """Exporta métricas de importancia a CSV y JSON.
+
+    Por feature y clúster: mean|SHAP|, share relativo con IC 95 % bootstrap y
+    SHAP con signo (media del SHAP value: dirección del efecto sobre la
+    predicción). Además guarda las MATRICES CRUDAS de SHAP (npz) para análisis
+    posteriores sin recalcular.
+    """
     print("  Exportando métricas de importancia...")
-    
-    # Matriz: clústeres × features
+
+    raw_dir = output_dir / "raw"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+
+    # Matriz: clústeres × features (compat: valores float de mean|SHAP|)
     importance_matrix = {}
+    detailed = {}
     for cluster_id, shap_vals in all_shap_values.items():
         feature_names = all_feature_names[cluster_id]
         mean_abs_shap = np.abs(shap_vals).mean(axis=0)
+        mean_signed = shap_vals.mean(axis=0)
+        total = mean_abs_shap.sum()
+        share = mean_abs_shap / total if total > 0 else mean_abs_shap
+        ci_lo, ci_hi = bootstrap_share_ci(shap_vals, n_boot=n_boot, seed=seed)
+
         importance_matrix[cluster_id] = {
-            feature_names[i]: float(mean_abs_shap[i]) 
+            feature_names[i]: float(mean_abs_shap[i])
             for i in range(len(feature_names))
         }
-    
-    # Exportar a JSON
+        detailed[cluster_id] = {
+            feature_names[i]: {
+                "mean_abs_shap": float(mean_abs_shap[i]),
+                "share": float(share[i]),
+                "share_ci_low": float(ci_lo[i]),
+                "share_ci_high": float(ci_hi[i]),
+                "mean_shap_signed": float(mean_signed[i]),
+            }
+            for i in range(len(feature_names))
+        }
+
+        # Matrices crudas para análisis posteriores (beeswarm, bootstrap, etc.)
+        np.savez_compressed(
+            raw_dir / f"shap_{model_type.lower()}_cluster_{cluster_id}.npz",
+            shap_values=shap_vals,
+            feature_names=np.array(feature_names),
+        )
+        print(f"    ✓ Matriz cruda clúster {cluster_id}: {shap_vals.shape} → raw/")
+
+    # Exportar a JSON (detallado: share + IC + signo)
     json_path = output_dir / f"shap_importance_{model_type}.json"
     with open(json_path, 'w', encoding='utf-8') as f:
-        json.dump(importance_matrix, f, indent=2, ensure_ascii=False)
-    
+        json.dump(detailed, f, indent=2, ensure_ascii=False)
+
     # Exportar a CSV (formato largo)
     csv_rows = []
-    for cluster_id, features in importance_matrix.items():
-        for feature, importance in features.items():
+    for cluster_id, features in detailed.items():
+        for feature, m in features.items():
             csv_rows.append({
                 "cluster_id": cluster_id,
                 "feature": feature,
-                "mean_abs_shap": importance
+                "mean_abs_shap": m["mean_abs_shap"],
+                "share": m["share"],
+                "share_ci_low": m["share_ci_low"],
+                "share_ci_high": m["share_ci_high"],
+                "mean_shap_signed": m["mean_shap_signed"],
             })
-    
+
     df = pl.DataFrame(csv_rows)
     csv_path = output_dir / f"shap_importance_{model_type}.csv"
     df.write_csv(csv_path)
-    
+
     print(f"    → {json_path}")
     print(f"    → {csv_path}")
-    
+
     return importance_matrix
 
 
