@@ -236,23 +236,32 @@ class DataModule:
             print(f"Advertencia: cat_col_to_encode='{cat_to_encode}' no encontrada en los datos. Saltando Target Encoding.")
 
         # 6. One-Hot Encoding para categorías restantes
-        remaining_cats = [col for col in self.X_train.columns if self.X_train.schema[col] in (pl.String, pl.Categorical)]
+        # ESQUEMA ÚNICO derivado de train. El to_dummies por frame + alineación
+        # corrige mal val/test cuando falta un nivel: drop_first elimina el primer
+        # nivel de cada frame y, si el nivel eliminado en train no aparece en
+        # val/test, esas filas quedaban codificadas como el nivel de referencia
+        # (todos ceros), corrompiendo features de forma distinta entre splits
+        # (inflaba el MBE con signo variable por clúster). Aquí train se codifica
+        # exactamente igual que en el pipeline histórico (compatibilidad con
+        # modelos ya entrenados) y val/test heredan su esquema.
+        remaining_cats = [
+            col for col in self.X_train.columns
+            if self.X_train.schema[col] in (pl.String, pl.Categorical)
+            or self.X_train.schema[col].base_type() == pl.Enum
+        ]
         if len(remaining_cats) > 0:
-            self.X_train = self.X_train.to_dummies(remaining_cats, drop_first=True)
-            self.X_val = self.X_val.to_dummies(remaining_cats, drop_first=True)
-            self.X_test = self.X_test.to_dummies(remaining_cats, drop_first=True)
+            train_schema = self.X_train.to_dummies(remaining_cats, drop_first=True).columns
 
-            # Alinear columnas entre Train, Val y Test
-            train_cols = self.X_train.columns
+            def one_hot(df: pl.DataFrame) -> pl.DataFrame:
+                dummies = df.to_dummies(remaining_cats, drop_first=False)
+                for col in train_schema:
+                    if col not in dummies.columns:
+                        dummies = dummies.with_columns(pl.lit(0, dtype=pl.UInt8).alias(col))
+                return dummies.select(train_schema)
 
-            def align_cols(df_target: pl.DataFrame, base_cols: list) -> pl.DataFrame:
-                for col in base_cols:
-                    if col not in df_target.columns:
-                        df_target = df_target.with_columns(pl.lit(0).alias(col))
-                return df_target.select(base_cols)
-
-            self.X_val = align_cols(self.X_val, train_cols)
-            self.X_test = align_cols(self.X_test, train_cols)
+            self.X_train = one_hot(self.X_train)
+            self.X_val = one_hot(self.X_val)
+            self.X_test = one_hot(self.X_test)
 
         # 7. Escalado Estándar (Z-Score)
         cols = self.X_train.columns
