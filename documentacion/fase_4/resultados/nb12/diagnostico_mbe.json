@@ -1,0 +1,198 @@
+[
+  {
+    "cluster_id": 0,
+    "n_train": 623804,
+    "n_val": 133671,
+    "n_test": 133671,
+    "y_mean_train": 228.72943115234375,
+    "y_mean_val": 228.76234436035156,
+    "y_mean_test": 228.9324188232422,
+    "y_std_test": 39.781471252441406,
+    "models": {
+      "xgb": {
+        "mean_pred": 230.6466064453125,
+        "mbe": 1.7141876220703125,
+        "rmse": 36.98004932191901,
+        "r2": 0.1358814835548401,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = +0.20) pero el MBE es +1.71 → sesgo en predicción/evaluación"
+      },
+      "mlp": {
+        "mean_pred": 229.7591552734375,
+        "mbe": 0.8267364501953125,
+        "rmse": 37.119794589822625,
+        "r2": 0.12933820486068726,
+        "veredicto": "SIN SESGO RELEVANTE (|MBE| ≤ 1): el MBE histórico no se reproduce"
+      }
+    },
+    "delta_split_test_minus_train": 0.2029876708984375,
+    "dtest_labels_match_y_test": true
+  },
+  {
+    "cluster_id": 1,
+    "n_train": 495521,
+    "n_val": 106183,
+    "n_test": 106183,
+    "y_mean_train": 241.75143432617188,
+    "y_mean_val": 241.70822143554688,
+    "y_mean_test": 241.6957550048828,
+    "y_std_test": 45.08540725708008,
+    "models": {
+      "xgb": {
+        "mean_pred": 243.81651306152344,
+        "mbe": 2.120758056640625,
+        "rmse": 41.257268831629084,
+        "r2": 0.16260772943496704,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = -0.06) pero el MBE es +2.12 → sesgo en predicción/evaluación"
+      },
+      "mlp": {
+        "mean_pred": 238.9247589111328,
+        "mbe": -2.77099609375,
+        "rmse": 41.61320773044524,
+        "r2": 0.14809650182724,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = -0.06) pero el MBE es -2.77 → sesgo en predicción/evaluación"
+      }
+    },
+    "delta_split_test_minus_train": -0.0556793212890625,
+    "dtest_labels_match_y_test": true
+  },
+  {
+    "cluster_id": 2,
+    "n_train": 329833,
+    "n_val": 70678,
+    "n_test": 70678,
+    "y_mean_train": 254.1276397705078,
+    "y_mean_val": 254.22459411621094,
+    "y_mean_test": 254.30775451660156,
+    "y_std_test": 41.63191604614258,
+    "models": {
+      "xgb": {
+        "mean_pred": 257.35919189453125,
+        "mbe": 3.0514373779296875,
+        "rmse": 39.346951815706134,
+        "r2": 0.1067575216293335,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = +0.18) pero el MBE es +3.05 → sesgo en predicción/evaluación"
+      },
+      "mlp": {
+        "mean_pred": 256.2724609375,
+        "mbe": 1.9647064208984375,
+        "rmse": 39.18695953823877,
+        "r2": 0.11400693655014038,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = +0.18) pero el MBE es +1.96 → sesgo en predicción/evaluación"
+      }
+    },
+    "delta_split_test_minus_train": 0.18011474609375,
+    "dtest_labels_match_y_test": true
+  },
+  {
+    "cluster_id": 3,
+    "n_train": 543462,
+    "n_val": 116455,
+    "n_test": 116455,
+    "y_mean_train": 248.119140625,
+    "y_mean_val": 248.0517578125,
+    "y_mean_test": 248.20762634277344,
+    "y_std_test": 43.28629684448242,
+    "models": {
+      "xgb": {
+        "mean_pred": 248.79393005371094,
+        "mbe": 0.5863037109375,
+        "rmse": 39.70615026844865,
+        "r2": 0.1585763692855835,
+        "veredicto": "SIN SESGO RELEVANTE (|MBE| ≤ 1): el MBE histórico no se reproduce"
+      },
+      "mlp": {
+        "mean_pred": 244.3204345703125,
+        "mbe": -3.8871917724609375,
+        "rmse": 39.90292174844469,
+        "r2": 0.15021604299545288,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = +0.09) pero el MBE es -3.89 → sesgo en predicción/evaluación"
+      }
+    },
+    "delta_split_test_minus_train": 0.0884857177734375,
+    "dtest_labels_match_y_test": true
+  },
+  {
+    "cluster_id": 4,
+    "n_train": 479315,
+    "n_val": 102709,
+    "n_test": 102709,
+    "y_mean_train": 270.77069091796875,
+    "y_mean_val": 270.65826416015625,
+    "y_mean_test": 270.7463073730469,
+    "y_std_test": 46.72343444824219,
+    "models": {
+      "xgb": {
+        "mean_pred": 268.7430419921875,
+        "mbe": -2.003265380859375,
+        "rmse": 43.57601285666662,
+        "r2": 0.13018786907196045,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = -0.02) pero el MBE es -2.00 → sesgo en predicción/evaluación"
+      },
+      "mlp": {
+        "mean_pred": 265.4361267089844,
+        "mbe": -5.3101806640625,
+        "rmse": 43.83101176990371,
+        "r2": 0.11997812986373901,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = -0.02) pero el MBE es -5.31 → sesgo en predicción/evaluación"
+      }
+    },
+    "delta_split_test_minus_train": -0.024383544921875,
+    "dtest_labels_match_y_test": true
+  },
+  {
+    "cluster_id": 5,
+    "n_train": 280081,
+    "n_val": 60016,
+    "n_test": 60016,
+    "y_mean_train": 313.292236328125,
+    "y_mean_val": 313.485595703125,
+    "y_mean_test": 313.1953125,
+    "y_std_test": 47.39292907714844,
+    "models": {
+      "xgb": {
+        "mean_pred": 306.5508728027344,
+        "mbe": -6.644439697265625,
+        "rmse": 43.75953439635684,
+        "r2": 0.14745312929153442,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = -0.10) pero el MBE es -6.64 → sesgo en predicción/evaluación"
+      },
+      "mlp": {
+        "mean_pred": 304.65399169921875,
+        "mbe": -8.54132080078125,
+        "rmse": 43.915376609274055,
+        "r2": 0.14136993885040283,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = -0.10) pero el MBE es -8.54 → sesgo en predicción/evaluación"
+      }
+    },
+    "delta_split_test_minus_train": -0.096923828125,
+    "dtest_labels_match_y_test": true
+  },
+  {
+    "cluster_id": 6,
+    "n_train": 359788,
+    "n_val": 77097,
+    "n_test": 77097,
+    "y_mean_train": 263.82928466796875,
+    "y_mean_val": 263.96258544921875,
+    "y_mean_test": 264.0028076171875,
+    "y_std_test": 49.23076248168945,
+    "models": {
+      "xgb": {
+        "mean_pred": 253.58843994140625,
+        "mbe": -10.41436767578125,
+        "rmse": 44.94223044251851,
+        "r2": 0.16663330793380737,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = +0.17) pero el MBE es -10.41 → sesgo en predicción/evaluación"
+      },
+      "mlp": {
+        "mean_pred": 252.35972595214844,
+        "mbe": -11.643081665039062,
+        "rmse": 45.269044356526074,
+        "r2": 0.15446889400482178,
+        "veredicto": "H5 FAVORECIDA: splits intercambiables (Δmean(y) = +0.17) pero el MBE es -11.64 → sesgo en predicción/evaluación"
+      }
+    },
+    "delta_split_test_minus_train": 0.17352294921875,
+    "dtest_labels_match_y_test": true
+  }
+]
