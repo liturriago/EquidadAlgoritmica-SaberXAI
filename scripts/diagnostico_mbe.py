@@ -180,6 +180,9 @@ def diagnose_cluster(cluster_id: int, models_dir: Path, model_types: list,
 def main():
     args = parse_args()
     config.load_from_yaml(args.config)
+    if args.data_dir:
+        config.data_dir = args.data_dir
+        print(f"data_dir sobrescrito por CLI: {config.data_dir}")
     if args.allow_dummy:
         config.allow_dummy_data = True
 

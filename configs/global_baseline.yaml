@@ -14,7 +14,8 @@
 # configs/lca_clusters.yaml), por lo que cat_col_to_encode queda en null.
 
 # Rutas de datos (Kaggle). En local: cambiar por la carpeta con los parquet.
-data_dir: "/kaggle/input/datasets/lucasiturriago/pruebassaber11"
+# NOTA: el punto de montaje en Kaggle es /kaggle/input/<dataset-slug>.
+data_dir: "/kaggle/input/pruebassaber11"
 
 # Columnas importantes
 target_col: "punt_global"

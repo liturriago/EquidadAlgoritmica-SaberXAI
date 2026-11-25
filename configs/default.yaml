@@ -1,8 +1,9 @@
 # Configuración principal del sistema para ML
 # Puedes modificar estos valores para sobrescribir los valores por defecto en AppConfig
 
-# Rutas de datos
-data_path: "/kaggle/input/datasets/lucasiturriago/pruebassaber11/saber11_dataset.parquet"
+# Rutas de datos (LEGACY: archivo único; los datos LCA actuales están en data_dir de lca_clusters.yaml)
+# NOTA: el punto de montaje en Kaggle es /kaggle/input/<dataset-slug>.
+data_path: "/kaggle/input/pruebassaber11/saber11_dataset.parquet"
 
 # Columnas importantes
 target_col: "punt_global"

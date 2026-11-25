@@ -197,6 +197,9 @@ def main():
     if args.config:
         print(f"Cargando configuración desde: {args.config}")
         config.load_from_yaml(args.config)
+    if args.data_dir:
+        config.data_dir = args.data_dir
+        print(f"data_dir sobrescrito por CLI: {config.data_dir}")
     if args.allow_dummy:
         config.allow_dummy_data = True
 

@@ -2,7 +2,8 @@
 # Entrena modelos separados (XGBoost + MLP) para cada territorio funcional
 
 # Configuración de datos por clúster
-data_dir: "/kaggle/input/datasets/lucasiturriago/pruebassaber11"
+# NOTA: el punto de montaje en Kaggle es /kaggle/input/<dataset-slug>.
+data_dir: "/kaggle/input/pruebassaber11"
 # cluster_id se establece dinámicamente en el script de entrenamiento
 
 # Columnas importantes
