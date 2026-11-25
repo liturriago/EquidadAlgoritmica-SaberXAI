@@ -1,0 +1,46 @@
+# Línea base global — comentario contenido 1, parte 1 (Entregable 3)
+#
+# Entrena modelos GLOBALES (XGBoost + MLP) sobre la unión de los clústeres LCA
+# (clase_0..6.parquet) replicando EXACTAMENTE los splits por clúster del
+# entrenamiento por clúster (shuffle semilla 42, 70/15/15): el modelo global se
+# evalúa sobre las mismas filas de test que los modelos por clúster, lo que hace
+# válida la comparación de R²/RMSE/MBE por territorio (Tabla 4).
+#
+# Uso con scripts/train.py:
+#   --mode global             modelo global sin indicadoras
+#   --mode global_indicators  modelo global + indicadoras one-hot de clase_lca
+#
+# NOTA: los datos por clúster no contienen cole_mcpio_ubicacion (igual que
+# configs/lca_clusters.yaml), por lo que cat_col_to_encode queda en null.
+
+# Rutas de datos (Kaggle). En local: cambiar por la carpeta con los parquet.
+data_dir: "/kaggle/input/datasets/lucasiturriago/pruebassaber11"
+
+# Columnas importantes
+target_col: "punt_global"
+cat_col_to_encode: null  # Los datos LCA no tienen municipio
+
+# Indicadoras de territorio (activables también con --mode global_indicators)
+territory_indicators: false
+
+# Hiperparámetros de la red neuronal MLP (PyTorch) — idénticos a lca_clusters.yaml
+mlp_hidden_dims:
+  - 128
+  - 64
+  - 32
+mlp_lr: 0.001
+mlp_batch_size: 4096
+mlp_epochs: 100
+mlp_patience: 10
+
+# Hiperparámetros para XGBoost — idénticos a lca_clusters.yaml
+xgb_n_estimators: 350
+xgb_params:
+  max_depth: 6
+  learning_rate: 0.05
+  objective: "reg:squarederror"
+  eval_metric: "rmse"
+  nthread: -1
+
+# Semilla aleatoria para reproducibilidad
+random_state: 42

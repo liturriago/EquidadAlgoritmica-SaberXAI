@@ -2,6 +2,7 @@ import polars as pl
 import polars.selectors as cs
 import numpy as np
 import gc
+import json
 import xgboost as xgb
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -36,65 +37,176 @@ class DataModule:
     """
     Fábrica y administrador de datos para el proyecto SaberXAI.
     Centraliza la carga, división, imputación, codificación y escalado usando Polars.
+
+    Modos de operación (resueltos desde la configuración):
+
+    - ``cluster`` — ``config.cluster_id`` + ``config.data_dir``: carga
+      ``clase_{cluster_id}.parquet`` (un territorio funcional LCA).
+    - ``global``  — solo ``config.data_dir``: carga la unión de los
+      ``clase_*.parquet`` replicando el split por clúster (misma semilla y
+      proporciones 70/15/15), de modo que el modelo global se entrena y evalúa
+      sobre **exactamente las mismas filas de test** que los modelos por
+      clúster (comparación válida de MBE/R²/RMSE).
+    - ``file``    — ``config.data_path``: un único parquet (modo legacy).
+
+    Comportamientos adicionales:
+    - ``config.territory_indicators=True`` añade indicadoras one-hot del clúster
+      LCA a las features (solo modo ``global``; drop_first=True).
+    - ``self.test_cluster_labels`` alinea cada fila de test con su clúster LCA
+      para la evaluación por territorio (None en modo ``file`` sin columna).
+    - ``self.split_meta`` documenta tamaños de split, medias del target y
+      lista de features (reproducibilidad y diagnóstico del MBE).
+    - La carga es estricta por defecto: si falta el parquet se lanza
+      ``FileNotFoundError``. Los datos dummy solo se generan si
+      ``config.allow_dummy_data=True`` (para tests de integración).
     """
+
+    TERRITORY_COL = "clase_lca"
+
     def __init__(self):
         self.config = config
         self.target_encoder = TargetEncoder(target_type="continuous", random_state=config.random_state)
         self.scaler = StandardScaler()
-        
+
         # Contenedores para los sets procesados
         self.X_train, self.X_val, self.X_test = None, None, None
         self.y_train, self.y_val, self.y_test = None, None, None
         self.test_area = None
 
-    def prepare_data(self) -> None:
+        # Metadatos del split (modo, etiquetas de territorio, trazabilidad)
+        self.mode = None
+        self.cluster_id = None
+        self.test_cluster_labels = None
+        self.split_meta = {}
+
+    # ------------------------------------------------------------------
+    # Carga de datos
+    # ------------------------------------------------------------------
+    def _resolve_mode(self) -> str:
+        """Determina el modo de carga a partir de la configuración."""
+        if self.config.cluster_id is not None and self.config.data_dir is not None:
+            return "cluster"
+        if self.config.data_dir is not None:
+            return "global"
+        return "file"
+
+    def _load_frames(self) -> list[tuple]:
+        """Carga los parquet crudos como lista de pares (cluster_id | None, df).
+
+        En modo ``global`` cada frame conserva su ``cluster_id`` para poder
+        replicar el split por clúster antes de unir los conjuntos.
         """
-        Flujo completo de ingeniería de datos protegiendo la integridad científica.
-        """
+        self.mode = self._resolve_mode()
+        self.cluster_id = self.config.cluster_id
         try:
-            # Construir ruta de datos
-            if self.config.cluster_id is not None and self.config.data_dir is not None:
+            if self.mode == "cluster":
                 data_path = Path(self.config.data_dir) / f"clase_{self.config.cluster_id}.parquet"
                 print(f"Cargando datos del clúster LCA {self.config.cluster_id}: {data_path}")
-            else:
-                data_path = Path(self.config.data_path)
-            
-            df = pl.read_parquet(data_path)
-        except Exception as e:
-            print(f"Advertencia: Error al cargar Parquet: {e}. Generando datos dummy...")
-            df = self._generate_dummy_data()
+                return [(self.config.cluster_id, pl.read_parquet(data_path))]
 
-        # 1. Separación de Target y Features y Shuffle
+            if self.mode == "global":
+                data_dir = Path(self.config.data_dir)
+                paths = sorted(data_dir.glob("clase_*.parquet"))
+                if not paths:
+                    raise FileNotFoundError(f"No se encontraron clase_*.parquet en {data_dir}")
+                print(f"Cargando {len(paths)} clústeres LCA desde {data_dir} (modo global)")
+                frames = []
+                for p in paths:
+                    cid = int(p.stem.split("_")[1])
+                    frames.append((cid, pl.read_parquet(p)))
+                return frames
+
+            # Modo legacy: un único archivo
+            print(f"Cargando dataset único: {self.config.data_path}")
+            return [(None, pl.read_parquet(Path(self.config.data_path)))]
+
+        except Exception as e:
+            if not self.config.allow_dummy_data:
+                raise
+            print(f"Advertencia: Error al cargar Parquet: {e}. Generando datos dummy...")
+            return [(self.config.cluster_id, self._generate_dummy_data())]
+
+    def _split_frame(self, df: pl.DataFrame) -> tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame]:
+        """Divide un frame 70/15/15 tras barajar con la semilla del proyecto.
+
+        El orden de las operaciones replica exactamente el pipeline histórico
+        (barajado con ``seed=random_state``; test = primer 15 %, val = siguiente
+        15 %, train = resto), para mantener la comparabilidad con los modelos
+        ya entrenados y el diagnóstico del MBE.
+        """
         df = df.sample(fraction=1.0, shuffle=True, seed=self.config.random_state)
-        
-        # 2. División de conjuntos (70% Train, 15% Val, 15% Test)
+
         total_rows = len(df)
         test_size = int(total_rows * 0.15)
         val_size = int(total_rows * 0.15)
         train_size = total_rows - test_size - val_size
-        
+
         df_test = df.head(test_size)
         df_val = df.slice(test_size, val_size)
         df_train = df.tail(train_size)
-        
-        self.y_test = df_test.select(pl.col(self.config.target_col))
-        self.X_test = df_test.drop(self.config.target_col)
-        
-        self.y_val = df_val.select(pl.col(self.config.target_col))
-        self.X_val = df_val.drop(self.config.target_col)
-        
-        self.y_train = df_train.select(pl.col(self.config.target_col))
-        self.X_train = df_train.drop(self.config.target_col)
+        return df_train, df_val, df_test
+
+    # ------------------------------------------------------------------
+    # Pipeline completo
+    # ------------------------------------------------------------------
+    def prepare_data(self) -> None:
+        """
+        Flujo completo de ingeniería de datos protegiendo la integridad científica.
+        """
+        frames = self._load_frames()
+
+        # 1. Split por frame (por clúster en modo global/cluster) y unión.
+        #    Así el modo global evalúa sobre las MISMAS filas de test que los
+        #    modelos por clúster.
+        trains, vals, tests = [], [], []
+        cluster_rows = {}
+        for cid, df in frames:
+            df_train, df_val, df_test = self._split_frame(df)
+            if cid is not None:
+                df_train = df_train.with_columns(pl.lit(cid, dtype=pl.Int32).alias(self.TERRITORY_COL))
+                df_val = df_val.with_columns(pl.lit(cid, dtype=pl.Int32).alias(self.TERRITORY_COL))
+                df_test = df_test.with_columns(pl.lit(cid, dtype=pl.Int32).alias(self.TERRITORY_COL))
+                cluster_rows[cid] = {
+                    "train": len(df_train), "val": len(df_val), "test": len(df_test)
+                }
+            trains.append(df_train)
+            vals.append(df_val)
+            tests.append(df_test)
+            del df
+
+        self.X_train = pl.concat(trains)
+        self.X_val = pl.concat(vals)
+        self.X_test = pl.concat(tests)
+        del trains, vals, tests
+        gc.collect()
+
+        self.y_test = self.X_test.select(pl.col(self.config.target_col))
+        self.X_test = self.X_test.drop(self.config.target_col)
+
+        self.y_val = self.X_val.select(pl.col(self.config.target_col))
+        self.X_val = self.X_val.drop(self.config.target_col)
+
+        self.y_train = self.X_train.select(pl.col(self.config.target_col))
+        self.X_train = self.X_train.drop(self.config.target_col)
 
         # Guardar la columna de área para la evaluación de equidad en el Test set
         if 'cole_area_ubicacion' in self.X_test.columns:
             self.test_area = self.X_test.get_column('cole_area_ubicacion').to_numpy()
 
-        # Liberar el DataFrame original y los splits intermedios de memoria
-        del df, df_train, df_val, df_test
-        gc.collect()
+        # 2. Etiquetas de territorio del test (antes de transformar features)
+        if self.TERRITORY_COL in self.X_test.columns:
+            self.test_cluster_labels = self.X_test.get_column(self.TERRITORY_COL).to_numpy()
 
-        # 3. Imputación de valores nulos (Mediana)
+        # 3. Indicadoras de territorio o eliminación de la columna cruda
+        if self.TERRITORY_COL in self.X_train.columns:
+            if self.config.territory_indicators and self.mode == "global":
+                self._add_territory_indicators()
+            else:
+                self.X_train = self.X_train.drop(self.TERRITORY_COL)
+                self.X_val = self.X_val.drop(self.TERRITORY_COL)
+                self.X_test = self.X_test.drop(self.TERRITORY_COL)
+
+        # 4. Imputación de valores nulos (Mediana)
         # Se calcula en train y se aplica en todos para evitar sesgos
         num_cols = self.X_train.select(cs.numeric()).columns
         for col in num_cols:
@@ -104,7 +216,7 @@ class DataModule:
                 self.X_val = self.X_val.with_columns(pl.col(col).fill_null(median_val))
                 self.X_test = self.X_test.with_columns(pl.col(col).fill_null(median_val))
 
-        # 4. Target Encoding (Específico para Municipio) — Solo si está configurado
+        # 5. Target Encoding (Específico para Municipio) — Solo si está configurado
         cat_to_encode = self.config.cat_col_to_encode
         if cat_to_encode is not None and cat_to_encode in self.X_train.columns:
             # Fit solo en Train para prevenir data leakage
@@ -123,26 +235,26 @@ class DataModule:
         elif cat_to_encode is not None:
             print(f"Advertencia: cat_col_to_encode='{cat_to_encode}' no encontrada en los datos. Saltando Target Encoding.")
 
-        # 5. One-Hot Encoding para categorías restantes
+        # 6. One-Hot Encoding para categorías restantes
         remaining_cats = [col for col in self.X_train.columns if self.X_train.schema[col] in (pl.String, pl.Categorical)]
         if len(remaining_cats) > 0:
             self.X_train = self.X_train.to_dummies(remaining_cats, drop_first=True)
             self.X_val = self.X_val.to_dummies(remaining_cats, drop_first=True)
             self.X_test = self.X_test.to_dummies(remaining_cats, drop_first=True)
-            
+
             # Alinear columnas entre Train, Val y Test
             train_cols = self.X_train.columns
-            
+
             def align_cols(df_target: pl.DataFrame, base_cols: list) -> pl.DataFrame:
                 for col in base_cols:
                     if col not in df_target.columns:
                         df_target = df_target.with_columns(pl.lit(0).alias(col))
                 return df_target.select(base_cols)
-                
+
             self.X_val = align_cols(self.X_val, train_cols)
             self.X_test = align_cols(self.X_test, train_cols)
 
-        # 6. Escalado Estándar (Z-Score)
+        # 7. Escalado Estándar (Z-Score)
         cols = self.X_train.columns
         X_train_np = self.X_train.to_numpy()
         self.X_train = None  # Liberar Polars antes de crear la copia escalada
@@ -160,15 +272,62 @@ class DataModule:
         del X_test_np
         gc.collect()
 
-        # 7. Asegurar tipo Float32 para PyTorch
+        # 8. Asegurar tipo Float32 para PyTorch
         self.X_train = self.X_train.cast(pl.Float32)
         self.X_val = self.X_val.cast(pl.Float32)
         self.X_test = self.X_test.cast(pl.Float32)
-        
+
         self.y_train = self.y_train.cast(pl.Float32)
         self.y_val = self.y_val.cast(pl.Float32)
         self.y_test = self.y_test.cast(pl.Float32)
 
+        # 9. Metadatos de trazabilidad del split
+        self.split_meta = {
+            "mode": self.mode,
+            "cluster_id": self.cluster_id,
+            "seed": self.config.random_state,
+            "territory_indicators": bool(
+                self.config.territory_indicators and self.mode == "global"
+            ),
+            "n_train": len(self.X_train),
+            "n_val": len(self.X_val),
+            "n_test": len(self.X_test),
+            "y_mean_train": float(self.y_train.to_numpy().mean()),
+            "y_mean_val": float(self.y_val.to_numpy().mean()),
+            "y_mean_test": float(self.y_test.to_numpy().mean()),
+            "n_features": len(self.X_train.columns),
+            "feature_names": list(self.X_train.columns),
+            "cluster_rows": cluster_rows or None,
+        }
+
+    def _add_territory_indicators(self) -> None:
+        """Añade indicadoras one-hot del clúster LCA a las features (drop_first).
+
+        Solo tiene sentido en modo ``global``: identifica el territorio
+        funcional de cada estudiante para el modelo "global + indicadoras".
+        La columna cruda ``clase_lca`` se elimina de las features.
+        """
+        levels = sorted(self.X_train.get_column(self.TERRITORY_COL).unique().to_list())
+        keep = levels[1:] if len(levels) > 1 else []
+        for lvl in keep:
+            alias = f"{self.TERRITORY_COL}_{lvl}"
+            self.X_train = self.X_train.with_columns(
+                (pl.col(self.TERRITORY_COL) == lvl).cast(pl.Float32).alias(alias)
+            )
+            self.X_val = self.X_val.with_columns(
+                (pl.col(self.TERRITORY_COL) == lvl).cast(pl.Float32).alias(alias)
+            )
+            self.X_test = self.X_test.with_columns(
+                (pl.col(self.TERRITORY_COL) == lvl).cast(pl.Float32).alias(alias)
+            )
+        self.X_train = self.X_train.drop(self.TERRITORY_COL)
+        self.X_val = self.X_val.drop(self.TERRITORY_COL)
+        self.X_test = self.X_test.drop(self.TERRITORY_COL)
+        print(f"Indicadoras de territorio añadidas: {len(keep)} columnas ({self.TERRITORY_COL}_*)")
+
+    # ------------------------------------------------------------------
+    # Salidas para los modelos
+    # ------------------------------------------------------------------
     def get_dataloaders(self) -> tuple[DataLoader, DataLoader, DataLoader]:
         """Retorna objetos DataLoader listos para el entrenamiento de la MLP.
 
@@ -216,13 +375,19 @@ class DataModule:
             xgb.DMatrix(self.X_test.to_numpy(), label=self.y_test.to_numpy(), feature_names=self.X_test.columns)
         )
 
+    def save_split_meta(self, path: str) -> None:
+        """Persiste los metadatos del split en JSON (trazabilidad del experimento)."""
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(self.split_meta, f, indent=2, ensure_ascii=False)
+        print(f"Metadatos del split guardados en {path}")
+
     def _generate_dummy_data(self) -> pl.DataFrame:
         """Generador de datos sintéticos para pruebas de integración."""
         np.random.seed(self.config.random_state)
         n = 1000
-        
+
         cat_col_name = self.config.cat_col_to_encode if self.config.cat_col_to_encode else "dummy_category"
-        
+
         data = {
             cat_col_name: np.random.choice(['MUN_A', 'MUN_B', 'MUN_C'], n),
             'cole_area_ubicacion': np.random.choice(['Rural', 'Urbano'], n),

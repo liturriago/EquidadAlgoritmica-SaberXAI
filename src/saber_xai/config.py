@@ -32,6 +32,16 @@ class AppConfig(BaseModel):
         default=None,
         description="Directorio base para archivos parquet por clúster (ej. 'data/')"
     )
+    territory_indicators: bool = Field(
+        default=False,
+        description="Añadir indicadoras one-hot del clúster LCA a las features "
+                    "(solo modo global: 'global + indicadoras de territorio')"
+    )
+    allow_dummy_data: bool = Field(
+        default=False,
+        description="Permitir datos sintéticos si falla la carga del parquet "
+                    "(solo para tests; en ejecuciones reales debe fallar explícitamente)"
+    )
     
     # Configuración para análisis SHAP
     shap_max_samples: int = Field(

@@ -14,16 +14,24 @@ __pycache__/
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
+# Metadatos NTFS/Windows (descargas con Windows)
+*:Zone.Identifier
+
+# Salidas de experimentos (modelos, métricas, diagnósticos) en la raíz
+/models/
+/results/
+/shap_results/
+
 # Entornos virtuales
 .venv/
 venv/
 base_teorica_y_decisoria/PhD_Thesis_Jenny_RevF2.pdf
 
-# Datos
-data/
+# Datos (parquet crudos en la raíz del repo)
+/data/
 
 # Checkpoints de modelos (pesos entrenados)
-checkpoints/
+/checkpoints/
 
 # Egg-info (build artifacts)
 *.egg-info/

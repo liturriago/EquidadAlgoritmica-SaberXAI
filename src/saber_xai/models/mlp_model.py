@@ -39,7 +39,8 @@ class MLPTrainer:
         self.criterion = nn.MSELoss()
         self.optimizer = optim.Adam(self.model.parameters(), lr=self.config.mlp_lr)
 
-    def train(self, train_loader: DataLoader, val_loader: DataLoader):
+    def train(self, train_loader: DataLoader, val_loader: DataLoader,
+              checkpoint_path: str = "best_mlp_model.pth") -> dict:
         """Ciclo de entrenamiento por épocas con Early Stopping y CosineAnnealingLR.
 
         CosineAnnealingLR decae suavemente el lr desde el valor inicial hasta
@@ -49,9 +50,21 @@ class MLPTrainer:
         El loop de batches usa _iter_batches en lugar de iterar el DataLoader
         directamente: evita el overhead de default_collate apilando tensores
         GPU individuales, que era la causa principal de la lentitud (~50 s/época).
+
+        Args:
+            checkpoint_path: ruta donde guardar los MEJORES pesos (los de menor
+                val loss). Debe ser única por corrida/clúster para que el early
+                stopping no deje pesos obsoletos de otra ejecución.
+
+        Returns:
+            Historial {"train_loss": [...], "val_loss": [...], "best_epoch": int,
+            "stopped_early": bool}. Al terminar, el modelo recupera los mejores
+            pesos (no los de la última época).
         """
         best_val_loss = float('inf')
         patience_counter = 0
+        best_epoch = 0
+        history = {"train_loss": [], "val_loss": [], "best_epoch": 0, "stopped_early": False}
 
         scheduler = optim.lr_scheduler.CosineAnnealingLR(
             self.optimizer,
@@ -93,18 +106,29 @@ class MLPTrainer:
                     n_val    += batch_n
             val_loss /= n_val
 
+            history["train_loss"].append(train_loss)
+            history["val_loss"].append(val_loss)
+
             print(f"Epoch {epoch+1:03d}/{self.config.mlp_epochs} - Train Loss: {train_loss:.4f} - Val Loss: {val_loss:.4f}")
 
             # --- Early Stopping ---
             if val_loss < best_val_loss:
                 best_val_loss = val_loss
+                best_epoch = epoch + 1
                 patience_counter = 0
-                torch.save(self.model.state_dict(), "best_mlp_model.pth")
+                torch.save(self.model.state_dict(), checkpoint_path)
             else:
                 patience_counter += 1
                 if patience_counter >= self.config.mlp_patience:
                     print(f"Early stopping activado en la época {epoch+1}")
+                    history["stopped_early"] = True
                     break
+
+        # Recuperar siempre los mejores pesos para el modelo devuelto
+        self.model.load_state_dict(torch.load(checkpoint_path, weights_only=True))
+        history["best_epoch"] = best_epoch
+        print(f"Mejores pesos restaurados (época {best_epoch}, val loss {best_val_loss:.4f}) -> {checkpoint_path}")
+        return history
 
     def _iter_batches(self, dataset: Dataset, shuffle: bool):
         """Iterador de batches optimizado para tensores GPU-resident.
