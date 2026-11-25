@@ -69,6 +69,8 @@ def parse_args():
                         help="Directorio donde se guardarán métricas y metadatos")
     parser.add_argument("--tag", type=str, default=None,
                         help="Etiqueta de la corrida (default: derivada del modo)")
+    parser.add_argument("--data-dir", type=str, default=None,
+                        help="Sobreescribe config.data_dir (carpeta con clase_*.parquet)")
     parser.add_argument("--allow-dummy", action="store_true",
                         help="Permitir datos sintéticos si falla la carga (solo pruebas)")
     return parser.parse_args()

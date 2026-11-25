@@ -41,6 +41,8 @@ def parse_args():
     parser.add_argument("--model-type", type=str, default="xgb",
                         choices=["xgb", "mlp", "both"])
     parser.add_argument("--results-dir", type=str, default="results")
+    parser.add_argument("--data-dir", type=str, default=None,
+                        help="Sobreescribe config.data_dir (carpeta con clase_*.parquet)")
     parser.add_argument("--allow-dummy", action="store_true")
     return parser.parse_args()
 
