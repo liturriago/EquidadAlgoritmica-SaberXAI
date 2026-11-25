@@ -1,0 +1,3446 @@
+{
+  "0": {
+    "cole_area_ubicacion_Rural": {
+      "mean_abs_shap": 3.3855526447296143,
+      "share": 0.07964672148227692,
+      "share_ci_low": 0.07891487311571836,
+      "share_ci_high": 0.08040568735450507,
+      "mean_shap_signed": 0.02886304073035717
+    },
+    "cole_bilingue": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_calendario_B": {
+      "mean_abs_shap": 0.0014621383743360639,
+      "share": 3.439749343669973e-05,
+      "share_ci_low": 2.4916928759921574e-05,
+      "share_ci_high": 4.596633334585931e-05,
+      "mean_shap_signed": -0.0001380567846354097
+    },
+    "cole_calendario_Otro": {
+      "mean_abs_shap": 0.014931924641132355,
+      "share": 0.0003512805560603738,
+      "share_ci_low": 0.00026910132728517053,
+      "share_ci_high": 0.0004454906629689504,
+      "mean_shap_signed": -0.005204168614000082
+    },
+    "cole_caracter_Académico": {
+      "mean_abs_shap": 0.4376099705696106,
+      "share": 0.010294981300830841,
+      "share_ci_low": 0.01015549802687019,
+      "share_ci_high": 0.010441691405139864,
+      "mean_shap_signed": 0.05074884369969368
+    },
+    "cole_caracter_No Aplica": {
+      "mean_abs_shap": 0.0318138562142849,
+      "share": 0.0007484359666705132,
+      "share_ci_low": 0.0006121240949141793,
+      "share_ci_high": 0.0009195386082865298,
+      "mean_shap_signed": -0.0012700194492936134
+    },
+    "cole_caracter_Técnico": {
+      "mean_abs_shap": 0.15054544806480408,
+      "share": 0.0035416525788605213,
+      "share_ci_low": 0.003394528164062649,
+      "share_ci_high": 0.003686365531757474,
+      "mean_shap_signed": -0.014539367519319057
+    },
+    "cole_depto_ubicacion_Amazonas": {
+      "mean_abs_shap": 0.10263216495513916,
+      "share": 0.002414470072835684,
+      "share_ci_low": 0.0019510271784383803,
+      "share_ci_high": 0.0028246189584024252,
+      "mean_shap_signed": 0.0013976030750200152
+    },
+    "cole_depto_ubicacion_Antioquia": {
+      "mean_abs_shap": 1.3332422971725464,
+      "share": 0.031365152448415756,
+      "share_ci_low": 0.03066817526705563,
+      "share_ci_high": 0.031997169088572266,
+      "mean_shap_signed": 0.03027898631989956
+    },
+    "cole_depto_ubicacion_Arauca": {
+      "mean_abs_shap": 0.08209213614463806,
+      "share": 0.0019312562653794885,
+      "share_ci_low": 0.001769549585878849,
+      "share_ci_high": 0.0020972488971892746,
+      "mean_shap_signed": 0.0006640509818680584
+    },
+    "cole_depto_ubicacion_Atlantico": {
+      "mean_abs_shap": 0.6180671453475952,
+      "share": 0.014540321193635464,
+      "share_ci_low": 0.013713795295916497,
+      "share_ci_high": 0.015425654337741434,
+      "mean_shap_signed": 0.010949145071208477
+    },
+    "cole_depto_ubicacion_Bogota": {
+      "mean_abs_shap": 0.13384781777858734,
+      "share": 0.003148833056911826,
+      "share_ci_low": 0.0029470340930856766,
+      "share_ci_high": 0.0033659297507256268,
+      "mean_shap_signed": -0.019692476838827133
+    },
+    "cole_depto_ubicacion_Bolivar": {
+      "mean_abs_shap": 1.6461246013641357,
+      "share": 0.03872585669159889,
+      "share_ci_low": 0.03751760050654411,
+      "share_ci_high": 0.03995604533702135,
+      "mean_shap_signed": 0.015548366121947765
+    },
+    "cole_depto_ubicacion_Caldas": {
+      "mean_abs_shap": 0.006812970153987408,
+      "share": 0.000160278330440633,
+      "share_ci_low": 0.0001445730169507442,
+      "share_ci_high": 0.00017719785391818733,
+      "mean_shap_signed": 0.00013488315744325519
+    },
+    "cole_depto_ubicacion_Caqueta": {
+      "mean_abs_shap": 0.056188590824604034,
+      "share": 0.0013218631502240896,
+      "share_ci_low": 0.0012127249239711091,
+      "share_ci_high": 0.0014448359928792343,
+      "mean_shap_signed": 0.0019445829093456268
+    },
+    "cole_depto_ubicacion_Casanare": {
+      "mean_abs_shap": 0.17668581008911133,
+      "share": 0.004156616982072592,
+      "share_ci_low": 0.003855249471962452,
+      "share_ci_high": 0.004397004097700119,
+      "mean_shap_signed": -0.019732359796762466
+    },
+    "cole_depto_ubicacion_Cauca": {
+      "mean_abs_shap": 0.7415528297424316,
+      "share": 0.017445379868149757,
+      "share_ci_low": 0.01676273262128234,
+      "share_ci_high": 0.018224115250632167,
+      "mean_shap_signed": 0.035723213106393814
+    },
+    "cole_depto_ubicacion_Cesar": {
+      "mean_abs_shap": 0.2694723308086395,
+      "share": 0.006339463870972395,
+      "share_ci_low": 0.005969287548214197,
+      "share_ci_high": 0.006716189649887383,
+      "mean_shap_signed": 0.00248099397867918
+    },
+    "cole_depto_ubicacion_Choco": {
+      "mean_abs_shap": 0.5260550379753113,
+      "share": 0.012375692836940289,
+      "share_ci_low": 0.011316507309675216,
+      "share_ci_high": 0.013429666939191521,
+      "mean_shap_signed": 0.06607790291309357
+    },
+    "cole_depto_ubicacion_Cordoba": {
+      "mean_abs_shap": 0.7221665978431702,
+      "share": 0.01698930934071541,
+      "share_ci_low": 0.01630969918332994,
+      "share_ci_high": 0.017706596571952105,
+      "mean_shap_signed": -0.022458933293819427
+    },
+    "cole_depto_ubicacion_Cundinamarca": {
+      "mean_abs_shap": 0.42711853981018066,
+      "share": 0.01004816498607397,
+      "share_ci_low": 0.009662857046350837,
+      "share_ci_high": 0.010383101552724839,
+      "mean_shap_signed": 0.015096232295036316
+    },
+    "cole_depto_ubicacion_Guainia": {
+      "mean_abs_shap": 0.006516411434859037,
+      "share": 0.00015330164751503617,
+      "share_ci_low": 0.00010695844302972546,
+      "share_ci_high": 0.0002107907446770696,
+      "mean_shap_signed": -0.001068080891855061
+    },
+    "cole_depto_ubicacion_Guaviare": {
+      "mean_abs_shap": 0.016991684213280678,
+      "share": 0.00039973738603293896,
+      "share_ci_low": 0.0003233090967114549,
+      "share_ci_high": 0.0004741990916954819,
+      "mean_shap_signed": 0.0011640804586932063
+    },
+    "cole_depto_ubicacion_Huila": {
+      "mean_abs_shap": 0.5324888229370117,
+      "share": 0.012527050450444221,
+      "share_ci_low": 0.011886518495157362,
+      "share_ci_high": 0.013051528693176806,
+      "mean_shap_signed": -0.019644219428300858
+    },
+    "cole_depto_ubicacion_La Guajira": {
+      "mean_abs_shap": 0.5019119381904602,
+      "share": 0.011807714588940144,
+      "share_ci_low": 0.011187186371535063,
+      "share_ci_high": 0.01276555801741779,
+      "mean_shap_signed": -0.00977231003344059
+    },
+    "cole_depto_ubicacion_Magdalena": {
+      "mean_abs_shap": 1.2543492317199707,
+      "share": 0.029509156942367554,
+      "share_ci_low": 0.028149142814800143,
+      "share_ci_high": 0.031027764454483985,
+      "mean_shap_signed": -0.0036610672250390053
+    },
+    "cole_depto_ubicacion_Meta": {
+      "mean_abs_shap": 0.07501581311225891,
+      "share": 0.0017647823551669717,
+      "share_ci_low": 0.0016471719311084599,
+      "share_ci_high": 0.0019199879345251248,
+      "mean_shap_signed": -0.006840263493359089
+    },
+    "cole_depto_ubicacion_Narino": {
+      "mean_abs_shap": 0.7700055241584778,
+      "share": 0.018114743754267693,
+      "share_ci_low": 0.017558365780860185,
+      "share_ci_high": 0.018819184927269816,
+      "mean_shap_signed": 0.024499468505382538
+    },
+    "cole_depto_ubicacion_Norte Santander": {
+      "mean_abs_shap": 0.2536277174949646,
+      "share": 0.005966711789369583,
+      "share_ci_low": 0.0056640675407834355,
+      "share_ci_high": 0.006219786521978676,
+      "mean_shap_signed": -0.0260070338845253
+    },
+    "cole_depto_ubicacion_Putumayo": {
+      "mean_abs_shap": 0.056554216891527176,
+      "share": 0.0013304646126925945,
+      "share_ci_low": 0.0012191090849228204,
+      "share_ci_high": 0.0014475629170192406,
+      "mean_shap_signed": -0.003652420360594988
+    },
+    "cole_depto_ubicacion_Quindio": {
+      "mean_abs_shap": 0.01690378226339817,
+      "share": 0.0003976694424636662,
+      "share_ci_low": 0.00035701517335837705,
+      "share_ci_high": 0.000451380766753573,
+      "mean_shap_signed": 0.0002469736209604889
+    },
+    "cole_depto_ubicacion_Risaralda": {
+      "mean_abs_shap": 0.04430942237377167,
+      "share": 0.0010424000211060047,
+      "share_ci_low": 0.0009752292651683092,
+      "share_ci_high": 0.0011254721466684714,
+      "mean_shap_signed": -0.0011999596608802676
+    },
+    "cole_depto_ubicacion_San Andres": {
+      "mean_abs_shap": 0.004395123105496168,
+      "share": 0.00010339734581066296,
+      "share_ci_low": 3.3598737445572624e-05,
+      "share_ci_high": 0.00022712021273036954,
+      "mean_shap_signed": -0.0016107774572446942
+    },
+    "cole_depto_ubicacion_Santander": {
+      "mean_abs_shap": 0.7844442129135132,
+      "share": 0.01845441944897175,
+      "share_ci_low": 0.01766109592281282,
+      "share_ci_high": 0.01913442462682724,
+      "mean_shap_signed": 0.0016995691694319248
+    },
+    "cole_depto_ubicacion_Sucre": {
+      "mean_abs_shap": 0.5210465788841248,
+      "share": 0.012257866561412811,
+      "share_ci_low": 0.011692887987010181,
+      "share_ci_high": 0.012927657808177173,
+      "mean_shap_signed": -0.07595312595367432
+    },
+    "cole_depto_ubicacion_Tolima": {
+      "mean_abs_shap": 0.3048526644706726,
+      "share": 0.0071718026883900166,
+      "share_ci_low": 0.006775037338957191,
+      "share_ci_high": 0.007487262529321015,
+      "mean_shap_signed": -0.012528877705335617
+    },
+    "cole_depto_ubicacion_Valle": {
+      "mean_abs_shap": 0.2483869343996048,
+      "share": 0.005843419581651688,
+      "share_ci_low": 0.005588737968355417,
+      "share_ci_high": 0.006137473497074097,
+      "mean_shap_signed": 0.002313864417374134
+    },
+    "cole_depto_ubicacion_Vaupes": {
+      "mean_abs_shap": 0.06451811641454697,
+      "share": 0.0015178191242739558,
+      "share_ci_low": 0.001241704370477237,
+      "share_ci_high": 0.0019134570204187185,
+      "mean_shap_signed": -0.009587102569639683
+    },
+    "cole_depto_ubicacion_Vichada": {
+      "mean_abs_shap": 0.028078455477952957,
+      "share": 0.0006605589296668768,
+      "share_ci_low": 0.0004924806533381342,
+      "share_ci_high": 0.0008637107763206586,
+      "mean_shap_signed": -0.0037301424890756607
+    },
+    "cole_genero_Femenino": {
+      "mean_abs_shap": 0.05638138949871063,
+      "share": 0.0013263988075777888,
+      "share_ci_low": 0.0010651846037944778,
+      "share_ci_high": 0.0015854783734539524,
+      "mean_shap_signed": 0.00871850922703743
+    },
+    "cole_genero_Masculino": {
+      "mean_abs_shap": 0.03207151219248772,
+      "share": 0.0007544974214397371,
+      "share_ci_low": 0.0005754527810495347,
+      "share_ci_high": 0.0009133960353210569,
+      "mean_shap_signed": -0.005475400015711784
+    },
+    "cole_jornada_Completa": {
+      "mean_abs_shap": 0.6379615068435669,
+      "share": 0.015008345246315002,
+      "share_ci_low": 0.014590094657614827,
+      "share_ci_high": 0.015402806992642583,
+      "mean_shap_signed": 0.11431959271430969
+    },
+    "cole_jornada_Noche": {
+      "mean_abs_shap": 3.9593684673309326,
+      "share": 0.09314601123332977,
+      "share_ci_low": 0.09092490170150995,
+      "share_ci_high": 0.09599243644624948,
+      "mean_shap_signed": -0.05119995400309563
+    },
+    "cole_jornada_Sabatina": {
+      "mean_abs_shap": 4.607077121734619,
+      "share": 0.1083836629986763,
+      "share_ci_low": 0.10584343094378709,
+      "share_ci_high": 0.11095456536859274,
+      "mean_shap_signed": -0.02487928979098797
+    },
+    "cole_jornada_Tarde": {
+      "mean_abs_shap": 0.08865456283092499,
+      "share": 0.0020856403280049562,
+      "share_ci_low": 0.0019806361757218837,
+      "share_ci_high": 0.0022154507052619013,
+      "mean_shap_signed": -0.0010053430451080203
+    },
+    "cole_jornada_Unica": {
+      "mean_abs_shap": 0.1277230679988861,
+      "share": 0.0030047453474253416,
+      "share_ci_low": 0.0028810427407734095,
+      "share_ci_high": 0.0031336210435256363,
+      "mean_shap_signed": 0.0028051037807017565
+    },
+    "cole_naturaleza_No Oficial": {
+      "mean_abs_shap": 0.47658175230026245,
+      "share": 0.011211810633540154,
+      "share_ci_low": 0.01074713570997119,
+      "share_ci_high": 0.011700484529137611,
+      "mean_shap_signed": 0.011792252771556377
+    },
+    "cole_sede_principal": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "estu_genero_M": {
+      "mean_abs_shap": 3.107149124145508,
+      "share": 0.07309714704751968,
+      "share_ci_low": 0.07266796976327897,
+      "share_ci_high": 0.07358330506831408,
+      "mean_shap_signed": 0.04174380376935005
+    },
+    "fami_estratovivienda": {
+      "mean_abs_shap": 2.257777214050293,
+      "share": 0.053115274757146835,
+      "share_ci_low": 0.051795305032283065,
+      "share_ci_high": 0.054490726161748174,
+      "mean_shap_signed": -0.02981274388730526
+    },
+    "fami_educacionmadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.00262863514944911,
+      "share": 6.18398844380863e-05,
+      "share_ci_low": 4.408909717312781e-05,
+      "share_ci_high": 8.29993274237495e-05,
+      "mean_shap_signed": -0.0005175512051209807
+    },
+    "fami_educacionmadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.0013859770260751247,
+      "share": 3.2605763408355415e-05,
+      "share_ci_low": 2.3485253086619197e-05,
+      "share_ci_high": 4.5302808757696766e-05,
+      "mean_shap_signed": -0.0006018854328431189
+    },
+    "fami_educacionmadre_Ninguno": {
+      "mean_abs_shap": 1.020757794380188,
+      "share": 0.024013807997107506,
+      "share_ci_low": 0.0233261929359287,
+      "share_ci_high": 0.024731716979295017,
+      "mean_shap_signed": 0.020619438961148262
+    },
+    "fami_educacionmadre_Postgrado": {
+      "mean_abs_shap": 0.0001415828155586496,
+      "share": 3.330802428536117e-06,
+      "share_ci_low": 3.060518719166794e-06,
+      "share_ci_high": 3.7935744614969737e-06,
+      "mean_shap_signed": 7.14169000275433e-05
+    },
+    "fami_educacionmadre_Primaria Completa": {
+      "mean_abs_shap": 0.5374240279197693,
+      "share": 0.01264315377920866,
+      "share_ci_low": 0.012495657033286988,
+      "share_ci_high": 0.012816973566077649,
+      "mean_shap_signed": 0.14555606245994568
+    },
+    "fami_educacionmadre_Primaria Incompleta": {
+      "mean_abs_shap": 1.3633177280426025,
+      "share": 0.03207269310951233,
+      "share_ci_low": 0.03179098963737488,
+      "share_ci_high": 0.032377667352557184,
+      "mean_shap_signed": -0.17292948067188263
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Completa": {
+      "mean_abs_shap": 0.5032793283462524,
+      "share": 0.011839883401989937,
+      "share_ci_low": 0.011442983173765242,
+      "share_ci_high": 0.012223434168845415,
+      "mean_shap_signed": 0.03163473680615425
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 0.05123526602983475,
+      "share": 0.0012053337413817644,
+      "share_ci_low": 0.0010338777909055352,
+      "share_ci_high": 0.0014457477664109322,
+      "mean_shap_signed": -0.004447272978723049
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.02940172702074051,
+      "share": 0.0006916894926689565,
+      "share_ci_low": 0.0005851556605193764,
+      "share_ci_high": 0.0008349346710019745,
+      "mean_shap_signed": -0.007290912792086601
+    },
+    "fami_educacionpadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.0004168574814684689,
+      "share": 9.806768503040075e-06,
+      "share_ci_low": 6.640005187819042e-06,
+      "share_ci_high": 1.3952525773675006e-05,
+      "mean_shap_signed": 1.2167957720521372e-05
+    },
+    "fami_educacionpadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.0004081651568412781,
+      "share": 9.60227771429345e-06,
+      "share_ci_low": 6.868971638596122e-06,
+      "share_ci_high": 1.3077228845759237e-05,
+      "mean_shap_signed": -0.0001653030194574967
+    },
+    "fami_educacionpadre_Ninguno": {
+      "mean_abs_shap": 0.7991353273391724,
+      "share": 0.0188000351190567,
+      "share_ci_low": 0.018348695524036885,
+      "share_ci_high": 0.019237267132848502,
+      "mean_shap_signed": 0.010139013640582561
+    },
+    "fami_educacionpadre_Postgrado": {
+      "mean_abs_shap": 9.322540427092463e-05,
+      "share": 2.1931716673861956e-06,
+      "share_ci_low": 2.071791396929257e-06,
+      "share_ci_high": 2.3469091104288966e-06,
+      "mean_shap_signed": -2.3427175619872287e-05
+    },
+    "fami_educacionpadre_Primaria Completa": {
+      "mean_abs_shap": 0.18771474063396454,
+      "share": 0.004416077863425016,
+      "share_ci_low": 0.004315363499335945,
+      "share_ci_high": 0.004542716103605926,
+      "mean_shap_signed": 0.07662885636091232
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Completa": {
+      "mean_abs_shap": 0.25272002816200256,
+      "share": 0.005945357959717512,
+      "share_ci_low": 0.0056624037213623525,
+      "share_ci_high": 0.0062493978068232535,
+      "mean_shap_signed": -5.972910003038123e-05
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.3308164179325104,
+      "share": 0.00778261199593544,
+      "share_ci_low": 0.0075183972017839554,
+      "share_ci_high": 0.008047911734320224,
+      "mean_shap_signed": 0.003701539942994714
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 0.007152635138481855,
+      "share": 0.00016826910723466426,
+      "share_ci_low": 0.00010560609753156314,
+      "share_ci_high": 0.00024231025054177735,
+      "mean_shap_signed": -0.0001753527467371896
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.0019467729143798351,
+      "share": 4.5798751671100035e-05,
+      "share_ci_low": 3.0495830151267002e-05,
+      "share_ci_high": 6.321549553831574e-05,
+      "mean_shap_signed": -5.7350982388015836e-05
+    },
+    "fami_tieneinternet": {
+      "mean_abs_shap": 0.3529236316680908,
+      "share": 0.008302695117890835,
+      "share_ci_low": 0.008079071645624936,
+      "share_ci_high": 0.008592606312595308,
+      "mean_shap_signed": -0.012769410386681557
+    },
+    "fami_tienecomputador": {
+      "mean_abs_shap": 0.976646900177002,
+      "share": 0.02297607809305191,
+      "share_ci_low": 0.022471010871231555,
+      "share_ci_high": 0.023615898145362735,
+      "mean_shap_signed": -0.017667239531874657
+    },
+    "fami_tieneautomovil": {
+      "mean_abs_shap": 0.3224189579486847,
+      "share": 0.0075850579887628555,
+      "share_ci_low": 0.007239983428735286,
+      "share_ci_high": 0.007969181332737208,
+      "mean_shap_signed": 0.021514123305678368
+    },
+    "fami_tienelavadora": {
+      "mean_abs_shap": 0.2100348323583603,
+      "share": 0.004941168241202831,
+      "share_ci_low": 0.004816690203733742,
+      "share_ci_high": 0.005118748557288199,
+      "mean_shap_signed": -0.028908072039484978
+    },
+    "fami_tieneserviciotv": {
+      "mean_abs_shap": 0.8348206877708435,
+      "share": 0.019639549776911736,
+      "share_ci_low": 0.01939617288298905,
+      "share_ci_high": 0.019887168332934378,
+      "mean_shap_signed": -0.02747107297182083
+    },
+    "fami_cuartoshogar": {
+      "mean_abs_shap": 1.5515244007110596,
+      "share": 0.036500342190265656,
+      "share_ci_low": 0.035885189473628995,
+      "share_ci_high": 0.037240746431052685,
+      "mean_shap_signed": 0.09727591276168823
+    },
+    "fami_personashogar": {
+      "mean_abs_shap": 1.4696588516235352,
+      "share": 0.034574419260025024,
+      "share_ci_low": 0.033996894489973783,
+      "share_ci_high": 0.03508652150630951,
+      "mean_shap_signed": -0.11840973049402237
+    }
+  },
+  "1": {
+    "cole_area_ubicacion_Rural": {
+      "mean_abs_shap": 3.001981496810913,
+      "share": 0.06093401089310646,
+      "share_ci_low": 0.05971633270382881,
+      "share_ci_high": 0.06203488502651453,
+      "mean_shap_signed": -0.05965811759233475
+    },
+    "cole_bilingue": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_calendario_B": {
+      "mean_abs_shap": 4.9876587581820786e-05,
+      "share": 1.0123915217263857e-06,
+      "share_ci_low": 8.779062198982502e-07,
+      "share_ci_high": 1.1584057858726738e-06,
+      "mean_shap_signed": -4.9876587581820786e-05
+    },
+    "cole_caracter_Académico": {
+      "mean_abs_shap": 0.3655628561973572,
+      "share": 0.007420169655233622,
+      "share_ci_low": 0.007265351782552898,
+      "share_ci_high": 0.007552339741960168,
+      "mean_shap_signed": 0.03191496431827545
+    },
+    "cole_caracter_No Aplica": {
+      "mean_abs_shap": 0.013915692456066608,
+      "share": 0.00028245977591723204,
+      "share_ci_low": 0.00017376621908624657,
+      "share_ci_high": 0.0003929726306523662,
+      "mean_shap_signed": -0.0007348299841396511
+    },
+    "cole_caracter_Técnico/Académico": {
+      "mean_abs_shap": 0.7395875453948975,
+      "share": 0.015012096613645554,
+      "share_ci_low": 0.014804883231408893,
+      "share_ci_high": 0.01526664886623621,
+      "mean_shap_signed": -0.01739083044230938
+    },
+    "cole_depto_ubicacion_Amazonas": {
+      "mean_abs_shap": 0.09972330182790756,
+      "share": 0.002024176763370633,
+      "share_ci_low": 0.0017113629553932696,
+      "share_ci_high": 0.0023389978625345978,
+      "mean_shap_signed": -0.004697503987699747
+    },
+    "cole_depto_ubicacion_Antioquia": {
+      "mean_abs_shap": 0.3397770822048187,
+      "share": 0.006896771490573883,
+      "share_ci_low": 0.006601810641586781,
+      "share_ci_high": 0.007241523871198296,
+      "mean_shap_signed": 0.014810328371822834
+    },
+    "cole_depto_ubicacion_Arauca": {
+      "mean_abs_shap": 0.10409234464168549,
+      "share": 0.0021128591615706682,
+      "share_ci_low": 0.0019139022915624082,
+      "share_ci_high": 0.0023196827329229563,
+      "mean_shap_signed": -0.007160102017223835
+    },
+    "cole_depto_ubicacion_Atlantico": {
+      "mean_abs_shap": 1.6688687801361084,
+      "share": 0.03387458249926567,
+      "share_ci_low": 0.03324294770136475,
+      "share_ci_high": 0.03461366547271609,
+      "mean_shap_signed": 0.1822340488433838
+    },
+    "cole_depto_ubicacion_Bolivar": {
+      "mean_abs_shap": 2.8650405406951904,
+      "share": 0.0581543929874897,
+      "share_ci_low": 0.05685059679672122,
+      "share_ci_high": 0.059713863767683506,
+      "mean_shap_signed": -0.14303766191005707
+    },
+    "cole_depto_ubicacion_Boyaca": {
+      "mean_abs_shap": 0.3295438587665558,
+      "share": 0.006689058616757393,
+      "share_ci_low": 0.00612467301543802,
+      "share_ci_high": 0.0073648322839289905,
+      "mean_shap_signed": -0.01665659248828888
+    },
+    "cole_depto_ubicacion_Caldas": {
+      "mean_abs_shap": 0.06267599016427994,
+      "share": 0.0012721929233521223,
+      "share_ci_low": 0.0011204753536731005,
+      "share_ci_high": 0.0014217348070815206,
+      "mean_shap_signed": 0.010173985734581947
+    },
+    "cole_depto_ubicacion_Caqueta": {
+      "mean_abs_shap": 0.012871111743152142,
+      "share": 0.00026125693693757057,
+      "share_ci_low": 0.00022826421409263275,
+      "share_ci_high": 0.00030421058982028627,
+      "mean_shap_signed": 0.0005483980057761073
+    },
+    "cole_depto_ubicacion_Casanare": {
+      "mean_abs_shap": 0.1470940113067627,
+      "share": 0.002985703991726041,
+      "share_ci_low": 0.0027134794276207686,
+      "share_ci_high": 0.003343635029159486,
+      "mean_shap_signed": 0.002132548252120614
+    },
+    "cole_depto_ubicacion_Cauca": {
+      "mean_abs_shap": 0.3674684762954712,
+      "share": 0.007458849810063839,
+      "share_ci_low": 0.007132143585477024,
+      "share_ci_high": 0.0077461207984015346,
+      "mean_shap_signed": 0.008774328045547009
+    },
+    "cole_depto_ubicacion_Cesar": {
+      "mean_abs_shap": 0.32118019461631775,
+      "share": 0.006519293412566185,
+      "share_ci_low": 0.00618516489630565,
+      "share_ci_high": 0.0067516250419430435,
+      "mean_shap_signed": -0.022024057805538177
+    },
+    "cole_depto_ubicacion_Choco": {
+      "mean_abs_shap": 0.8839452266693115,
+      "share": 0.017942259088158607,
+      "share_ci_low": 0.016859781742095948,
+      "share_ci_high": 0.01908228397369385,
+      "mean_shap_signed": -0.00211643916554749
+    },
+    "cole_depto_ubicacion_Cordoba": {
+      "mean_abs_shap": 0.1464507281780243,
+      "share": 0.002972646849229932,
+      "share_ci_low": 0.0028314809256698935,
+      "share_ci_high": 0.003130262449849397,
+      "mean_shap_signed": 0.0033992782700806856
+    },
+    "cole_depto_ubicacion_Cundinamarca": {
+      "mean_abs_shap": 0.39497891068458557,
+      "share": 0.008017254993319511,
+      "share_ci_low": 0.007557714101858437,
+      "share_ci_high": 0.00858697562944144,
+      "mean_shap_signed": -0.002044266788288951
+    },
+    "cole_depto_ubicacion_Guainia": {
+      "mean_abs_shap": 0.009696315042674541,
+      "share": 0.0001968151336768642,
+      "share_ci_low": 0.00013367952560656705,
+      "share_ci_high": 0.0002647012421221007,
+      "mean_shap_signed": 0.000815399456769228
+    },
+    "cole_depto_ubicacion_Guaviare": {
+      "mean_abs_shap": 0.0009867653716355562,
+      "share": 2.002929431910161e-05,
+      "share_ci_low": 1.7268188412344897e-05,
+      "share_ci_high": 2.366423746025248e-05,
+      "mean_shap_signed": -0.0003751811455003917
+    },
+    "cole_depto_ubicacion_Huila": {
+      "mean_abs_shap": 0.29699915647506714,
+      "share": 0.006028468254953623,
+      "share_ci_low": 0.005430745100602508,
+      "share_ci_high": 0.00647549640852958,
+      "mean_shap_signed": 0.005754946265369654
+    },
+    "cole_depto_ubicacion_La Guajira": {
+      "mean_abs_shap": 0.7097325921058655,
+      "share": 0.01440610270947218,
+      "share_ci_low": 0.01370612233877182,
+      "share_ci_high": 0.015117800771258771,
+      "mean_shap_signed": 0.011758527718484402
+    },
+    "cole_depto_ubicacion_Magdalena": {
+      "mean_abs_shap": 1.9507490396499634,
+      "share": 0.03959617018699646,
+      "share_ci_low": 0.03809553822502494,
+      "share_ci_high": 0.04082888057455421,
+      "mean_shap_signed": -0.06601841747760773
+    },
+    "cole_depto_ubicacion_Meta": {
+      "mean_abs_shap": 0.12206661701202393,
+      "share": 0.0024776996579021215,
+      "share_ci_low": 0.002234426839277148,
+      "share_ci_high": 0.002696710132295266,
+      "mean_shap_signed": 0.009388415142893791
+    },
+    "cole_depto_ubicacion_Narino": {
+      "mean_abs_shap": 0.7270006537437439,
+      "share": 0.014756608754396439,
+      "share_ci_low": 0.014171637105755508,
+      "share_ci_high": 0.015438425308093428,
+      "mean_shap_signed": -0.06993040442466736
+    },
+    "cole_depto_ubicacion_Norte Santander": {
+      "mean_abs_shap": 0.49384623765945435,
+      "share": 0.010024056769907475,
+      "share_ci_low": 0.009312627976760269,
+      "share_ci_high": 0.01054348461329937,
+      "mean_shap_signed": -0.00502297468483448
+    },
+    "cole_depto_ubicacion_Putumayo": {
+      "mean_abs_shap": 0.13223059475421906,
+      "share": 0.0026840073987841606,
+      "share_ci_low": 0.0024353065062314274,
+      "share_ci_high": 0.002973723184550181,
+      "mean_shap_signed": -0.0010116543853655457
+    },
+    "cole_depto_ubicacion_Quindio": {
+      "mean_abs_shap": 0.06104698404669762,
+      "share": 0.001239127479493618,
+      "share_ci_low": 0.0011066261562518776,
+      "share_ci_high": 0.0013890972011722624,
+      "mean_shap_signed": -0.012730141170322895
+    },
+    "cole_depto_ubicacion_Risaralda": {
+      "mean_abs_shap": 0.0959494411945343,
+      "share": 0.0019475751323625445,
+      "share_ci_low": 0.0017251735145691783,
+      "share_ci_high": 0.0022360656992532315,
+      "mean_shap_signed": 0.00662079406902194
+    },
+    "cole_depto_ubicacion_San Andres": {
+      "mean_abs_shap": 0.052804864943027496,
+      "share": 0.0010718294652178884,
+      "share_ci_low": 0.0009327889492851682,
+      "share_ci_high": 0.001202123862458393,
+      "mean_shap_signed": 0.011319584213197231
+    },
+    "cole_depto_ubicacion_Santander": {
+      "mean_abs_shap": 0.6033501625061035,
+      "share": 0.012246759608387947,
+      "share_ci_low": 0.01136882316786796,
+      "share_ci_high": 0.013017815724015237,
+      "mean_shap_signed": -0.0033651054836809635
+    },
+    "cole_depto_ubicacion_Sucre": {
+      "mean_abs_shap": 0.12139590084552765,
+      "share": 0.0024640855845063925,
+      "share_ci_low": 0.0023325064743403346,
+      "share_ci_high": 0.002614467265084386,
+      "mean_shap_signed": -0.004306197632104158
+    },
+    "cole_depto_ubicacion_Tolima": {
+      "mean_abs_shap": 0.07133551687002182,
+      "share": 0.0014479634119197726,
+      "share_ci_low": 0.0013543377164751292,
+      "share_ci_high": 0.0015547212708042935,
+      "mean_shap_signed": 0.0007141787209548056
+    },
+    "cole_depto_ubicacion_Valle": {
+      "mean_abs_shap": 0.12312565743923187,
+      "share": 0.0024991959799081087,
+      "share_ci_low": 0.002350162010407075,
+      "share_ci_high": 0.00266670256969519,
+      "mean_shap_signed": 0.0006182657671160996
+    },
+    "cole_depto_ubicacion_Vaupes": {
+      "mean_abs_shap": 0.005922245793044567,
+      "share": 0.00012020933354506269,
+      "share_ci_low": 9.001304388220888e-05,
+      "share_ci_high": 0.00016305881872540341,
+      "mean_shap_signed": 0.0008957581594586372
+    },
+    "cole_depto_ubicacion_Vichada": {
+      "mean_abs_shap": 0.000261922919889912,
+      "share": 5.3164931159699336e-06,
+      "share_ci_low": 4.610023154327791e-06,
+      "share_ci_high": 6.165258264445584e-06,
+      "mean_shap_signed": 9.632488217903301e-05
+    },
+    "cole_genero_Femenino": {
+      "mean_abs_shap": 0.48158174753189087,
+      "share": 0.009775113314390182,
+      "share_ci_low": 0.009099417529068888,
+      "share_ci_high": 0.01035721970256418,
+      "mean_shap_signed": -0.0780736431479454
+    },
+    "cole_genero_Masculino": {
+      "mean_abs_shap": 0.03696565702557564,
+      "share": 0.0007503263186663389,
+      "share_ci_low": 0.0006184047611895949,
+      "share_ci_high": 0.0009080126255867071,
+      "mean_shap_signed": -0.0071553923189640045
+    },
+    "cole_jornada_Completa": {
+      "mean_abs_shap": 0.2689771056175232,
+      "share": 0.005459678824990988,
+      "share_ci_low": 0.0051329812267795205,
+      "share_ci_high": 0.005723113345447927,
+      "mean_shap_signed": -0.009779868647456169
+    },
+    "cole_jornada_Mañana": {
+      "mean_abs_shap": 0.43804290890693665,
+      "share": 0.008891364559531212,
+      "share_ci_low": 0.008758245059289039,
+      "share_ci_high": 0.009038832504302263,
+      "mean_shap_signed": 0.003535559168085456
+    },
+    "cole_jornada_Noche": {
+      "mean_abs_shap": 3.155338764190674,
+      "share": 0.06404684484004974,
+      "share_ci_low": 0.06137789795175195,
+      "share_ci_high": 0.06643368024379015,
+      "mean_shap_signed": -0.161020427942276
+    },
+    "cole_jornada_Sabatina": {
+      "mean_abs_shap": 1.098280429840088,
+      "share": 0.02229282073676586,
+      "share_ci_low": 0.02075961362570524,
+      "share_ci_high": 0.023757094377651812,
+      "mean_shap_signed": 0.01991964690387249
+    },
+    "cole_jornada_Tarde": {
+      "mean_abs_shap": 0.3894592225551605,
+      "share": 0.007905215956270695,
+      "share_ci_low": 0.007745359593536704,
+      "share_ci_high": 0.008115975558757782,
+      "mean_shap_signed": 0.008012616075575352
+    },
+    "cole_naturaleza_Oficial": {
+      "mean_abs_shap": 0.6961857676506042,
+      "share": 0.014131130650639534,
+      "share_ci_low": 0.013578284322284162,
+      "share_ci_high": 0.014733698172494768,
+      "mean_shap_signed": 0.008582492358982563
+    },
+    "cole_sede_principal": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "estu_genero_F": {
+      "mean_abs_shap": 2.440568208694458,
+      "share": 0.04953848570585251,
+      "share_ci_low": 0.0491975462064147,
+      "share_ci_high": 0.049946729000657795,
+      "mean_shap_signed": -0.00387550238519907
+    },
+    "fami_estratovivienda": {
+      "mean_abs_shap": 3.708019971847534,
+      "share": 0.07526513189077377,
+      "share_ci_low": 0.0736847972497344,
+      "share_ci_high": 0.07718145828694105,
+      "mean_shap_signed": 0.020932026207447052
+    },
+    "fami_educacionmadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.6651293635368347,
+      "share": 0.013500750064849854,
+      "share_ci_low": 0.013116086996160448,
+      "share_ci_high": 0.014021064015105366,
+      "mean_shap_signed": 0.024793334305286407
+    },
+    "fami_educacionmadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.24891804158687592,
+      "share": 0.005052521359175444,
+      "share_ci_low": 0.0047948263119906185,
+      "share_ci_high": 0.0054230275331065055,
+      "mean_shap_signed": -0.009235645644366741
+    },
+    "fami_educacionmadre_Ninguno": {
+      "mean_abs_shap": 0.06477958709001541,
+      "share": 0.0013148916186764836,
+      "share_ci_low": 0.001097442692844197,
+      "share_ci_high": 0.0015564765868475662,
+      "mean_shap_signed": 0.00787936057895422
+    },
+    "fami_educacionmadre_Postgrado": {
+      "mean_abs_shap": 0.051158659160137177,
+      "share": 0.001038414891809225,
+      "share_ci_low": 0.0008619081709184684,
+      "share_ci_high": 0.001263262832071632,
+      "mean_shap_signed": 0.0030387560836970806
+    },
+    "fami_educacionmadre_Primaria Completa": {
+      "mean_abs_shap": 0.23658962547779083,
+      "share": 0.004802279639989138,
+      "share_ci_low": 0.004617543239146471,
+      "share_ci_high": 0.005070487840566784,
+      "mean_shap_signed": -0.007523521315306425
+    },
+    "fami_educacionmadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.28209158778190613,
+      "share": 0.005725875496864319,
+      "share_ci_low": 0.005417299014516175,
+      "share_ci_high": 0.006071005156263709,
+      "mean_shap_signed": 0.007391343824565411
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 1.253491759300232,
+      "share": 0.025443289428949356,
+      "share_ci_low": 0.024999129911884667,
+      "share_ci_high": 0.02588231712579727,
+      "mean_shap_signed": -0.0711059421300888
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 2.190068483352661,
+      "share": 0.04445385932922363,
+      "share_ci_low": 0.04354682164266706,
+      "share_ci_high": 0.04536398528143763,
+      "mean_shap_signed": -0.04094907268881798
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.4532361924648285,
+      "share": 0.009199757128953934,
+      "share_ci_low": 0.008872067788615823,
+      "share_ci_high": 0.009553633653558791,
+      "mean_shap_signed": -0.0013239702675491571
+    },
+    "fami_educacionpadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.6430860757827759,
+      "share": 0.013053316622972488,
+      "share_ci_low": 0.012618327443487943,
+      "share_ci_high": 0.013508959161117674,
+      "mean_shap_signed": -0.004132057074457407
+    },
+    "fami_educacionpadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.277229905128479,
+      "share": 0.005627193488180637,
+      "share_ci_low": 0.005189823266118765,
+      "share_ci_high": 0.006051618268247694,
+      "mean_shap_signed": -0.008446206338703632
+    },
+    "fami_educacionpadre_Ninguno": {
+      "mean_abs_shap": 0.2058720886707306,
+      "share": 0.00417877733707428,
+      "share_ci_low": 0.003833394986577332,
+      "share_ci_high": 0.0045304915867745875,
+      "mean_shap_signed": -0.0018078814027830958
+    },
+    "fami_educacionpadre_Postgrado": {
+      "mean_abs_shap": 0.03932670131325722,
+      "share": 0.0007982506649568677,
+      "share_ci_low": 0.0006530768456286751,
+      "share_ci_high": 0.0009540559825836682,
+      "mean_shap_signed": 0.0017191648948937654
+    },
+    "fami_educacionpadre_Primaria Completa": {
+      "mean_abs_shap": 0.14198893308639526,
+      "share": 0.002882081549614668,
+      "share_ci_low": 0.0027561201073694973,
+      "share_ci_high": 0.003005476598627865,
+      "mean_shap_signed": 0.0064980569295585155
+    },
+    "fami_educacionpadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.23505666851997375,
+      "share": 0.0047711641527712345,
+      "share_ci_low": 0.004592845623847097,
+      "share_ci_high": 0.004973526287358254,
+      "mean_shap_signed": 0.015826361253857613
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.8668763637542725,
+      "share": 0.017595795914530754,
+      "share_ci_low": 0.017307385802268982,
+      "share_ci_high": 0.01787622570991516,
+      "mean_shap_signed": 0.023371556773781776
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 1.3649121522903442,
+      "share": 0.027704892680048943,
+      "share_ci_low": 0.02678767372854054,
+      "share_ci_high": 0.02851177235133946,
+      "mean_shap_signed": 0.08291937410831451
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.2485475093126297,
+      "share": 0.005044999998062849,
+      "share_ci_low": 0.004803310695569963,
+      "share_ci_high": 0.005324083007872105,
+      "mean_shap_signed": 0.0035227329935878515
+    },
+    "fami_tieneinternet": {
+      "mean_abs_shap": 1.9858050346374512,
+      "share": 0.04030773416161537,
+      "share_ci_low": 0.03992112092673779,
+      "share_ci_high": 0.04078586827963591,
+      "mean_shap_signed": -0.013237283565104008
+    },
+    "fami_tienecomputador": {
+      "mean_abs_shap": 1.6433686017990112,
+      "share": 0.033356983214616776,
+      "share_ci_low": 0.03278929414227605,
+      "share_ci_high": 0.03381241001188755,
+      "mean_shap_signed": 0.027429543435573578
+    },
+    "fami_tieneautomovil": {
+      "mean_abs_shap": 0.571071207523346,
+      "share": 0.011591563932597637,
+      "share_ci_low": 0.011182308942079545,
+      "share_ci_high": 0.012046736059710383,
+      "mean_shap_signed": 0.011119924485683441
+    },
+    "fami_tienelavadora": {
+      "mean_abs_shap": 0.45104989409446716,
+      "share": 0.009155379608273506,
+      "share_ci_low": 0.009029761864803731,
+      "share_ci_high": 0.009300700435414911,
+      "mean_shap_signed": -0.012703071348369122
+    },
+    "fami_tieneserviciotv": {
+      "mean_abs_shap": 1.3928921222686768,
+      "share": 0.028272828087210655,
+      "share_ci_low": 0.028053628047928214,
+      "share_ci_high": 0.028513448731973767,
+      "mean_shap_signed": -0.019539419561624527
+    },
+    "fami_cuartoshogar": {
+      "mean_abs_shap": 2.0723865032196045,
+      "share": 0.04206515848636627,
+      "share_ci_low": 0.04138919003307819,
+      "share_ci_high": 0.04279201589524746,
+      "mean_shap_signed": 0.21386270225048065
+    },
+    "fami_personashogar": {
+      "mean_abs_shap": 1.5244427919387817,
+      "share": 0.03094303421676159,
+      "share_ci_low": 0.03029156462289393,
+      "share_ci_high": 0.03144897688180208,
+      "mean_shap_signed": -0.22238709032535553
+    }
+  },
+  "2": {
+    "cole_area_ubicacion_Rural": {
+      "mean_abs_shap": 0.070643350481987,
+      "share": 0.00210467423312366,
+      "share_ci_low": 0.0018245187995489687,
+      "share_ci_high": 0.002447786822449416,
+      "mean_shap_signed": 0.007699882611632347
+    },
+    "cole_bilingue": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_calendario_Otro": {
+      "mean_abs_shap": 0.010789900086820126,
+      "share": 0.00032146304147318006,
+      "share_ci_low": 0.0002469496386765968,
+      "share_ci_high": 0.00042718274198705336,
+      "mean_shap_signed": -0.004311773460358381
+    },
+    "cole_caracter_Técnico/Académico": {
+      "mean_abs_shap": 0.29737958312034607,
+      "share": 0.008859816938638687,
+      "share_ci_low": 0.00851102799642831,
+      "share_ci_high": 0.009159464854747057,
+      "mean_shap_signed": 0.016747839748859406
+    },
+    "cole_depto_ubicacion_Antioquia": {
+      "mean_abs_shap": 0.7220791578292847,
+      "share": 0.021512873470783234,
+      "share_ci_low": 0.02108376482501626,
+      "share_ci_high": 0.02200256139039993,
+      "mean_shap_signed": -0.019712528213858604
+    },
+    "cole_depto_ubicacion_Atlantico": {
+      "mean_abs_shap": 0.4065304696559906,
+      "share": 0.012111744843423367,
+      "share_ci_low": 0.011413648491725326,
+      "share_ci_high": 0.012982859136536717,
+      "mean_shap_signed": 0.0006981546175666153
+    },
+    "cole_depto_ubicacion_Bogota": {
+      "mean_abs_shap": 1.8938781023025513,
+      "share": 0.056424230337142944,
+      "share_ci_low": 0.05594739615917206,
+      "share_ci_high": 0.056806762050837276,
+      "mean_shap_signed": 0.0338764488697052
+    },
+    "cole_depto_ubicacion_Bolivar": {
+      "mean_abs_shap": 0.1454295516014099,
+      "share": 0.004332776181399822,
+      "share_ci_low": 0.0036111473105847835,
+      "share_ci_high": 0.004993776755873114,
+      "mean_shap_signed": -0.0026077597867697477
+    },
+    "cole_depto_ubicacion_Caldas": {
+      "mean_abs_shap": 0.06130843982100487,
+      "share": 0.0018265597755089402,
+      "share_ci_low": 0.0017035527154803276,
+      "share_ci_high": 0.0019643292122054844,
+      "mean_shap_signed": -0.009015507996082306
+    },
+    "cole_depto_ubicacion_Cauca": {
+      "mean_abs_shap": 0.02613411471247673,
+      "share": 0.0007786125643178821,
+      "share_ci_low": 0.000649956293636933,
+      "share_ci_high": 0.0009181703193462454,
+      "mean_shap_signed": -0.004797696135938168
+    },
+    "cole_depto_ubicacion_Cesar": {
+      "mean_abs_shap": 0.0035184279549866915,
+      "share": 0.00010482437210157514,
+      "share_ci_low": 6.952426992938854e-05,
+      "share_ci_high": 0.00015703160606790338,
+      "mean_shap_signed": -0.0004541597736533731
+    },
+    "cole_depto_ubicacion_Cordoba": {
+      "mean_abs_shap": 0.33888205885887146,
+      "share": 0.010096298530697823,
+      "share_ci_low": 0.009450389049015939,
+      "share_ci_high": 0.010740328975953162,
+      "mean_shap_signed": 0.0003479106235317886
+    },
+    "cole_depto_ubicacion_Guainia": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_depto_ubicacion_Guaviare": {
+      "mean_abs_shap": 0.0031096856109797955,
+      "share": 9.264673280995339e-05,
+      "share_ci_low": 5.780030369351152e-05,
+      "share_ci_high": 0.0001395008537656395,
+      "mean_shap_signed": -2.8542408472276293e-05
+    },
+    "cole_depto_ubicacion_La Guajira": {
+      "mean_abs_shap": 0.31019166111946106,
+      "share": 0.009241526946425438,
+      "share_ci_low": 0.008307555154897273,
+      "share_ci_high": 0.010011731763370335,
+      "mean_shap_signed": 0.03878336027264595
+    },
+    "cole_depto_ubicacion_Magdalena": {
+      "mean_abs_shap": 0.27584174275398254,
+      "share": 0.00821814127266407,
+      "share_ci_low": 0.007318085874430835,
+      "share_ci_high": 0.009221540042199196,
+      "mean_shap_signed": 0.014242120087146759
+    },
+    "cole_depto_ubicacion_Narino": {
+      "mean_abs_shap": 0.44348740577697754,
+      "share": 0.013212800957262516,
+      "share_ci_low": 0.012188050360418857,
+      "share_ci_high": 0.01419366851914674,
+      "mean_shap_signed": -0.06800974905490875
+    },
+    "cole_depto_ubicacion_Risaralda": {
+      "mean_abs_shap": 0.06599657237529755,
+      "share": 0.001966233132407069,
+      "share_ci_low": 0.001841397996759042,
+      "share_ci_high": 0.0021590769465547055,
+      "mean_shap_signed": -0.0038514933548867702
+    },
+    "cole_depto_ubicacion_San Andres": {
+      "mean_abs_shap": 0.0021988395601511,
+      "share": 6.550993566634133e-05,
+      "share_ci_low": 3.761860289159813e-05,
+      "share_ci_high": 0.00012072621666447958,
+      "mean_shap_signed": -0.0002714004076551646
+    },
+    "cole_depto_ubicacion_Santander": {
+      "mean_abs_shap": 4.06806830142159e-05,
+      "share": 1.2119978691771394e-06,
+      "share_ci_low": 1.1962270491494565e-06,
+      "share_ci_high": 1.2285927510902184e-06,
+      "mean_shap_signed": -4.06806830142159e-05
+    },
+    "cole_depto_ubicacion_Sucre": {
+      "mean_abs_shap": 0.08659858256578445,
+      "share": 0.0025800277944654226,
+      "share_ci_low": 0.0022491708281449974,
+      "share_ci_high": 0.0028814826568122954,
+      "mean_shap_signed": 0.007397017441689968
+    },
+    "cole_depto_ubicacion_Tolima": {
+      "mean_abs_shap": 0.022962886840105057,
+      "share": 0.0006841323338449001,
+      "share_ci_low": 0.0005299746379023417,
+      "share_ci_high": 0.0008627784074633383,
+      "mean_shap_signed": 0.0034141093492507935
+    },
+    "cole_genero_Femenino": {
+      "mean_abs_shap": 0.4775727093219757,
+      "share": 0.014228302985429764,
+      "share_ci_low": 0.013270150660537184,
+      "share_ci_high": 0.015221041650511325,
+      "mean_shap_signed": -0.04124804958701134
+    },
+    "cole_genero_Masculino": {
+      "mean_abs_shap": 0.11507786810398102,
+      "share": 0.0034285099245607853,
+      "share_ci_low": 0.0030351924942806363,
+      "share_ci_high": 0.0037896909168921413,
+      "mean_shap_signed": -0.012725315056741238
+    },
+    "cole_jornada_Completa": {
+      "mean_abs_shap": 0.37185171246528625,
+      "share": 0.011078562587499619,
+      "share_ci_low": 0.0103100927779451,
+      "share_ci_high": 0.011832571378909052,
+      "mean_shap_signed": 0.008306847885251045
+    },
+    "cole_jornada_Noche": {
+      "mean_abs_shap": 4.035450458526611,
+      "share": 0.12022799998521805,
+      "share_ci_low": 0.11702606026083232,
+      "share_ci_high": 0.12423408050090075,
+      "mean_shap_signed": 0.08026225864887238
+    },
+    "cole_jornada_Sabatina": {
+      "mean_abs_shap": 0.6363867521286011,
+      "share": 0.01895984262228012,
+      "share_ci_low": 0.01739542973227799,
+      "share_ci_high": 0.020757007226347924,
+      "mean_shap_signed": -0.03437797725200653
+    },
+    "cole_jornada_Tarde": {
+      "mean_abs_shap": 0.8132489323616028,
+      "share": 0.02422909066081047,
+      "share_ci_low": 0.02388286665081978,
+      "share_ci_high": 0.02458436731249094,
+      "mean_shap_signed": 0.015208803117275238
+    },
+    "cole_jornada_Unica": {
+      "mean_abs_shap": 0.18606361746788025,
+      "share": 0.005543385166674852,
+      "share_ci_low": 0.005345336440950632,
+      "share_ci_high": 0.005773699854034931,
+      "mean_shap_signed": 0.00015378360694739968
+    },
+    "cole_naturaleza_No Oficial": {
+      "mean_abs_shap": 0.00010277187539031729,
+      "share": 3.061878032895038e-06,
+      "share_ci_low": 2.902525170611625e-06,
+      "share_ci_high": 3.2125819245720776e-06,
+      "mean_shap_signed": -0.00010277187539031729
+    },
+    "cole_sede_principal": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "estu_genero_F": {
+      "mean_abs_shap": 5.053812026977539,
+      "share": 0.15056800842285156,
+      "share_ci_low": 0.14954991675913334,
+      "share_ci_high": 0.15156226195394992,
+      "mean_shap_signed": -0.032041035592556
+    },
+    "fami_estratovivienda": {
+      "mean_abs_shap": 1.5094069242477417,
+      "share": 0.044969696551561356,
+      "share_ci_low": 0.0438751470297575,
+      "share_ci_high": 0.04632925726473332,
+      "mean_shap_signed": -0.0007859136094339192
+    },
+    "fami_educacionmadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.1982155591249466,
+      "share": 0.0059054275043308735,
+      "share_ci_low": 0.005545600922778249,
+      "share_ci_high": 0.006244690017774701,
+      "mean_shap_signed": -0.0068444861099123955
+    },
+    "fami_educacionmadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.20828068256378174,
+      "share": 0.006205297540873289,
+      "share_ci_low": 0.005756468896288424,
+      "share_ci_high": 0.006718900089617819,
+      "mean_shap_signed": -0.001315079047344625
+    },
+    "fami_educacionmadre_Ninguno": {
+      "mean_abs_shap": 0.2161531299352646,
+      "share": 0.006439840886741877,
+      "share_ci_low": 0.005981690052431076,
+      "share_ci_high": 0.006952308141626418,
+      "mean_shap_signed": 0.018886756151914597
+    },
+    "fami_educacionmadre_Postgrado": {
+      "mean_abs_shap": 0.03497306630015373,
+      "share": 0.00104195112362504,
+      "share_ci_low": 0.0008081110470811837,
+      "share_ci_high": 0.0012825615907786415,
+      "mean_shap_signed": 0.0014774893643334508
+    },
+    "fami_educacionmadre_Primaria Completa": {
+      "mean_abs_shap": 0.5414877533912659,
+      "share": 0.016132522374391556,
+      "share_ci_low": 0.01568280146457255,
+      "share_ci_high": 0.016500070877373218,
+      "mean_shap_signed": 0.01357963401824236
+    },
+    "fami_educacionmadre_Primaria Incompleta": {
+      "mean_abs_shap": 1.0643936395645142,
+      "share": 0.031711433082818985,
+      "share_ci_low": 0.030947337532415985,
+      "share_ci_high": 0.03243545833975077,
+      "mean_shap_signed": -0.04789789393544197
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.5967170596122742,
+      "share": 0.01777796633541584,
+      "share_ci_low": 0.01748150638304651,
+      "share_ci_high": 0.01803545095026493,
+      "mean_shap_signed": 0.061966169625520706
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 1.4267197847366333,
+      "share": 0.042506203055381775,
+      "share_ci_low": 0.041338227689266205,
+      "share_ci_high": 0.043756572809070346,
+      "mean_shap_signed": -0.00616538105532527
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.34956151247024536,
+      "share": 0.010414470918476582,
+      "share_ci_low": 0.009944582218304276,
+      "share_ci_high": 0.010883514559827745,
+      "mean_shap_signed": -8.923988207243383e-05
+    },
+    "fami_educacionpadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.14732007682323456,
+      "share": 0.004389100708067417,
+      "share_ci_low": 0.004113018326461315,
+      "share_ci_high": 0.004715716559439898,
+      "mean_shap_signed": -0.00049832952208817
+    },
+    "fami_educacionpadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.2698935568332672,
+      "share": 0.008040927350521088,
+      "share_ci_low": 0.007377440249547363,
+      "share_ci_high": 0.008808388584293425,
+      "mean_shap_signed": 0.0066747902892529964
+    },
+    "fami_educacionpadre_Ninguno": {
+      "mean_abs_shap": 0.5192376375198364,
+      "share": 0.015469624660909176,
+      "share_ci_low": 0.014710886892862618,
+      "share_ci_high": 0.016291195666417478,
+      "mean_shap_signed": -0.010031236335635185
+    },
+    "fami_educacionpadre_Postgrado": {
+      "mean_abs_shap": 0.01380827184766531,
+      "share": 0.0004113892500754446,
+      "share_ci_low": 0.0002979208140459377,
+      "share_ci_high": 0.0005202818938414566,
+      "mean_shap_signed": -0.0008223300101235509
+    },
+    "fami_educacionpadre_Primaria Completa": {
+      "mean_abs_shap": 0.5521606206893921,
+      "share": 0.01645049825310707,
+      "share_ci_low": 0.016055005975067614,
+      "share_ci_high": 0.016798823652788997,
+      "mean_shap_signed": -0.01760808937251568
+    },
+    "fami_educacionpadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.9327366948127747,
+      "share": 0.027788983657956123,
+      "share_ci_low": 0.02735148072242737,
+      "share_ci_high": 0.028330738982185723,
+      "mean_shap_signed": -0.026711514219641685
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.5381239056587219,
+      "share": 0.016032302752137184,
+      "share_ci_low": 0.015765421884134413,
+      "share_ci_high": 0.016278432263061405,
+      "mean_shap_signed": 0.06207699701189995
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 0.7192173004150391,
+      "share": 0.021427610889077187,
+      "share_ci_low": 0.020537234097719192,
+      "share_ci_high": 0.02234866227954626,
+      "mean_shap_signed": 0.00020482848049141467
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.2679852247238159,
+      "share": 0.007984071969985962,
+      "share_ci_low": 0.00750227653188631,
+      "share_ci_high": 0.008506275969557464,
+      "mean_shap_signed": 0.011003266088664532
+    },
+    "fami_tieneinternet": {
+      "mean_abs_shap": 0.49938857555389404,
+      "share": 0.014878262765705585,
+      "share_ci_low": 0.014495947537943721,
+      "share_ci_high": 0.015332868695259095,
+      "mean_shap_signed": -0.02493632212281227
+    },
+    "fami_tienecomputador": {
+      "mean_abs_shap": 2.266218662261963,
+      "share": 0.06751735508441925,
+      "share_ci_low": 0.06646826267242431,
+      "share_ci_high": 0.0686360565945506,
+      "mean_shap_signed": 0.0135647626593709
+    },
+    "fami_tieneautomovil": {
+      "mean_abs_shap": 0.5548221468925476,
+      "share": 0.016529792919754982,
+      "share_ci_low": 0.016193892015144228,
+      "share_ci_high": 0.016822846420109273,
+      "mean_shap_signed": -0.0023646473418921232
+    },
+    "fami_tienelavadora": {
+      "mean_abs_shap": 0.1862594187259674,
+      "share": 0.005549218971282244,
+      "share_ci_low": 0.005357093364000321,
+      "share_ci_high": 0.00577862358186394,
+      "mean_shap_signed": 0.006195832975208759
+    },
+    "fami_tieneserviciotv": {
+      "mean_abs_shap": 0.36378243565559387,
+      "share": 0.010838154703378677,
+      "share_ci_low": 0.010528455558232962,
+      "share_ci_high": 0.011128803808242082,
+      "mean_shap_signed": -0.015323788858950138
+    },
+    "fami_cuartoshogar": {
+      "mean_abs_shap": 1.379132866859436,
+      "share": 0.041088446974754333,
+      "share_ci_low": 0.04030373329296708,
+      "share_ci_high": 0.04185298290103674,
+      "mean_shap_signed": -0.1636432558298111
+    },
+    "fami_personashogar": {
+      "mean_abs_shap": 1.33241605758667,
+      "share": 0.03969661518931389,
+      "share_ci_low": 0.03905129237100482,
+      "share_ci_high": 0.04038649369031191,
+      "mean_shap_signed": 0.17298156023025513
+    }
+  },
+  "3": {
+    "cole_area_ubicacion_Rural": {
+      "mean_abs_shap": 2.022226095199585,
+      "share": 0.04788738861680031,
+      "share_ci_low": 0.04675718946382403,
+      "share_ci_high": 0.04888432091102004,
+      "mean_shap_signed": -0.011764690279960632
+    },
+    "cole_bilingue": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_caracter_Académico": {
+      "mean_abs_shap": 0.5708402991294861,
+      "share": 0.013517801649868488,
+      "share_ci_low": 0.013244580943137407,
+      "share_ci_high": 0.013830042071640491,
+      "mean_shap_signed": 0.02089781127870083
+    },
+    "cole_caracter_No Aplica": {
+      "mean_abs_shap": 0.00109156034886837,
+      "share": 2.5848728910204954e-05,
+      "share_ci_low": 1.07796314296138e-05,
+      "share_ci_high": 5.589992078967043e-05,
+      "mean_shap_signed": -0.00017672775720711797
+    },
+    "cole_caracter_Técnico": {
+      "mean_abs_shap": 0.16769592463970184,
+      "share": 0.003971128724515438,
+      "share_ci_low": 0.003819744219072163,
+      "share_ci_high": 0.004150542919524014,
+      "mean_shap_signed": 0.022539842873811722
+    },
+    "cole_depto_ubicacion_Amazonas": {
+      "mean_abs_shap": 0.013595308177173138,
+      "share": 0.00032194412779062986,
+      "share_ci_low": 0.00020232872338965535,
+      "share_ci_high": 0.0004670698639529292,
+      "mean_shap_signed": 0.001688481541350484
+    },
+    "cole_depto_ubicacion_Antioquia": {
+      "mean_abs_shap": 1.5002888441085815,
+      "share": 0.035527635365724564,
+      "share_ci_low": 0.03491390775889158,
+      "share_ci_high": 0.03608715683221817,
+      "mean_shap_signed": 0.026478005573153496
+    },
+    "cole_depto_ubicacion_Arauca": {
+      "mean_abs_shap": 0.00785856693983078,
+      "share": 0.00018609504331834614,
+      "share_ci_low": 0.00016227671367232687,
+      "share_ci_high": 0.00021547332253248896,
+      "mean_shap_signed": -0.0001443597284378484
+    },
+    "cole_depto_ubicacion_Atlantico": {
+      "mean_abs_shap": 0.2712322771549225,
+      "share": 0.006422924343496561,
+      "share_ci_low": 0.005824050062801689,
+      "share_ci_high": 0.00702278771204874,
+      "mean_shap_signed": 0.009929502382874489
+    },
+    "cole_depto_ubicacion_Bolivar": {
+      "mean_abs_shap": 0.5574766397476196,
+      "share": 0.013201342895627022,
+      "share_ci_low": 0.01219404700677842,
+      "share_ci_high": 0.014443756779655814,
+      "mean_shap_signed": 0.004650013986974955
+    },
+    "cole_depto_ubicacion_Boyaca": {
+      "mean_abs_shap": 0.8277429938316345,
+      "share": 0.01960139349102974,
+      "share_ci_low": 0.018931285152211784,
+      "share_ci_high": 0.020317584788426758,
+      "mean_shap_signed": 0.004354575648903847
+    },
+    "cole_depto_ubicacion_Caldas": {
+      "mean_abs_shap": 0.12199964374303818,
+      "share": 0.0028890164103358984,
+      "share_ci_low": 0.00269440813572146,
+      "share_ci_high": 0.0031138713704422115,
+      "mean_shap_signed": -0.0009640305652283132
+    },
+    "cole_depto_ubicacion_Caqueta": {
+      "mean_abs_shap": 0.09583928436040878,
+      "share": 0.0022695250809192657,
+      "share_ci_low": 0.0020677772641647606,
+      "share_ci_high": 0.002458421210758388,
+      "mean_shap_signed": 0.0001353871775791049
+    },
+    "cole_depto_ubicacion_Casanare": {
+      "mean_abs_shap": 0.057771094143390656,
+      "share": 0.001368050230666995,
+      "share_ci_low": 0.0012643539579585195,
+      "share_ci_high": 0.0014748814544873312,
+      "mean_shap_signed": 0.0015346367144957185
+    },
+    "cole_depto_ubicacion_Cauca": {
+      "mean_abs_shap": 0.1486191600561142,
+      "share": 0.003519380697980523,
+      "share_ci_low": 0.0030311091453768314,
+      "share_ci_high": 0.004051244165748358,
+      "mean_shap_signed": -0.003096178872510791
+    },
+    "cole_depto_ubicacion_Cesar": {
+      "mean_abs_shap": 0.33334624767303467,
+      "share": 0.007893816567957401,
+      "share_ci_low": 0.007250934466719627,
+      "share_ci_high": 0.008621500758454203,
+      "mean_shap_signed": -0.019312139600515366
+    },
+    "cole_depto_ubicacion_Choco": {
+      "mean_abs_shap": 0.32510578632354736,
+      "share": 0.007698677480220795,
+      "share_ci_low": 0.0068438766757026315,
+      "share_ci_high": 0.008474793564528228,
+      "mean_shap_signed": 0.062181297689676285
+    },
+    "cole_depto_ubicacion_Cundinamarca": {
+      "mean_abs_shap": 0.6872224807739258,
+      "share": 0.01627379283308983,
+      "share_ci_low": 0.01569301220588386,
+      "share_ci_high": 0.016738146916031836,
+      "mean_shap_signed": -0.045041296631097794
+    },
+    "cole_depto_ubicacion_Guaviare": {
+      "mean_abs_shap": 0.01917937584221363,
+      "share": 0.0004541778180282563,
+      "share_ci_low": 0.00030989774531917644,
+      "share_ci_high": 0.0006112033559475095,
+      "mean_shap_signed": -0.0018044996540993452
+    },
+    "cole_depto_ubicacion_Huila": {
+      "mean_abs_shap": 0.2548961043357849,
+      "share": 0.006036075297743082,
+      "share_ci_low": 0.005812567437533289,
+      "share_ci_high": 0.006321103312075138,
+      "mean_shap_signed": -0.013978169299662113
+    },
+    "cole_depto_ubicacion_La Guajira": {
+      "mean_abs_shap": 0.016371428966522217,
+      "share": 0.00038768412196077406,
+      "share_ci_low": 0.00028468643067753875,
+      "share_ci_high": 0.0005227827190537938,
+      "mean_shap_signed": 0.0035879588685929775
+    },
+    "cole_depto_ubicacion_Magdalena": {
+      "mean_abs_shap": 0.5858050584793091,
+      "share": 0.013872174546122551,
+      "share_ci_low": 0.01269054664298892,
+      "share_ci_high": 0.015222967229783535,
+      "mean_shap_signed": 0.0008811476873233914
+    },
+    "cole_depto_ubicacion_Meta": {
+      "mean_abs_shap": 0.0795842632651329,
+      "share": 0.0018845975864678621,
+      "share_ci_low": 0.0017839923850260675,
+      "share_ci_high": 0.001987034548074007,
+      "mean_shap_signed": 0.0032878811471164227
+    },
+    "cole_depto_ubicacion_Narino": {
+      "mean_abs_shap": 0.06471177935600281,
+      "share": 0.0015324093401432037,
+      "share_ci_low": 0.0013946009596111253,
+      "share_ci_high": 0.0016804916085675359,
+      "mean_shap_signed": -0.0032591023482382298
+    },
+    "cole_depto_ubicacion_Putumayo": {
+      "mean_abs_shap": 0.025728262960910797,
+      "share": 0.0006092589464969933,
+      "share_ci_low": 0.0005216841833316721,
+      "share_ci_high": 0.0007007744701695628,
+      "mean_shap_signed": -0.00046308821765705943
+    },
+    "cole_depto_ubicacion_Quindio": {
+      "mean_abs_shap": 0.07134021073579788,
+      "share": 0.001689374097622931,
+      "share_ci_low": 0.001586642803158611,
+      "share_ci_high": 0.0017845842405222357,
+      "mean_shap_signed": -0.007118055131286383
+    },
+    "cole_depto_ubicacion_Risaralda": {
+      "mean_abs_shap": 0.012049755081534386,
+      "share": 0.0002853446057997644,
+      "share_ci_low": 0.00024699797795619817,
+      "share_ci_high": 0.0003343925993249286,
+      "mean_shap_signed": -0.0009699346264824271
+    },
+    "cole_depto_ubicacion_San Andres": {
+      "mean_abs_shap": 0.019343245774507523,
+      "share": 0.00045805831905454397,
+      "share_ci_low": 0.0002840794470102992,
+      "share_ci_high": 0.000708813380333595,
+      "mean_shap_signed": -0.004581533372402191
+    },
+    "cole_depto_ubicacion_Santander": {
+      "mean_abs_shap": 1.6197404861450195,
+      "share": 0.03835631534457207,
+      "share_ci_low": 0.03753416771069169,
+      "share_ci_high": 0.03930542143061757,
+      "mean_shap_signed": -0.0014204561011865735
+    },
+    "cole_depto_ubicacion_Sucre": {
+      "mean_abs_shap": 0.04409249126911163,
+      "share": 0.0010441335616633296,
+      "share_ci_low": 0.0008547840974642895,
+      "share_ci_high": 0.0012591827136930079,
+      "mean_shap_signed": -0.007568171713501215
+    },
+    "cole_depto_ubicacion_Tolima": {
+      "mean_abs_shap": 0.5933208465576172,
+      "share": 0.014050153084099293,
+      "share_ci_low": 0.01344275011215359,
+      "share_ci_high": 0.014634908689185978,
+      "mean_shap_signed": -0.03861706331372261
+    },
+    "cole_depto_ubicacion_Valle": {
+      "mean_abs_shap": 1.1861094236373901,
+      "share": 0.02808770164847374,
+      "share_ci_low": 0.02758770124055445,
+      "share_ci_high": 0.02862851843237877,
+      "mean_shap_signed": 0.02900889329612255
+    },
+    "cole_depto_ubicacion_Vaupes": {
+      "mean_abs_shap": 0.0005065103759989142,
+      "share": 1.1994434316875413e-05,
+      "share_ci_low": 1.1907916200470935e-05,
+      "share_ci_high": 1.2101626043659053e-05,
+      "mean_shap_signed": 0.0005064787692390382
+    },
+    "cole_depto_ubicacion_Vichada": {
+      "mean_abs_shap": 0.008109069429337978,
+      "share": 0.00019202707335352898,
+      "share_ci_low": 0.00011659485080599554,
+      "share_ci_high": 0.00028715242297039367,
+      "mean_shap_signed": -4.5838143705623224e-05
+    },
+    "cole_genero_Femenino": {
+      "mean_abs_shap": 0.22203978896141052,
+      "share": 0.0052580200135707855,
+      "share_ci_low": 0.004817868932150304,
+      "share_ci_high": 0.005733327101916075,
+      "mean_shap_signed": -0.03196835145354271
+    },
+    "cole_genero_Masculino": {
+      "mean_abs_shap": 0.01136109046638012,
+      "share": 0.0002690366527531296,
+      "share_ci_low": 0.00019294064950372558,
+      "share_ci_high": 0.0003949684971303214,
+      "mean_shap_signed": -0.0036414845380932093
+    },
+    "cole_jornada_Completa": {
+      "mean_abs_shap": 0.3385169506072998,
+      "share": 0.008016261272132397,
+      "share_ci_low": 0.007774199370760471,
+      "share_ci_high": 0.008235847414471208,
+      "mean_shap_signed": -0.0035695533733814955
+    },
+    "cole_jornada_Mañana": {
+      "mean_abs_shap": 0.7632718086242676,
+      "share": 0.018074681982398033,
+      "share_ci_low": 0.017911679204553367,
+      "share_ci_high": 0.01825372907333076,
+      "mean_shap_signed": 0.004892497789114714
+    },
+    "cole_jornada_Noche": {
+      "mean_abs_shap": 3.198211431503296,
+      "share": 0.07573534548282623,
+      "share_ci_low": 0.07296685744076967,
+      "share_ci_high": 0.07839658372104168,
+      "mean_shap_signed": 0.09768059849739075
+    },
+    "cole_jornada_Sabatina": {
+      "mean_abs_shap": 3.2006776332855225,
+      "share": 0.07579374313354492,
+      "share_ci_low": 0.07356603052467107,
+      "share_ci_high": 0.07858508713543415,
+      "mean_shap_signed": 0.11945027858018875
+    },
+    "cole_jornada_Unica": {
+      "mean_abs_shap": 0.3761381506919861,
+      "share": 0.008907151408493519,
+      "share_ci_low": 0.00873852614313364,
+      "share_ci_high": 0.00908322271425277,
+      "mean_shap_signed": -0.0168306827545166
+    },
+    "cole_naturaleza_No Oficial": {
+      "mean_abs_shap": 0.06347668170928955,
+      "share": 0.0015031615039333701,
+      "share_ci_low": 0.0013811074168188497,
+      "share_ci_high": 0.0016636071057291703,
+      "mean_shap_signed": 0.009782159700989723
+    },
+    "cole_sede_principal": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "estu_genero_M": {
+      "mean_abs_shap": 4.16700553894043,
+      "share": 0.0986769050359726,
+      "share_ci_low": 0.09812037125229836,
+      "share_ci_high": 0.09926804192364216,
+      "mean_shap_signed": -0.0053544798865914345
+    },
+    "fami_estratovivienda": {
+      "mean_abs_shap": 1.7644774913787842,
+      "share": 0.04178376495838165,
+      "share_ci_low": 0.0406480005942285,
+      "share_ci_high": 0.042857623845338824,
+      "mean_shap_signed": 0.00657080439850688
+    },
+    "fami_educacionmadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.04996881261467934,
+      "share": 0.001183288055472076,
+      "share_ci_low": 0.0010770861903438345,
+      "share_ci_high": 0.001304455497302115,
+      "mean_shap_signed": -0.0047688535414636135
+    },
+    "fami_educacionmadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.04100945591926575,
+      "share": 0.0009711256716400385,
+      "share_ci_low": 0.0008323323010699824,
+      "share_ci_high": 0.0011209505057195202,
+      "mean_shap_signed": 0.0022608397994190454
+    },
+    "fami_educacionmadre_Ninguno": {
+      "mean_abs_shap": 0.2973255515098572,
+      "share": 0.007040827069431543,
+      "share_ci_low": 0.006465733260847628,
+      "share_ci_high": 0.007622386259026825,
+      "mean_shap_signed": -0.004350364673882723
+    },
+    "fami_educacionmadre_Postgrado": {
+      "mean_abs_shap": 0.011291640810668468,
+      "share": 0.0002673920535016805,
+      "share_ci_low": 0.00019188150981790385,
+      "share_ci_high": 0.00035127346855006185,
+      "mean_shap_signed": 0.00011536791134858504
+    },
+    "fami_educacionmadre_Primaria Completa": {
+      "mean_abs_shap": 0.8982510566711426,
+      "share": 0.021271061152219772,
+      "share_ci_low": 0.020785071607679128,
+      "share_ci_high": 0.02166687697172165,
+      "mean_shap_signed": -0.13948693871498108
+    },
+    "fami_educacionmadre_Primaria Incompleta": {
+      "mean_abs_shap": 1.4688663482666016,
+      "share": 0.034783534705638885,
+      "share_ci_low": 0.03409400824457407,
+      "share_ci_high": 0.035588211845606565,
+      "mean_shap_signed": -0.21363615989685059
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Completa": {
+      "mean_abs_shap": 0.45414745807647705,
+      "share": 0.010754453018307686,
+      "share_ci_low": 0.010514067369513214,
+      "share_ci_high": 0.010991364228539168,
+      "mean_shap_signed": 0.42094334959983826
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.6523789763450623,
+      "share": 0.015448681078851223,
+      "share_ci_low": 0.015185241936706007,
+      "share_ci_high": 0.01576055702753365,
+      "mean_shap_signed": -0.09666053205728531
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 0.43814417719841003,
+      "share": 0.010375486686825752,
+      "share_ci_low": 0.009798157610930502,
+      "share_ci_high": 0.011069290549494326,
+      "mean_shap_signed": 0.03822264447808266
+    },
+    "fami_educacionpadre_Educación Profesional Completa": {
+      "mean_abs_shap": 0.03460804000496864,
+      "share": 0.0008195367408916354,
+      "share_ci_low": 0.0006897689454490319,
+      "share_ci_high": 0.0009648538965848275,
+      "mean_shap_signed": 0.004534371197223663
+    },
+    "fami_educacionpadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.02557523362338543,
+      "share": 0.0006056351121515036,
+      "share_ci_low": 0.0004660715763748158,
+      "share_ci_high": 0.0007373859931249172,
+      "mean_shap_signed": -0.0002837603387888521
+    },
+    "fami_educacionpadre_Ninguno": {
+      "mean_abs_shap": 0.6417971849441528,
+      "share": 0.015198098495602608,
+      "share_ci_low": 0.014655588590539993,
+      "share_ci_high": 0.015863665891811252,
+      "mean_shap_signed": 0.007007558364421129
+    },
+    "fami_educacionpadre_Postgrado": {
+      "mean_abs_shap": 0.0003820414422079921,
+      "share": 9.046943887369707e-06,
+      "share_ci_low": 7.680862381675979e-06,
+      "share_ci_high": 1.11934925598689e-05,
+      "mean_shap_signed": -0.00016807175416033715
+    },
+    "fami_educacionpadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.4782114326953888,
+      "share": 0.011324300430715084,
+      "share_ci_low": 0.011160434619523586,
+      "share_ci_high": 0.011501912982203067,
+      "mean_shap_signed": 0.055160533636808395
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Completa": {
+      "mean_abs_shap": 0.9086297154426575,
+      "share": 0.0215168334543705,
+      "share_ci_low": 0.0211669800337404,
+      "share_ci_high": 0.021857273066416383,
+      "mean_shap_signed": 0.009859846904873848
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.221037358045578,
+      "share": 0.005234281998127699,
+      "share_ci_low": 0.005103636474814266,
+      "share_ci_high": 0.005379325023386628,
+      "mean_shap_signed": 0.03345026820898056
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 0.2009340226650238,
+      "share": 0.004758224356919527,
+      "share_ci_low": 0.004361262999009341,
+      "share_ci_high": 0.005232440761756152,
+      "mean_shap_signed": -0.019667914137244225
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.07655937224626541,
+      "share": 0.0018129665404558182,
+      "share_ci_low": 0.001584960165200755,
+      "share_ci_high": 0.002033429511357099,
+      "mean_shap_signed": -0.0030419768299907446
+    },
+    "fami_tieneinternet": {
+      "mean_abs_shap": 1.371030330657959,
+      "share": 0.03246672451496124,
+      "share_ci_low": 0.032025969680398704,
+      "share_ci_high": 0.03296215292066336,
+      "mean_shap_signed": 0.027874911203980446
+    },
+    "fami_tienecomputador": {
+      "mean_abs_shap": 2.591676712036133,
+      "share": 0.06137228012084961,
+      "share_ci_low": 0.060671236366033554,
+      "share_ci_high": 0.062041456904262306,
+      "mean_shap_signed": 0.04816753417253494
+    },
+    "fami_tieneautomovil": {
+      "mean_abs_shap": 0.6958600878715515,
+      "share": 0.016478337347507477,
+      "share_ci_low": 0.016198009764775635,
+      "share_ci_high": 0.01677300133742392,
+      "mean_shap_signed": 0.014367698691785336
+    },
+    "fami_tienelavadora": {
+      "mean_abs_shap": 0.14194317162036896,
+      "share": 0.0033612896222621202,
+      "share_ci_low": 0.0032560936699155716,
+      "share_ci_high": 0.003444797231350094,
+      "mean_shap_signed": -0.013315795920789242
+    },
+    "fami_tieneserviciotv": {
+      "mean_abs_shap": 0.6868098974227905,
+      "share": 0.016264023259282112,
+      "share_ci_low": 0.016001582238823177,
+      "share_ci_high": 0.01656058873049915,
+      "mean_shap_signed": 0.0019877359736710787
+    },
+    "fami_cuartoshogar": {
+      "mean_abs_shap": 2.0770018100738525,
+      "share": 0.04918450489640236,
+      "share_ci_low": 0.0484445127658546,
+      "share_ci_high": 0.05010828450322151,
+      "mean_shap_signed": 0.12376604974269867
+    },
+    "fami_personashogar": {
+      "mean_abs_shap": 1.34932279586792,
+      "share": 0.03195267915725708,
+      "share_ci_low": 0.03141436986625194,
+      "share_ci_high": 0.032667229790240525,
+      "mean_shap_signed": -0.16152141988277435
+    }
+  },
+  "4": {
+    "cole_area_ubicacion_Rural": {
+      "mean_abs_shap": 1.0817341804504395,
+      "share": 0.024934813380241394,
+      "share_ci_low": 0.024018198531121016,
+      "share_ci_high": 0.025857240287587048,
+      "mean_shap_signed": 0.014334979467093945
+    },
+    "cole_bilingue": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_caracter_Académico": {
+      "mean_abs_shap": 0.45945850014686584,
+      "share": 0.010590875521302223,
+      "share_ci_low": 0.010309004550799727,
+      "share_ci_high": 0.010884098429232837,
+      "mean_shap_signed": -0.010444446466863155
+    },
+    "cole_caracter_Técnico/Académico": {
+      "mean_abs_shap": 0.8299300670623779,
+      "share": 0.019130533561110497,
+      "share_ci_low": 0.018861100543290377,
+      "share_ci_high": 0.019350563129410147,
+      "mean_shap_signed": 0.015886150300502777
+    },
+    "cole_depto_ubicacion_Amazonas": {
+      "mean_abs_shap": 0.032710906118154526,
+      "share": 0.000754011794924736,
+      "share_ci_low": 0.0005336962101864628,
+      "share_ci_high": 0.0009586001702700742,
+      "mean_shap_signed": -0.005935724824666977
+    },
+    "cole_depto_ubicacion_Antioquia": {
+      "mean_abs_shap": 0.34707769751548767,
+      "share": 0.008000411093235016,
+      "share_ci_low": 0.007762291422113776,
+      "share_ci_high": 0.008216437208466232,
+      "mean_shap_signed": -0.015156561508774757
+    },
+    "cole_depto_ubicacion_Arauca": {
+      "mean_abs_shap": 0.010012869723141193,
+      "share": 0.00023080443497747183,
+      "share_ci_low": 0.00019834288686979563,
+      "share_ci_high": 0.00026676370398490693,
+      "mean_shap_signed": 0.00018857474788092077
+    },
+    "cole_depto_ubicacion_Bogota": {
+      "mean_abs_shap": 0.5644028186798096,
+      "share": 0.01300992351025343,
+      "share_ci_low": 0.01248511706944555,
+      "share_ci_high": 0.013509489269927144,
+      "mean_shap_signed": -0.008371389470994473
+    },
+    "cole_depto_ubicacion_Bolivar": {
+      "mean_abs_shap": 1.2007081508636475,
+      "share": 0.027677256613969803,
+      "share_ci_low": 0.026580248354002835,
+      "share_ci_high": 0.029106436111032963,
+      "mean_shap_signed": 0.005625816527754068
+    },
+    "cole_depto_ubicacion_Boyaca": {
+      "mean_abs_shap": 0.8904391527175903,
+      "share": 0.020525315776467323,
+      "share_ci_low": 0.019552403828129172,
+      "share_ci_high": 0.02163497363217175,
+      "mean_shap_signed": 0.00037809304194524884
+    },
+    "cole_depto_ubicacion_Caldas": {
+      "mean_abs_shap": 0.28706637024879456,
+      "share": 0.006617103237658739,
+      "share_ci_low": 0.006135337299201638,
+      "share_ci_high": 0.007025507092475891,
+      "mean_shap_signed": 0.030460892245173454
+    },
+    "cole_depto_ubicacion_Caqueta": {
+      "mean_abs_shap": 0.008362661115825176,
+      "share": 0.0001927658449858427,
+      "share_ci_low": 0.00016679365871823392,
+      "share_ci_high": 0.0002175810204789741,
+      "mean_shap_signed": -0.00022076444292906672
+    },
+    "cole_depto_ubicacion_Casanare": {
+      "mean_abs_shap": 0.07666661590337753,
+      "share": 0.0017672250978648663,
+      "share_ci_low": 0.001609070657286793,
+      "share_ci_high": 0.0019249185745138675,
+      "mean_shap_signed": -0.0015092097455635667
+    },
+    "cole_depto_ubicacion_Cauca": {
+      "mean_abs_shap": 0.09178497642278671,
+      "share": 0.0021157150622457266,
+      "share_ci_low": 0.0019046539266128093,
+      "share_ci_high": 0.002362175635062158,
+      "mean_shap_signed": -0.0035828750114887953
+    },
+    "cole_depto_ubicacion_Cesar": {
+      "mean_abs_shap": 0.32335740327835083,
+      "share": 0.007453639525920153,
+      "share_ci_low": 0.006978837435599417,
+      "share_ci_high": 0.007934732944704592,
+      "mean_shap_signed": 0.022236371412873268
+    },
+    "cole_depto_ubicacion_Choco": {
+      "mean_abs_shap": 0.5577504634857178,
+      "share": 0.012856582179665565,
+      "share_ci_low": 0.011619388195686042,
+      "share_ci_high": 0.014142661960795522,
+      "mean_shap_signed": 0.0017430707812309265
+    },
+    "cole_depto_ubicacion_Cordoba": {
+      "mean_abs_shap": 0.07708427309989929,
+      "share": 0.0017768524121493101,
+      "share_ci_low": 0.0016012891515856608,
+      "share_ci_high": 0.00197658168617636,
+      "mean_shap_signed": -0.0022433025296777487
+    },
+    "cole_depto_ubicacion_Cundinamarca": {
+      "mean_abs_shap": 0.390710711479187,
+      "share": 0.009006185457110405,
+      "share_ci_low": 0.00874169406015426,
+      "share_ci_high": 0.009418078092858195,
+      "mean_shap_signed": -0.06413271278142929
+    },
+    "cole_depto_ubicacion_Guainia": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_depto_ubicacion_Guaviare": {
+      "mean_abs_shap": 0.002163587836548686,
+      "share": 4.987238207831979e-05,
+      "share_ci_low": 3.958735451305984e-05,
+      "share_ci_high": 6.418468274205225e-05,
+      "mean_shap_signed": 0.000643533596303314
+    },
+    "cole_depto_ubicacion_Huila": {
+      "mean_abs_shap": 0.3674376308917999,
+      "share": 0.008469723165035248,
+      "share_ci_low": 0.007790052786003798,
+      "share_ci_high": 0.009023022814653813,
+      "mean_shap_signed": 0.009008988738059998
+    },
+    "cole_depto_ubicacion_La Guajira": {
+      "mean_abs_shap": 0.4177633821964264,
+      "share": 0.009629771113395691,
+      "share_ci_low": 0.008726108283735812,
+      "share_ci_high": 0.010557673126459123,
+      "mean_shap_signed": -0.006651585455983877
+    },
+    "cole_depto_ubicacion_Magdalena": {
+      "mean_abs_shap": 0.8228350877761841,
+      "share": 0.01896698772907257,
+      "share_ci_low": 0.017919381568208336,
+      "share_ci_high": 0.02018174002878368,
+      "mean_shap_signed": 0.016963502392172813
+    },
+    "cole_depto_ubicacion_Meta": {
+      "mean_abs_shap": 0.19696879386901855,
+      "share": 0.00454028369858861,
+      "share_ci_low": 0.004216391930822283,
+      "share_ci_high": 0.004884204547852278,
+      "mean_shap_signed": 0.024235965684056282
+    },
+    "cole_depto_ubicacion_Narino": {
+      "mean_abs_shap": 0.5079675316810608,
+      "share": 0.011709046550095081,
+      "share_ci_low": 0.010967121296562254,
+      "share_ci_high": 0.01254307923372835,
+      "mean_shap_signed": -0.010737636126577854
+    },
+    "cole_depto_ubicacion_Norte Santander": {
+      "mean_abs_shap": 0.6481669545173645,
+      "share": 0.014940752647817135,
+      "share_ci_low": 0.014206977002322674,
+      "share_ci_high": 0.015693127736449243,
+      "mean_shap_signed": -0.014341647736728191
+    },
+    "cole_depto_ubicacion_Putumayo": {
+      "mean_abs_shap": 0.030606655403971672,
+      "share": 0.0007055072346702218,
+      "share_ci_low": 0.0006147114239865914,
+      "share_ci_high": 0.0008191438450012357,
+      "mean_shap_signed": -0.004352885764092207
+    },
+    "cole_depto_ubicacion_Quindio": {
+      "mean_abs_shap": 0.3311147689819336,
+      "share": 0.007632452994585037,
+      "share_ci_low": 0.007065342192072421,
+      "share_ci_high": 0.008262932347133756,
+      "mean_shap_signed": 0.025513743981719017
+    },
+    "cole_depto_ubicacion_Risaralda": {
+      "mean_abs_shap": 0.2861495316028595,
+      "share": 0.006595969200134277,
+      "share_ci_low": 0.006194774259347469,
+      "share_ci_high": 0.006974413490388543,
+      "mean_shap_signed": 0.015511304140090942
+    },
+    "cole_depto_ubicacion_San Andres": {
+      "mean_abs_shap": 0.03902508690953255,
+      "share": 0.0008995585958473384,
+      "share_ci_low": 0.0007113473460776731,
+      "share_ci_high": 0.0011588492314331233,
+      "mean_shap_signed": 0.0005847082938998938
+    },
+    "cole_depto_ubicacion_Santander": {
+      "mean_abs_shap": 1.7582648992538452,
+      "share": 0.04052937403321266,
+      "share_ci_low": 0.039191996213048697,
+      "share_ci_high": 0.04173695258796215,
+      "mean_shap_signed": -0.011626253835856915
+    },
+    "cole_depto_ubicacion_Sucre": {
+      "mean_abs_shap": 0.029639804735779762,
+      "share": 0.0006832205690443516,
+      "share_ci_low": 0.0006055786114302463,
+      "share_ci_high": 0.0007740079003269784,
+      "mean_shap_signed": -0.002129040425643325
+    },
+    "cole_depto_ubicacion_Tolima": {
+      "mean_abs_shap": 0.13332822918891907,
+      "share": 0.0030733193270862103,
+      "share_ci_low": 0.002915227902121842,
+      "share_ci_high": 0.0032498876680620015,
+      "mean_shap_signed": -0.02044673077762127
+    },
+    "cole_depto_ubicacion_Valle": {
+      "mean_abs_shap": 0.20169928669929504,
+      "share": 0.0046493252739310265,
+      "share_ci_low": 0.004358843818772584,
+      "share_ci_high": 0.004970485740341246,
+      "mean_shap_signed": -0.06913666427135468
+    },
+    "cole_depto_ubicacion_Vaupes": {
+      "mean_abs_shap": 5.961026545264758e-05,
+      "share": 1.3740630038228119e-06,
+      "share_ci_low": 1.2739453836729808e-06,
+      "share_ci_high": 1.4599273868043383e-06,
+      "mean_shap_signed": 1.8335347704123706e-05
+    },
+    "cole_depto_ubicacion_Vichada": {
+      "mean_abs_shap": 0.0075428117997944355,
+      "share": 0.00017386768013238907,
+      "share_ci_low": 0.00011847253954329062,
+      "share_ci_high": 0.00024306942177645399,
+      "mean_shap_signed": 0.00044753318070434034
+    },
+    "cole_genero_Femenino": {
+      "mean_abs_shap": 1.371962547302246,
+      "share": 0.03162480518221855,
+      "share_ci_low": 0.030283100437372923,
+      "share_ci_high": 0.032843274995684624,
+      "mean_shap_signed": 0.02132536470890045
+    },
+    "cole_genero_Masculino": {
+      "mean_abs_shap": 0.25533631443977356,
+      "share": 0.005885700695216656,
+      "share_ci_low": 0.005294025433249772,
+      "share_ci_high": 0.006541008432395756,
+      "mean_shap_signed": 0.008823957294225693
+    },
+    "cole_jornada_Completa": {
+      "mean_abs_shap": 0.45608314871788025,
+      "share": 0.010513070970773697,
+      "share_ci_low": 0.010064459941349923,
+      "share_ci_high": 0.010947289131581783,
+      "mean_shap_signed": -0.012630114331841469
+    },
+    "cole_jornada_Noche": {
+      "mean_abs_shap": 0.8377559781074524,
+      "share": 0.019310927018523216,
+      "share_ci_low": 0.017486482206732035,
+      "share_ci_high": 0.02079722648486495,
+      "mean_shap_signed": 0.07820798456668854
+    },
+    "cole_jornada_Sabatina": {
+      "mean_abs_shap": 0.3528878092765808,
+      "share": 0.008134338073432446,
+      "share_ci_low": 0.007260205410420895,
+      "share_ci_high": 0.00926814815029502,
+      "mean_shap_signed": 0.033990006893873215
+    },
+    "cole_jornada_Tarde": {
+      "mean_abs_shap": 0.3711898922920227,
+      "share": 0.008556216023862362,
+      "share_ci_low": 0.008274978585541248,
+      "share_ci_high": 0.008909629518166184,
+      "mean_shap_signed": -0.02522294782102108
+    },
+    "cole_jornada_Unica": {
+      "mean_abs_shap": 0.5898546576499939,
+      "share": 0.013596608303487301,
+      "share_ci_low": 0.013354166294448078,
+      "share_ci_high": 0.013860933715477586,
+      "mean_shap_signed": -0.045842647552490234
+    },
+    "cole_naturaleza_No Oficial": {
+      "mean_abs_shap": 0.24078789353370667,
+      "share": 0.005550348199903965,
+      "share_ci_low": 0.005146999808494002,
+      "share_ci_high": 0.006039901741314679,
+      "mean_shap_signed": 0.007050523534417152
+    },
+    "cole_sede_principal": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "estu_genero_F": {
+      "mean_abs_shap": 3.0104310512542725,
+      "share": 0.06939277797937393,
+      "share_ci_low": 0.0687658205628395,
+      "share_ci_high": 0.06989573128521442,
+      "mean_shap_signed": 0.09015672653913498
+    },
+    "fami_estratovivienda": {
+      "mean_abs_shap": 1.8517560958862305,
+      "share": 0.042684417217969894,
+      "share_ci_low": 0.04160903673619032,
+      "share_ci_high": 0.04375505270436406,
+      "mean_shap_signed": 0.002529445569962263
+    },
+    "fami_educacionmadre_Educación Profesional Completa": {
+      "mean_abs_shap": 2.502286195755005,
+      "share": 0.057679641991853714,
+      "share_ci_low": 0.05688773533329368,
+      "share_ci_high": 0.058467006962746385,
+      "mean_shap_signed": 0.052756842225790024
+    },
+    "fami_educacionmadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.8073026537895203,
+      "share": 0.018608953803777695,
+      "share_ci_low": 0.017973656440153717,
+      "share_ci_high": 0.01925329933874309,
+      "mean_shap_signed": -0.06962817907333374
+    },
+    "fami_educacionmadre_Ninguno": {
+      "mean_abs_shap": 0.006193065084517002,
+      "share": 0.00014275497233029455,
+      "share_ci_low": 0.0001028427759592887,
+      "share_ci_high": 0.00019848496740451087,
+      "mean_shap_signed": 0.0026916773058474064
+    },
+    "fami_educacionmadre_Postgrado": {
+      "mean_abs_shap": 1.3174052238464355,
+      "share": 0.030367214232683182,
+      "share_ci_low": 0.028971306001767515,
+      "share_ci_high": 0.031652670446783306,
+      "mean_shap_signed": 0.06373095512390137
+    },
+    "fami_educacionmadre_Primaria Completa": {
+      "mean_abs_shap": 0.028353702276945114,
+      "share": 0.0006535748834721744,
+      "share_ci_low": 0.0005603487748885527,
+      "share_ci_high": 0.0007650549247046001,
+      "mean_shap_signed": 0.0020351067651063204
+    },
+    "fami_educacionmadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.012154471129179,
+      "share": 0.00028017000295221806,
+      "share_ci_low": 0.00021413235808722674,
+      "share_ci_high": 0.00036414242276805453,
+      "mean_shap_signed": 0.004058995749801397
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.11313506960868835,
+      "share": 0.0026078512892127037,
+      "share_ci_low": 0.002449272252852097,
+      "share_ci_high": 0.0027779185329563916,
+      "mean_shap_signed": -0.0004110757727175951
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 2.4558305740356445,
+      "share": 0.05660880357027054,
+      "share_ci_low": 0.055752663593739274,
+      "share_ci_high": 0.057459807209670546,
+      "mean_shap_signed": 0.012482380494475365
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.2864595949649811,
+      "share": 0.006603116635233164,
+      "share_ci_low": 0.006398905476089567,
+      "share_ci_high": 0.0068530595279298724,
+      "mean_shap_signed": -0.02546480856835842
+    },
+    "fami_educacionpadre_Educación Profesional Completa": {
+      "mean_abs_shap": 1.9454834461212158,
+      "share": 0.04484490677714348,
+      "share_ci_low": 0.04417325351387262,
+      "share_ci_high": 0.04557456588372588,
+      "mean_shap_signed": 0.05772626772522926
+    },
+    "fami_educacionpadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.8416835069656372,
+      "share": 0.019401459023356438,
+      "share_ci_low": 0.018723138142377138,
+      "share_ci_high": 0.02026862888596952,
+      "mean_shap_signed": 0.01715022325515747
+    },
+    "fami_educacionpadre_Ninguno": {
+      "mean_abs_shap": 0.05023302137851715,
+      "share": 0.0011579102138057351,
+      "share_ci_low": 0.0009445672461879439,
+      "share_ci_high": 0.001427014224464074,
+      "mean_shap_signed": -0.0019559632055461407
+    },
+    "fami_educacionpadre_Postgrado": {
+      "mean_abs_shap": 1.0999624729156494,
+      "share": 0.025354990735650063,
+      "share_ci_low": 0.02416343558579683,
+      "share_ci_high": 0.026628221804276108,
+      "mean_shap_signed": -0.03427456319332123
+    },
+    "fami_educacionpadre_Primaria Completa": {
+      "mean_abs_shap": 0.10093498975038528,
+      "share": 0.0023266300559043884,
+      "share_ci_low": 0.002147513715317473,
+      "share_ci_high": 0.0025184227561112493,
+      "mean_shap_signed": -0.0038925413973629475
+    },
+    "fami_educacionpadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.10182679444551468,
+      "share": 0.0023471869062632322,
+      "share_ci_low": 0.0021441927063278856,
+      "share_ci_high": 0.002579674869775772,
+      "mean_shap_signed": 0.015506211668252945
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.24551904201507568,
+      "share": 0.005659404676407576,
+      "share_ci_low": 0.005512082215864212,
+      "share_ci_high": 0.005871129303704948,
+      "mean_shap_signed": 0.005979254841804504
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 2.183382749557495,
+      "share": 0.05032867193222046,
+      "share_ci_low": 0.04938983665779233,
+      "share_ci_high": 0.051102468743920326,
+      "mean_shap_signed": -0.017711525782942772
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.23468801379203796,
+      "share": 0.005409741308540106,
+      "share_ci_low": 0.005188496538903564,
+      "share_ci_high": 0.005614940344821661,
+      "mean_shap_signed": -0.0025475542061030865
+    },
+    "fami_tieneinternet": {
+      "mean_abs_shap": 0.48654356598854065,
+      "share": 0.011215207166969776,
+      "share_ci_low": 0.010699245030991733,
+      "share_ci_high": 0.011715656868182123,
+      "mean_shap_signed": -0.0020953610073775053
+    },
+    "fami_tienecomputador": {
+      "mean_abs_shap": 1.5070770978927612,
+      "share": 0.03473930060863495,
+      "share_ci_low": 0.03389209834858775,
+      "share_ci_high": 0.035904211737215516,
+      "mean_shap_signed": -0.005426368210464716
+    },
+    "fami_tieneautomovil": {
+      "mean_abs_shap": 0.3275337815284729,
+      "share": 0.0075499084778130054,
+      "share_ci_low": 0.007393390464130789,
+      "share_ci_high": 0.007731337088625878,
+      "mean_shap_signed": -0.03370512276887894
+    },
+    "fami_tienelavadora": {
+      "mean_abs_shap": 0.12075810879468918,
+      "share": 0.0027835683431476355,
+      "share_ci_low": 0.0026625224447343497,
+      "share_ci_high": 0.002910478517878801,
+      "mean_shap_signed": -0.006363756954669952
+    },
+    "fami_tieneserviciotv": {
+      "mean_abs_shap": 0.17609551548957825,
+      "share": 0.004059138707816601,
+      "share_ci_low": 0.003913741523865611,
+      "share_ci_high": 0.004223046579863876,
+      "mean_shap_signed": -0.017124919220805168
+    },
+    "fami_cuartoshogar": {
+      "mean_abs_shap": 2.65905499458313,
+      "share": 0.061293285340070724,
+      "share_ci_low": 0.06037936927750707,
+      "share_ci_high": 0.06216526450589299,
+      "mean_shap_signed": 0.21095336973667145
+    },
+    "fami_personashogar": {
+      "mean_abs_shap": 1.42454993724823,
+      "share": 0.03283698484301567,
+      "share_ci_low": 0.031962974928319454,
+      "share_ci_high": 0.03354238951578736,
+      "mean_shap_signed": -0.2121877372264862
+    }
+  },
+  "5": {
+    "cole_area_ubicacion_Rural": {
+      "mean_abs_shap": 0.6311064958572388,
+      "share": 0.013433156535029411,
+      "share_ci_low": 0.012910654628649354,
+      "share_ci_high": 0.01396578224375844,
+      "mean_shap_signed": -0.11198515444993973
+    },
+    "cole_bilingue": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_calendario_B": {
+      "mean_abs_shap": 5.010176658630371,
+      "share": 0.10664204508066177,
+      "share_ci_low": 0.1055520186200738,
+      "share_ci_high": 0.10772018488496542,
+      "mean_shap_signed": -0.625335693359375
+    },
+    "cole_calendario_Otro": {
+      "mean_abs_shap": 0.11974577605724335,
+      "share": 0.0025487991515547037,
+      "share_ci_low": 0.0021343088592402637,
+      "share_ci_high": 0.003089225949952379,
+      "mean_shap_signed": 0.01695094257593155
+    },
+    "cole_caracter_No Aplica": {
+      "mean_abs_shap": 0.041225653141736984,
+      "share": 0.0008774916059337556,
+      "share_ci_low": 0.0006289557539275847,
+      "share_ci_high": 0.0011331139830872419,
+      "mean_shap_signed": 0.006770086009055376
+    },
+    "cole_caracter_Técnico": {
+      "mean_abs_shap": 0.8745840787887573,
+      "share": 0.018615597859025,
+      "share_ci_low": 0.017807147931307554,
+      "share_ci_high": 0.019545772951096295,
+      "mean_shap_signed": 0.04011460021138191
+    },
+    "cole_caracter_Técnico/Académico": {
+      "mean_abs_shap": 0.5427857041358948,
+      "share": 0.011553240939974785,
+      "share_ci_low": 0.011058039613999426,
+      "share_ci_high": 0.01209681467153132,
+      "mean_shap_signed": 0.017667429521679878
+    },
+    "cole_depto_ubicacion_Amazonas": {
+      "mean_abs_shap": 9.314688941230997e-05,
+      "share": 1.9826395600830438e-06,
+      "share_ci_low": 1.8399962584680907e-06,
+      "share_ci_high": 2.1373050913098267e-06,
+      "mean_shap_signed": 9.314688941230997e-05
+    },
+    "cole_depto_ubicacion_Antioquia": {
+      "mean_abs_shap": 0.5572605729103088,
+      "share": 0.011861339211463928,
+      "share_ci_low": 0.011523952940478921,
+      "share_ci_high": 0.012274721311405301,
+      "mean_shap_signed": -0.02727332152426243
+    },
+    "cole_depto_ubicacion_Arauca": {
+      "mean_abs_shap": 0.002069950569421053,
+      "share": 4.405907748150639e-05,
+      "share_ci_low": 2.57463874277164e-05,
+      "share_ci_high": 7.552268489234848e-05,
+      "mean_shap_signed": -0.0005741447675973177
+    },
+    "cole_depto_ubicacion_Atlantico": {
+      "mean_abs_shap": 0.5934609174728394,
+      "share": 0.012631867080926895,
+      "share_ci_low": 0.012067865626886488,
+      "share_ci_high": 0.01311268142890185,
+      "mean_shap_signed": -0.03481521084904671
+    },
+    "cole_depto_ubicacion_Bolivar": {
+      "mean_abs_shap": 0.16819968819618225,
+      "share": 0.0035801450721919537,
+      "share_ci_low": 0.003369733248837292,
+      "share_ci_high": 0.003793752065394074,
+      "mean_shap_signed": -0.005062989890575409
+    },
+    "cole_depto_ubicacion_Boyaca": {
+      "mean_abs_shap": 0.17935818433761597,
+      "share": 0.003817654447630048,
+      "share_ci_low": 0.003562518901890144,
+      "share_ci_high": 0.004107604478485882,
+      "mean_shap_signed": -0.010859851725399494
+    },
+    "cole_depto_ubicacion_Caldas": {
+      "mean_abs_shap": 0.024430163204669952,
+      "share": 0.0005199981387704611,
+      "share_ci_low": 0.0004686501182732172,
+      "share_ci_high": 0.0005823554995004088,
+      "mean_shap_signed": -0.0033267722465097904
+    },
+    "cole_depto_ubicacion_Caqueta": {
+      "mean_abs_shap": 0.013545846566557884,
+      "share": 0.0002883245178963989,
+      "share_ci_low": 0.00019241297959524673,
+      "share_ci_high": 0.0004051290256029461,
+      "mean_shap_signed": -0.00439511239528656
+    },
+    "cole_depto_ubicacion_Casanare": {
+      "mean_abs_shap": 0.002595570869743824,
+      "share": 5.524695006897673e-05,
+      "share_ci_low": 4.075048464073916e-05,
+      "share_ci_high": 8.089640959951794e-05,
+      "mean_shap_signed": -0.00031596922781318426
+    },
+    "cole_depto_ubicacion_Cauca": {
+      "mean_abs_shap": 0.03133072331547737,
+      "share": 0.00066687713842839,
+      "share_ci_low": 0.0005908526232815348,
+      "share_ci_high": 0.0007757131752441637,
+      "mean_shap_signed": -0.0011222618632018566
+    },
+    "cole_depto_ubicacion_Cesar": {
+      "mean_abs_shap": 0.1297648698091507,
+      "share": 0.0027620564214885235,
+      "share_ci_low": 0.002526410884456709,
+      "share_ci_high": 0.0030668589111883197,
+      "mean_shap_signed": -0.005068558733910322
+    },
+    "cole_depto_ubicacion_Cordoba": {
+      "mean_abs_shap": 0.03794851899147034,
+      "share": 0.0008077375241555274,
+      "share_ci_low": 0.0006838817556854337,
+      "share_ci_high": 0.0009307853048085235,
+      "mean_shap_signed": -0.0008062487468123436
+    },
+    "cole_depto_ubicacion_Cundinamarca": {
+      "mean_abs_shap": 0.8755519390106201,
+      "share": 0.018636198714375496,
+      "share_ci_low": 0.01806707321666181,
+      "share_ci_high": 0.019244790030643343,
+      "mean_shap_signed": 0.1835828721523285
+    },
+    "cole_depto_ubicacion_Guaviare": {
+      "mean_abs_shap": 0.009535112418234348,
+      "share": 0.00020295569265726954,
+      "share_ci_low": 0.0001351426439214265,
+      "share_ci_high": 0.0003104740120761562,
+      "mean_shap_signed": 0.0032030800357460976
+    },
+    "cole_depto_ubicacion_Huila": {
+      "mean_abs_shap": 0.0473039411008358,
+      "share": 0.0010068684350699186,
+      "share_ci_low": 0.0008950840216130018,
+      "share_ci_high": 0.0011595492018386722,
+      "mean_shap_signed": 0.005622672848403454
+    },
+    "cole_depto_ubicacion_La Guajira": {
+      "mean_abs_shap": 0.10567109286785126,
+      "share": 0.002249218290671706,
+      "share_ci_low": 0.001982739637605846,
+      "share_ci_high": 0.0024812864372506737,
+      "mean_shap_signed": 0.020825672894716263
+    },
+    "cole_depto_ubicacion_Magdalena": {
+      "mean_abs_shap": 0.29378125071525574,
+      "share": 0.0062531596049666405,
+      "share_ci_low": 0.005740237014833838,
+      "share_ci_high": 0.006721629097592085,
+      "mean_shap_signed": 0.041077613830566406
+    },
+    "cole_depto_ubicacion_Meta": {
+      "mean_abs_shap": 0.0510585643351078,
+      "share": 0.0010867859236896038,
+      "share_ci_low": 0.000919413634983357,
+      "share_ci_high": 0.001244338639662601,
+      "mean_shap_signed": -0.005125922616571188
+    },
+    "cole_depto_ubicacion_Narino": {
+      "mean_abs_shap": 0.06924581527709961,
+      "share": 0.001473903190344572,
+      "share_ci_low": 0.0013434983062325045,
+      "share_ci_high": 0.0016031911363825202,
+      "mean_shap_signed": 0.023998675867915154
+    },
+    "cole_depto_ubicacion_Norte Santander": {
+      "mean_abs_shap": 0.25104108452796936,
+      "share": 0.005343431141227484,
+      "share_ci_low": 0.004958569665905088,
+      "share_ci_high": 0.0057318356470204895,
+      "mean_shap_signed": -0.012904932722449303
+    },
+    "cole_depto_ubicacion_Quindio": {
+      "mean_abs_shap": 0.11376693099737167,
+      "share": 0.002421539044007659,
+      "share_ci_low": 0.0021658203506376593,
+      "share_ci_high": 0.002650960389291868,
+      "mean_shap_signed": -0.028522588312625885
+    },
+    "cole_depto_ubicacion_Risaralda": {
+      "mean_abs_shap": 0.009985540062189102,
+      "share": 0.00021254309103824198,
+      "share_ci_low": 0.00017438080540159716,
+      "share_ci_high": 0.00025515263623674403,
+      "mean_shap_signed": -0.0010127575369551778
+    },
+    "cole_depto_ubicacion_San Andres": {
+      "mean_abs_shap": 0.006211209110915661,
+      "share": 0.0001322061289101839,
+      "share_ci_low": 6.843538394605276e-05,
+      "share_ci_high": 0.0002036331832641736,
+      "mean_shap_signed": -0.002325176727026701
+    },
+    "cole_depto_ubicacion_Santander": {
+      "mean_abs_shap": 1.3623887300491333,
+      "share": 0.028998563066124916,
+      "share_ci_low": 0.027836191933602095,
+      "share_ci_high": 0.03018376138061285,
+      "mean_shap_signed": -0.013411196880042553
+    },
+    "cole_depto_ubicacion_Sucre": {
+      "mean_abs_shap": 0.09037748724222183,
+      "share": 0.0019236926455050707,
+      "share_ci_low": 0.001721232317504473,
+      "share_ci_high": 0.0021502188814338298,
+      "mean_shap_signed": -0.0022042752243578434
+    },
+    "cole_depto_ubicacion_Tolima": {
+      "mean_abs_shap": 0.1041581779718399,
+      "share": 0.002217015950009227,
+      "share_ci_low": 0.0020330808940343557,
+      "share_ci_high": 0.002395541314035654,
+      "mean_shap_signed": 0.0009867982007563114
+    },
+    "cole_depto_ubicacion_Valle": {
+      "mean_abs_shap": 1.5020203590393066,
+      "share": 0.031970635056495667,
+      "share_ci_low": 0.03134004101157188,
+      "share_ci_high": 0.032696278672665356,
+      "mean_shap_signed": 0.32414740324020386
+    },
+    "cole_genero_Femenino": {
+      "mean_abs_shap": 0.7104083299636841,
+      "share": 0.015121103264391422,
+      "share_ci_low": 0.014801456476561725,
+      "share_ci_high": 0.015505828382447361,
+      "mean_shap_signed": -0.16175736486911774
+    },
+    "cole_genero_Masculino": {
+      "mean_abs_shap": 0.9900122284889221,
+      "share": 0.021072495728731155,
+      "share_ci_low": 0.020294160488992928,
+      "share_ci_high": 0.021691402420401573,
+      "mean_shap_signed": 0.05735114589333534
+    },
+    "cole_jornada_Mañana": {
+      "mean_abs_shap": 4.98569393157959,
+      "share": 0.10612092912197113,
+      "share_ci_low": 0.10478952880948782,
+      "share_ci_high": 0.10750681087374687,
+      "mean_shap_signed": 0.12024226039648056
+    },
+    "cole_jornada_Noche": {
+      "mean_abs_shap": 0.4628678858280182,
+      "share": 0.009852183051407337,
+      "share_ci_low": 0.008409467292949557,
+      "share_ci_high": 0.01120825477410108,
+      "mean_shap_signed": -0.05367399379611015
+    },
+    "cole_jornada_Sabatina": {
+      "mean_abs_shap": 0.23544709384441376,
+      "share": 0.005011511966586113,
+      "share_ci_low": 0.004187604342587292,
+      "share_ci_high": 0.005913178808987141,
+      "mean_shap_signed": 0.029919086024165154
+    },
+    "cole_jornada_Tarde": {
+      "mean_abs_shap": 0.47548431158065796,
+      "share": 0.010120725259184837,
+      "share_ci_low": 0.009201294090598822,
+      "share_ci_high": 0.011166944773867727,
+      "mean_shap_signed": 0.018603375181555748
+    },
+    "cole_jornada_Unica": {
+      "mean_abs_shap": 0.22711938619613647,
+      "share": 0.0048342556692659855,
+      "share_ci_low": 0.004393307934515178,
+      "share_ci_high": 0.00527479792945087,
+      "mean_shap_signed": 0.006184359546750784
+    },
+    "cole_naturaleza_Oficial": {
+      "mean_abs_shap": 0.12800416350364685,
+      "share": 0.002724579768255353,
+      "share_ci_low": 0.0023710367910098284,
+      "share_ci_high": 0.0032060954603366555,
+      "mean_shap_signed": 0.0019382736645638943
+    },
+    "cole_sede_principal": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "estu_genero_M": {
+      "mean_abs_shap": 1.6693544387817383,
+      "share": 0.035532355308532715,
+      "share_ci_low": 0.03522514803335071,
+      "share_ci_high": 0.03589537274092436,
+      "mean_shap_signed": 0.12529157102108002
+    },
+    "fami_estratovivienda": {
+      "mean_abs_shap": 3.4872398376464844,
+      "share": 0.07422620058059692,
+      "share_ci_low": 0.07356782611459493,
+      "share_ci_high": 0.07499203272163868,
+      "mean_shap_signed": -0.05823812261223793
+    },
+    "fami_educacionmadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.1847005933523178,
+      "share": 0.003931368235498667,
+      "share_ci_low": 0.003753863280871883,
+      "share_ci_high": 0.004066879709716887,
+      "mean_shap_signed": -0.008413105271756649
+    },
+    "fami_educacionmadre_Ninguno": {
+      "mean_abs_shap": 0.005894355941563845,
+      "share": 0.00012546188372652978,
+      "share_ci_low": 6.956703600735636e-05,
+      "share_ci_high": 0.00021498655260074884,
+      "mean_shap_signed": 0.0006218141061253846
+    },
+    "fami_educacionmadre_Postgrado": {
+      "mean_abs_shap": 3.600632905960083,
+      "share": 0.07663978636264801,
+      "share_ci_low": 0.07524024825543166,
+      "share_ci_high": 0.0779229486361146,
+      "mean_shap_signed": 0.3546115756034851
+    },
+    "fami_educacionmadre_Primaria Completa": {
+      "mean_abs_shap": 0.026983685791492462,
+      "share": 0.0005743500660173595,
+      "share_ci_low": 0.00038960574820521285,
+      "share_ci_high": 0.000824611634016037,
+      "mean_shap_signed": -0.004832019563764334
+    },
+    "fami_educacionmadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.005182426888495684,
+      "share": 0.00011030840687453747,
+      "share_ci_low": 8.236571247834945e-05,
+      "share_ci_high": 0.00015470659782295114,
+      "mean_shap_signed": 0.0025861032772809267
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Completa": {
+      "mean_abs_shap": 1.3485701084136963,
+      "share": 0.028704430907964706,
+      "share_ci_low": 0.027816840121522544,
+      "share_ci_high": 0.029580889781937004,
+      "mean_shap_signed": 0.04079350829124451
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.17089912295341492,
+      "share": 0.0036376025527715683,
+      "share_ci_low": 0.0033230226777959614,
+      "share_ci_high": 0.004042155807837844,
+      "mean_shap_signed": 0.009447863325476646
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 0.4369221329689026,
+      "share": 0.009299925528466702,
+      "share_ci_low": 0.009034227766096591,
+      "share_ci_high": 0.009556066314689814,
+      "mean_shap_signed": -0.015734586864709854
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.3297979533672333,
+      "share": 0.007019778247922659,
+      "share_ci_low": 0.006557924498338252,
+      "share_ci_high": 0.0074642782099545,
+      "mean_shap_signed": -0.005463206674903631
+    },
+    "fami_educacionpadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.0693453699350357,
+      "share": 0.001476022182032466,
+      "share_ci_low": 0.0013803308829665184,
+      "share_ci_high": 0.0015618590667145326,
+      "mean_shap_signed": 0.00800300482660532
+    },
+    "fami_educacionpadre_Ninguno": {
+      "mean_abs_shap": 0.04335971921682358,
+      "share": 0.0009229154093191028,
+      "share_ci_low": 0.0007062259901431389,
+      "share_ci_high": 0.0011770999000873417,
+      "mean_shap_signed": 0.0035377780441194773
+    },
+    "fami_educacionpadre_Postgrado": {
+      "mean_abs_shap": 5.6769185066223145,
+      "share": 0.12083370238542557,
+      "share_ci_low": 0.11971072424203158,
+      "share_ci_high": 0.12208501119166612,
+      "mean_shap_signed": -0.3104085326194763
+    },
+    "fami_educacionpadre_Primaria Completa": {
+      "mean_abs_shap": 0.10735128074884415,
+      "share": 0.0022849813103675842,
+      "share_ci_low": 0.001938378531485796,
+      "share_ci_high": 0.002580952265998349,
+      "mean_shap_signed": -0.015109688974916935
+    },
+    "fami_educacionpadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.07929001748561859,
+      "share": 0.0016876949230208993,
+      "share_ci_low": 0.0014390243508387358,
+      "share_ci_high": 0.0019488391146296636,
+      "mean_shap_signed": 0.004067922011017799
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Completa": {
+      "mean_abs_shap": 1.8229292631149292,
+      "share": 0.03880120813846588,
+      "share_ci_low": 0.038035000767558814,
+      "share_ci_high": 0.03980269860476256,
+      "mean_shap_signed": 0.03687923401594162
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.5055353045463562,
+      "share": 0.010760363191366196,
+      "share_ci_low": 0.010154007119126618,
+      "share_ci_high": 0.011383657017722726,
+      "mean_shap_signed": -0.006396562792360783
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 0.2944503426551819,
+      "share": 0.006267400924116373,
+      "share_ci_low": 0.006082751660142094,
+      "share_ci_high": 0.006444085435941815,
+      "mean_shap_signed": 0.022281965240836143
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.2657697796821594,
+      "share": 0.005656932946294546,
+      "share_ci_low": 0.005280859477352351,
+      "share_ci_high": 0.006041510007344186,
+      "mean_shap_signed": 0.006058712024241686
+    },
+    "fami_tieneinternet": {
+      "mean_abs_shap": 0.021872129291296005,
+      "share": 0.00046555016888305545,
+      "share_ci_low": 0.00040034299599938094,
+      "share_ci_high": 0.000538382399827242,
+      "mean_shap_signed": -0.0003252464812248945
+    },
+    "fami_tienecomputador": {
+      "mean_abs_shap": 0.13229793310165405,
+      "share": 0.00281597301363945,
+      "share_ci_low": 0.002483933843905106,
+      "share_ci_high": 0.003196900204056874,
+      "mean_shap_signed": -0.0014089727774262428
+    },
+    "fami_tieneautomovil": {
+      "mean_abs_shap": 0.6082721948623657,
+      "share": 0.012947126291692257,
+      "share_ci_low": 0.012634629220701753,
+      "share_ci_high": 0.013247685227543115,
+      "mean_shap_signed": 0.0010267805773764849
+    },
+    "fami_tienelavadora": {
+      "mean_abs_shap": 0.01855771243572235,
+      "share": 0.0003950025129597634,
+      "share_ci_low": 0.00034132814616896214,
+      "share_ci_high": 0.00044174781360197814,
+      "mean_shap_signed": 0.00010137472418136895
+    },
+    "fami_tieneserviciotv": {
+      "mean_abs_shap": 0.030794983729720116,
+      "share": 0.0006554739084094763,
+      "share_ci_low": 0.0006030584176187403,
+      "share_ci_high": 0.0007060057832859457,
+      "mean_shap_signed": -0.0021911514922976494
+    },
+    "fami_cuartoshogar": {
+      "mean_abs_shap": 3.018367290496826,
+      "share": 0.06424620747566223,
+      "share_ci_low": 0.06326362658292055,
+      "share_ci_high": 0.06519955154508353,
+      "mean_shap_signed": 0.43156924843788147
+    },
+    "fami_personashogar": {
+      "mean_abs_shap": 0.9531384706497192,
+      "share": 0.020287634804844856,
+      "share_ci_low": 0.019639853946864606,
+      "share_ci_high": 0.020861416403204203,
+      "mean_shap_signed": -0.4962194859981537
+    }
+  },
+  "6": {
+    "cole_area_ubicacion_Rural": {
+      "mean_abs_shap": 0.16987864673137665,
+      "share": 0.0030635525472462177,
+      "share_ci_low": 0.002780059236101806,
+      "share_ci_high": 0.0034200414433144034,
+      "mean_shap_signed": 0.004316857550293207
+    },
+    "cole_bilingue": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "cole_calendario_B": {
+      "mean_abs_shap": 0.991326093673706,
+      "share": 0.017877347767353058,
+      "share_ci_low": 0.017286228481680155,
+      "share_ci_high": 0.018501747585833072,
+      "mean_shap_signed": -0.16807834804058075
+    },
+    "cole_calendario_Otro": {
+      "mean_abs_shap": 0.8263049125671387,
+      "share": 0.01490139402449131,
+      "share_ci_low": 0.01430223318748176,
+      "share_ci_high": 0.015555754536762834,
+      "mean_shap_signed": 0.09612764418125153
+    },
+    "cole_caracter_No Aplica": {
+      "mean_abs_shap": 0.3128945529460907,
+      "share": 0.0056426688097417355,
+      "share_ci_low": 0.005100296402815729,
+      "share_ci_high": 0.006125201936811209,
+      "mean_shap_signed": 0.002261596731841564
+    },
+    "cole_caracter_Técnico": {
+      "mean_abs_shap": 0.3117481768131256,
+      "share": 0.005621995311230421,
+      "share_ci_low": 0.0053706425474956635,
+      "share_ci_high": 0.0059531137929297985,
+      "mean_shap_signed": 0.03727910667657852
+    },
+    "cole_caracter_Técnico/Académico": {
+      "mean_abs_shap": 0.2802342474460602,
+      "share": 0.005053680390119553,
+      "share_ci_low": 0.004815777856856584,
+      "share_ci_high": 0.0052484957268461585,
+      "mean_shap_signed": -0.009762891568243504
+    },
+    "cole_depto_ubicacion_Amazonas": {
+      "mean_abs_shap": 0.012020907364785671,
+      "share": 0.0002167822967749089,
+      "share_ci_low": 9.870542398857653e-05,
+      "share_ci_high": 0.0003944821408367716,
+      "mean_shap_signed": 0.0043567935936152935
+    },
+    "cole_depto_ubicacion_Antioquia": {
+      "mean_abs_shap": 0.38691094517707825,
+      "share": 0.006977463606745005,
+      "share_ci_low": 0.006814392481464893,
+      "share_ci_high": 0.007164796313736588,
+      "mean_shap_signed": 0.04318305850028992
+    },
+    "cole_depto_ubicacion_Arauca": {
+      "mean_abs_shap": 0.0021633505821228027,
+      "share": 3.901336822309531e-05,
+      "share_ci_low": 2.2044954084776693e-05,
+      "share_ci_high": 6.827868910477265e-05,
+      "mean_shap_signed": 0.0002139001153409481
+    },
+    "cole_depto_ubicacion_Atlantico": {
+      "mean_abs_shap": 0.5733492970466614,
+      "share": 0.010339650325477123,
+      "share_ci_low": 0.009905015188269316,
+      "share_ci_high": 0.010646262974478304,
+      "mean_shap_signed": 0.007174938917160034
+    },
+    "cole_depto_ubicacion_Bogota": {
+      "mean_abs_shap": 0.7826667428016663,
+      "share": 0.014114432968199253,
+      "share_ci_low": 0.013854673877358437,
+      "share_ci_high": 0.014362037507817149,
+      "mean_shap_signed": 0.11575686931610107
+    },
+    "cole_depto_ubicacion_Bolivar": {
+      "mean_abs_shap": 0.12051353603601456,
+      "share": 0.002173313405364752,
+      "share_ci_low": 0.0020336670393589886,
+      "share_ci_high": 0.002296893921447918,
+      "mean_shap_signed": 0.022542789578437805
+    },
+    "cole_depto_ubicacion_Boyaca": {
+      "mean_abs_shap": 0.4642130434513092,
+      "share": 0.008371511474251747,
+      "share_ci_low": 0.007955423858948051,
+      "share_ci_high": 0.008905309764668346,
+      "mean_shap_signed": -0.022702787071466446
+    },
+    "cole_depto_ubicacion_Caldas": {
+      "mean_abs_shap": 0.017677245661616325,
+      "share": 0.0003187874099239707,
+      "share_ci_low": 0.0002745432117080782,
+      "share_ci_high": 0.00036284877569414675,
+      "mean_shap_signed": -0.0048790681175887585
+    },
+    "cole_depto_ubicacion_Caqueta": {
+      "mean_abs_shap": 0.010147510096430779,
+      "share": 0.00018299787188880146,
+      "share_ci_low": 0.00014399005158338696,
+      "share_ci_high": 0.0002341152521694312,
+      "mean_shap_signed": 0.0008562995935790241
+    },
+    "cole_depto_ubicacion_Casanare": {
+      "mean_abs_shap": 0.001335130538791418,
+      "share": 2.407743886578828e-05,
+      "share_ci_low": 1.3381733265305228e-05,
+      "share_ci_high": 4.604528448908245e-05,
+      "mean_shap_signed": 4.13176422853212e-07
+    },
+    "cole_depto_ubicacion_Cauca": {
+      "mean_abs_shap": 0.04665382206439972,
+      "share": 0.0008413443574681878,
+      "share_ci_low": 0.0007637059112312272,
+      "share_ci_high": 0.0009250863266061061,
+      "mean_shap_signed": 0.0028627216815948486
+    },
+    "cole_depto_ubicacion_Cesar": {
+      "mean_abs_shap": 0.140892893075943,
+      "share": 0.0025408302899450064,
+      "share_ci_low": 0.0022649019141681493,
+      "share_ci_high": 0.0028160797897726297,
+      "mean_shap_signed": -0.0020363342482596636
+    },
+    "cole_depto_ubicacion_Choco": {
+      "mean_abs_shap": 0.008889458142220974,
+      "share": 0.000160310446517542,
+      "share_ci_low": 6.502320338768186e-05,
+      "share_ci_high": 0.00033516289186081856,
+      "mean_shap_signed": -0.0016650138422846794
+    },
+    "cole_depto_ubicacion_Cordoba": {
+      "mean_abs_shap": 0.23442885279655457,
+      "share": 0.004227636381983757,
+      "share_ci_low": 0.003971362533047795,
+      "share_ci_high": 0.004503780114464462,
+      "mean_shap_signed": -0.009849109686911106
+    },
+    "cole_depto_ubicacion_Cundinamarca": {
+      "mean_abs_shap": 0.5347881317138672,
+      "share": 0.00964424666017294,
+      "share_ci_low": 0.009340950474143028,
+      "share_ci_high": 0.009934608079493045,
+      "mean_shap_signed": 0.09750819951295853
+    },
+    "cole_depto_ubicacion_Guaviare": {
+      "mean_abs_shap": 0.0019269546028226614,
+      "share": 3.4750257327686995e-05,
+      "share_ci_low": 1.9138692323394935e-05,
+      "share_ci_high": 5.862458037881881e-05,
+      "mean_shap_signed": -0.00011251404066570103
+    },
+    "cole_depto_ubicacion_Huila": {
+      "mean_abs_shap": 0.07147137820720673,
+      "share": 0.0012888985220342875,
+      "share_ci_low": 0.0011617587471846492,
+      "share_ci_high": 0.0014126381458481774,
+      "mean_shap_signed": 0.007568564731627703
+    },
+    "cole_depto_ubicacion_La Guajira": {
+      "mean_abs_shap": 0.007156249135732651,
+      "share": 0.0001290541549678892,
+      "share_ci_low": 0.00010839417464012513,
+      "share_ci_high": 0.00015192743230727502,
+      "mean_shap_signed": 0.002220654860138893
+    },
+    "cole_depto_ubicacion_Magdalena": {
+      "mean_abs_shap": 0.08408680558204651,
+      "share": 0.0015164022333920002,
+      "share_ci_low": 0.001363255488104187,
+      "share_ci_high": 0.0016506685758940875,
+      "mean_shap_signed": 0.012925858609378338
+    },
+    "cole_depto_ubicacion_Meta": {
+      "mean_abs_shap": 0.10208800435066223,
+      "share": 0.001841031713411212,
+      "share_ci_low": 0.001672091512591578,
+      "share_ci_high": 0.002020679193083197,
+      "mean_shap_signed": 0.0024493064265698195
+    },
+    "cole_depto_ubicacion_Narino": {
+      "mean_abs_shap": 0.24086838960647583,
+      "share": 0.004343765322118998,
+      "share_ci_low": 0.0038552068290300667,
+      "share_ci_high": 0.004868198942858726,
+      "mean_shap_signed": 0.03396468609571457
+    },
+    "cole_depto_ubicacion_Norte Santander": {
+      "mean_abs_shap": 0.31570467352867126,
+      "share": 0.005693345796316862,
+      "share_ci_low": 0.005338383431080729,
+      "share_ci_high": 0.0060397834982723,
+      "mean_shap_signed": -0.004008181858807802
+    },
+    "cole_depto_ubicacion_Putumayo": {
+      "mean_abs_shap": 0.00010733326780609787,
+      "share": 1.935623686222243e-06,
+      "share_ci_low": 1.5254025328204079e-06,
+      "share_ci_high": 2.6116550543520135e-06,
+      "mean_shap_signed": 3.346186349517666e-05
+    },
+    "cole_depto_ubicacion_Quindio": {
+      "mean_abs_shap": 0.03132148087024689,
+      "share": 0.0005648444057442248,
+      "share_ci_low": 0.0004465503261599224,
+      "share_ci_high": 0.000705726066371426,
+      "mean_shap_signed": -0.002339546801522374
+    },
+    "cole_depto_ubicacion_Risaralda": {
+      "mean_abs_shap": 0.049536626785993576,
+      "share": 0.0008933321805670857,
+      "share_ci_low": 0.0008243245843914338,
+      "share_ci_high": 0.0009835548436967656,
+      "mean_shap_signed": -0.02307436428964138
+    },
+    "cole_depto_ubicacion_San Andres": {
+      "mean_abs_shap": 0.007020491641014814,
+      "share": 0.00012660594074986875,
+      "share_ci_low": 0.00010080818956339498,
+      "share_ci_high": 0.00016108026866277217,
+      "mean_shap_signed": 0.002120052231475711
+    },
+    "cole_depto_ubicacion_Santander": {
+      "mean_abs_shap": 0.8681623339653015,
+      "share": 0.0156562402844429,
+      "share_ci_low": 0.014866504585370421,
+      "share_ci_high": 0.016393222939223052,
+      "mean_shap_signed": 0.012690464965999126
+    },
+    "cole_depto_ubicacion_Sucre": {
+      "mean_abs_shap": 0.068971186876297,
+      "share": 0.001243810635060072,
+      "share_ci_low": 0.0010834846762008965,
+      "share_ci_high": 0.0013881873921491206,
+      "mean_shap_signed": -0.006233300548046827
+    },
+    "cole_depto_ubicacion_Valle": {
+      "mean_abs_shap": 0.3594183623790741,
+      "share": 0.006481668446213007,
+      "share_ci_low": 0.0062904208665713664,
+      "share_ci_high": 0.006697124522179365,
+      "mean_shap_signed": 0.0069001526571810246
+    },
+    "cole_genero_Femenino": {
+      "mean_abs_shap": 0.8245337009429932,
+      "share": 0.014869452454149723,
+      "share_ci_low": 0.01413181631360203,
+      "share_ci_high": 0.015573436999693513,
+      "mean_shap_signed": -0.016855081543326378
+    },
+    "cole_genero_Masculino": {
+      "mean_abs_shap": 0.2882274389266968,
+      "share": 0.0051978277042508125,
+      "share_ci_low": 0.004760448483284563,
+      "share_ci_high": 0.005624052137136459,
+      "mean_shap_signed": -0.05627335235476494
+    },
+    "cole_jornada_Completa": {
+      "mean_abs_shap": 12.032008171081543,
+      "share": 0.21698248386383057,
+      "share_ci_low": 0.21588080190122128,
+      "share_ci_high": 0.21796945966780185,
+      "mean_shap_signed": -1.1379789113998413
+    },
+    "cole_jornada_Noche": {
+      "mean_abs_shap": 2.5121071338653564,
+      "share": 0.04530276358127594,
+      "share_ci_low": 0.044164024759083986,
+      "share_ci_high": 0.04645849885419011,
+      "mean_shap_signed": 0.4932466745376587
+    },
+    "cole_jornada_Sabatina": {
+      "mean_abs_shap": 4.356287002563477,
+      "share": 0.07856028527021408,
+      "share_ci_low": 0.07703973576426507,
+      "share_ci_high": 0.08039220198988915,
+      "mean_shap_signed": 0.49353575706481934
+    },
+    "cole_jornada_Tarde": {
+      "mean_abs_shap": 0.6350516080856323,
+      "share": 0.01145237497985363,
+      "share_ci_low": 0.0110084984684363,
+      "share_ci_high": 0.012045544129796327,
+      "mean_shap_signed": 0.020838413387537003
+    },
+    "cole_jornada_Unica": {
+      "mean_abs_shap": 0.5058951377868652,
+      "share": 0.009123196825385094,
+      "share_ci_low": 0.008494456019252538,
+      "share_ci_high": 0.009682164411060512,
+      "mean_shap_signed": -0.046421121805906296
+    },
+    "cole_sede_principal": {
+      "mean_abs_shap": 0.0,
+      "share": 0.0,
+      "share_ci_low": 0.0,
+      "share_ci_high": 0.0,
+      "mean_shap_signed": 0.0
+    },
+    "estu_genero_F": {
+      "mean_abs_shap": 2.3818676471710205,
+      "share": 0.042954057455062866,
+      "share_ci_low": 0.04268721975386143,
+      "share_ci_high": 0.0432503055781126,
+      "mean_shap_signed": 0.044604234397411346
+    },
+    "fami_estratovivienda": {
+      "mean_abs_shap": 1.5104670524597168,
+      "share": 0.027239417657256126,
+      "share_ci_low": 0.026642073038965465,
+      "share_ci_high": 0.027714234590530396,
+      "mean_shap_signed": -0.02392304316163063
+    },
+    "fami_educacionmadre_Educación Profesional Completa": {
+      "mean_abs_shap": 2.0497617721557617,
+      "share": 0.036964934319257736,
+      "share_ci_low": 0.0360965539701283,
+      "share_ci_high": 0.038005695398896935,
+      "mean_shap_signed": 0.11296689510345459
+    },
+    "fami_educacionmadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.7069095969200134,
+      "share": 0.01274824608117342,
+      "share_ci_low": 0.012010883120819927,
+      "share_ci_high": 0.01331788431853056,
+      "mean_shap_signed": -0.024148056283593178
+    },
+    "fami_educacionmadre_Ninguno": {
+      "mean_abs_shap": 0.24713967740535736,
+      "share": 0.004456860478967428,
+      "share_ci_low": 0.004124741104897111,
+      "share_ci_high": 0.0047886636806651955,
+      "mean_shap_signed": 0.0014503848506137729
+    },
+    "fami_educacionmadre_Postgrado": {
+      "mean_abs_shap": 0.26741334795951843,
+      "share": 0.0048224711790680885,
+      "share_ci_low": 0.004202499066013843,
+      "share_ci_high": 0.0054581781383603815,
+      "mean_shap_signed": 0.00490226037800312
+    },
+    "fami_educacionmadre_Primaria Completa": {
+      "mean_abs_shap": 0.6890457272529602,
+      "share": 0.012426093220710754,
+      "share_ci_low": 0.0120564078213647,
+      "share_ci_high": 0.012864213436841965,
+      "mean_shap_signed": -0.013865298591554165
+    },
+    "fami_educacionmadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.7262678146362305,
+      "share": 0.013097347691655159,
+      "share_ci_low": 0.01259612562134862,
+      "share_ci_high": 0.013618354359641672,
+      "mean_shap_signed": -0.04484137147665024
+    },
+    "fami_educacionmadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.7143010497093201,
+      "share": 0.01288154162466526,
+      "share_ci_low": 0.012579474109224975,
+      "share_ci_high": 0.013193572917953134,
+      "mean_shap_signed": 0.011279108934104443
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 2.3181850910186768,
+      "share": 0.04180561751127243,
+      "share_ci_low": 0.04100538538768887,
+      "share_ci_high": 0.04266350883990526,
+      "mean_shap_signed": -0.0017576183890923858
+    },
+    "fami_educacionmadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.36298617720603943,
+      "share": 0.006546009797602892,
+      "share_ci_low": 0.0062862947001121935,
+      "share_ci_high": 0.006775915098842233,
+      "mean_shap_signed": -0.012697135098278522
+    },
+    "fami_educacionpadre_Educación Profesional Completa": {
+      "mean_abs_shap": 1.5173794031143188,
+      "share": 0.02736407332122326,
+      "share_ci_low": 0.02656055111438036,
+      "share_ci_high": 0.028134046820923686,
+      "mean_shap_signed": -0.047839391976594925
+    },
+    "fami_educacionpadre_Educación Profesional Incompleta": {
+      "mean_abs_shap": 0.6697251200675964,
+      "share": 0.012077669613063335,
+      "share_ci_low": 0.011470715119503438,
+      "share_ci_high": 0.01276478774379939,
+      "mean_shap_signed": -0.028157943859696388
+    },
+    "fami_educacionpadre_Ninguno": {
+      "mean_abs_shap": 0.45575860142707825,
+      "share": 0.008219046518206596,
+      "share_ci_low": 0.00783267937367782,
+      "share_ci_high": 0.008678294951096177,
+      "mean_shap_signed": -0.006542706862092018
+    },
+    "fami_educacionpadre_Postgrado": {
+      "mean_abs_shap": 0.17787329852581024,
+      "share": 0.003207726404070854,
+      "share_ci_low": 0.0028080467716790737,
+      "share_ci_high": 0.003626159514533356,
+      "mean_shap_signed": 0.011703533120453358
+    },
+    "fami_educacionpadre_Primaria Completa": {
+      "mean_abs_shap": 0.5192429423332214,
+      "share": 0.00936390832066536,
+      "share_ci_low": 0.009107407345436514,
+      "share_ci_high": 0.009636532142758369,
+      "mean_shap_signed": -0.008474710397422314
+    },
+    "fami_educacionpadre_Primaria Incompleta": {
+      "mean_abs_shap": 0.5893393754959106,
+      "share": 0.01062801107764244,
+      "share_ci_low": 0.01027655063662678,
+      "share_ci_high": 0.0109559667063877,
+      "mean_shap_signed": -0.025036748498678207
+    },
+    "fami_educacionpadre_Secundaria (Bachillerato) Incompleta": {
+      "mean_abs_shap": 0.4474865794181824,
+      "share": 0.008069870993494987,
+      "share_ci_low": 0.007892587641254067,
+      "share_ci_high": 0.008247784851118923,
+      "mean_shap_signed": 0.00022098780027590692
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Completa": {
+      "mean_abs_shap": 1.8168259859085083,
+      "share": 0.03276422247290611,
+      "share_ci_low": 0.031932249665260315,
+      "share_ci_high": 0.033445543702691795,
+      "mean_shap_signed": 0.006301433313637972
+    },
+    "fami_educacionpadre_Técnica O Tecnológica Incompleta": {
+      "mean_abs_shap": 0.255670964717865,
+      "share": 0.004610711708664894,
+      "share_ci_low": 0.004391562228556722,
+      "share_ci_high": 0.004767746722791344,
+      "mean_shap_signed": 0.0013920713681727648
+    },
+    "fami_tieneinternet": {
+      "mean_abs_shap": 0.8572577238082886,
+      "share": 0.015459589660167694,
+      "share_ci_low": 0.015043787891045213,
+      "share_ci_high": 0.015865427628159522,
+      "mean_shap_signed": 0.030603189021348953
+    },
+    "fami_tienecomputador": {
+      "mean_abs_shap": 1.8694266080856323,
+      "share": 0.03371281176805496,
+      "share_ci_low": 0.03305297652259469,
+      "share_ci_high": 0.034351145196706054,
+      "mean_shap_signed": 0.014771861024200916
+    },
+    "fami_tieneautomovil": {
+      "mean_abs_shap": 0.5965431332588196,
+      "share": 0.010757922194898129,
+      "share_ci_low": 0.010608789138495922,
+      "share_ci_high": 0.010912234615534543,
+      "mean_shap_signed": -0.003220862476155162
+    },
+    "fami_tienelavadora": {
+      "mean_abs_shap": 0.18174909055233002,
+      "share": 0.003277621464803815,
+      "share_ci_low": 0.0031746718974318354,
+      "share_ci_high": 0.003396611142670736,
+      "mean_shap_signed": -0.004807162098586559
+    },
+    "fami_tieneserviciotv": {
+      "mean_abs_shap": 0.25003781914711,
+      "share": 0.004509124904870987,
+      "share_ci_low": 0.004373008396942169,
+      "share_ci_high": 0.004632040986325592,
+      "mean_shap_signed": -0.04007623717188835
+    },
+    "fami_cuartoshogar": {
+      "mean_abs_shap": 2.306466817855835,
+      "share": 0.04159429296851158,
+      "share_ci_low": 0.04084434537217021,
+      "share_ci_high": 0.04223679360002279,
+      "mean_shap_signed": 0.356571763753891
+    },
+    "fami_personashogar": {
+      "mean_abs_shap": 1.3754099607467651,
+      "share": 0.024803828448057175,
+      "share_ci_low": 0.024312625685706735,
+      "share_ci_high": 0.025283025205135347,
+      "mean_shap_signed": -0.34316712617874146
+    }
+  }
+}
