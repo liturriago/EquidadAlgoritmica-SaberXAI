@@ -1,0 +1,287 @@
+{
+  "tag": "global",
+  "timestamp_utc": "2026-11-25T04:29:08.783757+00:00",
+  "split_meta": {
+    "mode": "global",
+    "cluster_id": null,
+    "seed": 42,
+    "territory_indicators": false,
+    "n_train": 3111804,
+    "n_val": 666809,
+    "n_test": 666809,
+    "y_mean_train": 255.0265655517578,
+    "y_mean_val": 255.04013061523438,
+    "y_mean_test": 255.100341796875,
+    "n_features": 75,
+    "feature_names": [
+      "cole_area_ubicacion_Rural",
+      "cole_bilingue",
+      "cole_calendario_B",
+      "cole_calendario_Otro",
+      "cole_caracter_Académico",
+      "cole_caracter_No Aplica",
+      "cole_caracter_Técnico",
+      "cole_depto_ubicacion_Amazonas",
+      "cole_depto_ubicacion_Antioquia",
+      "cole_depto_ubicacion_Arauca",
+      "cole_depto_ubicacion_Atlantico",
+      "cole_depto_ubicacion_Bogota",
+      "cole_depto_ubicacion_Bolivar",
+      "cole_depto_ubicacion_Caldas",
+      "cole_depto_ubicacion_Caqueta",
+      "cole_depto_ubicacion_Casanare",
+      "cole_depto_ubicacion_Cauca",
+      "cole_depto_ubicacion_Cesar",
+      "cole_depto_ubicacion_Choco",
+      "cole_depto_ubicacion_Cordoba",
+      "cole_depto_ubicacion_Cundinamarca",
+      "cole_depto_ubicacion_Guainia",
+      "cole_depto_ubicacion_Guaviare",
+      "cole_depto_ubicacion_Huila",
+      "cole_depto_ubicacion_La Guajira",
+      "cole_depto_ubicacion_Magdalena",
+      "cole_depto_ubicacion_Meta",
+      "cole_depto_ubicacion_Narino",
+      "cole_depto_ubicacion_Norte Santander",
+      "cole_depto_ubicacion_Putumayo",
+      "cole_depto_ubicacion_Quindio",
+      "cole_depto_ubicacion_Risaralda",
+      "cole_depto_ubicacion_San Andres",
+      "cole_depto_ubicacion_Santander",
+      "cole_depto_ubicacion_Sucre",
+      "cole_depto_ubicacion_Tolima",
+      "cole_depto_ubicacion_Valle",
+      "cole_depto_ubicacion_Vaupes",
+      "cole_depto_ubicacion_Vichada",
+      "cole_genero_Femenino",
+      "cole_genero_Masculino",
+      "cole_jornada_Completa",
+      "cole_jornada_Noche",
+      "cole_jornada_Sabatina",
+      "cole_jornada_Tarde",
+      "cole_jornada_Unica",
+      "cole_naturaleza_No Oficial",
+      "cole_sede_principal",
+      "estu_genero_M",
+      "fami_estratovivienda",
+      "fami_educacionmadre_Educación Profesional Completa",
+      "fami_educacionmadre_Educación Profesional Incompleta",
+      "fami_educacionmadre_Ninguno",
+      "fami_educacionmadre_Postgrado",
+      "fami_educacionmadre_Primaria Completa",
+      "fami_educacionmadre_Primaria Incompleta",
+      "fami_educacionmadre_Secundaria (Bachillerato) Completa",
+      "fami_educacionmadre_Técnica O Tecnológica Completa",
+      "fami_educacionmadre_Técnica O Tecnológica Incompleta",
+      "fami_educacionpadre_Educación Profesional Completa",
+      "fami_educacionpadre_Educación Profesional Incompleta",
+      "fami_educacionpadre_Ninguno",
+      "fami_educacionpadre_Postgrado",
+      "fami_educacionpadre_Primaria Completa",
+      "fami_educacionpadre_Secundaria (Bachillerato) Completa",
+      "fami_educacionpadre_Secundaria (Bachillerato) Incompleta",
+      "fami_educacionpadre_Técnica O Tecnológica Completa",
+      "fami_educacionpadre_Técnica O Tecnológica Incompleta",
+      "fami_tieneinternet",
+      "fami_tienecomputador",
+      "fami_tieneautomovil",
+      "fami_tienelavadora",
+      "fami_tieneserviciotv",
+      "fami_cuartoshogar",
+      "fami_personashogar"
+    ],
+    "cluster_rows": {
+      "0": {
+        "train": 623804,
+        "val": 133671,
+        "test": 133671
+      },
+      "1": {
+        "train": 495521,
+        "val": 106183,
+        "test": 106183
+      },
+      "2": {
+        "train": 329833,
+        "val": 70678,
+        "test": 70678
+      },
+      "3": {
+        "train": 543462,
+        "val": 116455,
+        "test": 116455
+      },
+      "4": {
+        "train": 479315,
+        "val": 102709,
+        "test": 102709
+      },
+      "5": {
+        "train": 280081,
+        "val": 60016,
+        "test": 60016
+      },
+      "6": {
+        "train": 359788,
+        "val": 77097,
+        "test": 77097
+      }
+    }
+  },
+  "metrics": {
+    "xgboost": {
+      "model": "XGBoost (global)",
+      "global": {
+        "n": 666809,
+        "rmse": 40.161355159433896,
+        "mae": 32.20256805419922,
+        "r2": 0.3536393642425537,
+        "mbe": -0.04133107140660286
+      },
+      "por_area": {
+        "Rural": {
+          "n": 89357,
+          "rmse": 37.62114384049464,
+          "mae": 30.090364456176758,
+          "r2": 0.3686982989311218,
+          "mbe": 0.005984421819448471
+        },
+        "Urbano": {
+          "n": 577452,
+          "rmse": 40.54021651734778,
+          "mae": 32.5294189453125,
+          "r2": 0.33725690841674805,
+          "mbe": -0.04865283519029617
+        }
+      },
+      "por_cluster": {
+        "0": {
+          "n": 133671,
+          "rmse": 35.75976429155399,
+          "mae": 28.509124755859375,
+          "r2": 0.19196969270706177,
+          "mbe": -0.20281405746936798
+        },
+        "1": {
+          "n": 106183,
+          "rmse": 40.30833614639315,
+          "mae": 32.43470764160156,
+          "r2": 0.20068538188934326,
+          "mbe": -0.042951662093400955
+        },
+        "2": {
+          "n": 70678,
+          "rmse": 38.74292557650445,
+          "mae": 31.20557403564453,
+          "r2": 0.13397181034088135,
+          "mbe": 0.0026765242218971252
+        },
+        "3": {
+          "n": 116455,
+          "rmse": 39.74520134901115,
+          "mae": 32.0944938659668,
+          "r2": 0.1569204330444336,
+          "mbe": 0.49325990676879883
+        },
+        "4": {
+          "n": 102709,
+          "rmse": 43.30362265852087,
+          "mae": 35.01054763793945,
+          "r2": 0.14102816581726074,
+          "mbe": -0.7454504370689392
+        },
+        "5": {
+          "n": 60016,
+          "rmse": 42.69991040544245,
+          "mae": 33.918128967285156,
+          "r2": 0.1882416009902954,
+          "mbe": -0.6675968170166016
+        },
+        "6": {
+          "n": 77097,
+          "rmse": 42.61133166116145,
+          "mae": 34.28749465942383,
+          "r2": 0.250835657119751,
+          "mbe": 0.8185840845108032
+        }
+      }
+    },
+    "mlp": {
+      "model": "PyTorch MLP (global)",
+      "global": {
+        "n": 666809,
+        "rmse": 39.743060579902654,
+        "mae": 31.78205108642578,
+        "r2": 0.36703336238861084,
+        "mbe": -1.4499307870864868
+      },
+      "por_area": {
+        "Rural": {
+          "n": 89357,
+          "rmse": 37.085005156017914,
+          "mae": 29.524559020996094,
+          "r2": 0.38656342029571533,
+          "mbe": -1.863860011100769
+        },
+        "Urbano": {
+          "n": 577452,
+          "rmse": 40.13865738170934,
+          "mae": 32.13138961791992,
+          "r2": 0.35032105445861816,
+          "mbe": -1.3858774900436401
+        }
+      },
+      "por_cluster": {
+        "0": {
+          "n": 133671,
+          "rmse": 35.39846250137056,
+          "mae": 28.105806350708008,
+          "r2": 0.20821517705917358,
+          "mbe": -1.5710546970367432
+        },
+        "1": {
+          "n": 106183,
+          "rmse": 39.7556670365803,
+          "mae": 31.88054656982422,
+          "r2": 0.2224540114402771,
+          "mbe": -0.992401659488678
+        },
+        "2": {
+          "n": 70678,
+          "rmse": 38.601082615667174,
+          "mae": 31.045530319213867,
+          "r2": 0.14030152559280396,
+          "mbe": -1.516136646270752
+        },
+        "3": {
+          "n": 116455,
+          "rmse": 39.45688255621175,
+          "mae": 31.740530014038086,
+          "r2": 0.16910779476165771,
+          "mbe": -1.4739325046539307
+        },
+        "4": {
+          "n": 102709,
+          "rmse": 42.84745807029791,
+          "mae": 34.589683532714844,
+          "r2": 0.15902984142303467,
+          "mbe": -1.6579047441482544
+        },
+        "5": {
+          "n": 60016,
+          "rmse": 42.24217666335167,
+          "mae": 33.53544998168945,
+          "r2": 0.20555204153060913,
+          "mbe": -1.4060516357421875
+        },
+        "6": {
+          "n": 77097,
+          "rmse": 41.944456157444094,
+          "mae": 33.65300750732422,
+          "r2": 0.2741013169288635,
+          "mbe": -1.5302094221115112
+        }
+      }
+    }
+  }
+}

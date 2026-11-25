@@ -1,0 +1,41 @@
+modelo,tag,ambito,n,rmse,mae,r2,mbe
+XGBoost (global),global,Global,666809,40.1614,32.2026,0.3536,-0.0413
+XGBoost (global),global,Area Rural,89357,37.6211,30.0904,0.3687,+0.0060
+XGBoost (global),global,Area Urbano,577452,40.5402,32.5294,0.3373,-0.0487
+XGBoost (global),global,Cluster 0,133671,35.7598,28.5091,0.1920,-0.2028
+XGBoost (global),global,Cluster 1,106183,40.3083,32.4347,0.2007,-0.0430
+XGBoost (global),global,Cluster 2,70678,38.7429,31.2056,0.1340,+0.0027
+XGBoost (global),global,Cluster 3,116455,39.7452,32.0945,0.1569,+0.4933
+XGBoost (global),global,Cluster 4,102709,43.3036,35.0105,0.1410,-0.7455
+XGBoost (global),global,Cluster 5,60016,42.6999,33.9181,0.1882,-0.6676
+XGBoost (global),global,Cluster 6,77097,42.6113,34.2875,0.2508,+0.8186
+PyTorch MLP (global),global,Global,666809,39.7431,31.7821,0.3670,-1.4499
+PyTorch MLP (global),global,Area Rural,89357,37.0850,29.5246,0.3866,-1.8639
+PyTorch MLP (global),global,Area Urbano,577452,40.1387,32.1314,0.3503,-1.3859
+PyTorch MLP (global),global,Cluster 0,133671,35.3985,28.1058,0.2082,-1.5711
+PyTorch MLP (global),global,Cluster 1,106183,39.7557,31.8805,0.2225,-0.9924
+PyTorch MLP (global),global,Cluster 2,70678,38.6011,31.0455,0.1403,-1.5161
+PyTorch MLP (global),global,Cluster 3,116455,39.4569,31.7405,0.1691,-1.4739
+PyTorch MLP (global),global,Cluster 4,102709,42.8475,34.5897,0.1590,-1.6579
+PyTorch MLP (global),global,Cluster 5,60016,42.2422,33.5354,0.2056,-1.4061
+PyTorch MLP (global),global,Cluster 6,77097,41.9445,33.6530,0.2741,-1.5302
+XGBoost (global_indicators),global_indicators,Global,666809,40.1409,32.1786,0.3543,-0.0404
+XGBoost (global_indicators),global_indicators,Area Rural,89357,37.5871,30.0638,0.3698,+0.1167
+XGBoost (global_indicators),global_indicators,Area Urbano,577452,40.5217,32.5059,0.3379,-0.0647
+XGBoost (global_indicators),global_indicators,Cluster 0,133671,35.7359,28.4851,0.1930,-0.2112
+XGBoost (global_indicators),global_indicators,Cluster 1,106183,40.2978,32.4225,0.2011,-0.2245
+XGBoost (global_indicators),global_indicators,Cluster 2,70678,38.7559,31.2198,0.1334,-0.3830
+XGBoost (global_indicators),global_indicators,Cluster 3,116455,39.7402,32.0698,0.1571,-0.2576
+XGBoost (global_indicators),global_indicators,Cluster 4,102709,43.2930,35.0051,0.1415,+0.3399
+XGBoost (global_indicators),global_indicators,Cluster 5,60016,42.5585,33.7497,0.1936,+0.4228
+XGBoost (global_indicators),global_indicators,Cluster 6,77097,42.6138,34.3014,0.2508,+0.2840
+PyTorch MLP (global_indicators),global_indicators,Global,666809,39.7592,31.8072,0.3665,-1.4246
+PyTorch MLP (global_indicators),global_indicators,Area Rural,89357,37.0956,29.5811,0.3862,-1.2732
+PyTorch MLP (global_indicators),global_indicators,Area Urbano,577452,40.1556,32.1517,0.3498,-1.4480
+PyTorch MLP (global_indicators),global_indicators,Cluster 0,133671,35.4007,28.1269,0.2081,-1.3349
+PyTorch MLP (global_indicators),global_indicators,Cluster 1,106183,39.7862,31.8962,0.2213,-1.0960
+PyTorch MLP (global_indicators),global_indicators,Cluster 2,70678,38.5994,31.0492,0.1404,-1.3920
+PyTorch MLP (global_indicators),global_indicators,Cluster 3,116455,39.4550,31.7547,0.1692,-1.4501
+PyTorch MLP (global_indicators),global_indicators,Cluster 4,102709,42.8668,34.6197,0.1583,-1.7075
+PyTorch MLP (global_indicators),global_indicators,Cluster 5,60016,42.3352,33.6542,0.2021,-2.3280
+PyTorch MLP (global_indicators),global_indicators,Cluster 6,77097,41.9386,33.6555,0.2743,-0.9438

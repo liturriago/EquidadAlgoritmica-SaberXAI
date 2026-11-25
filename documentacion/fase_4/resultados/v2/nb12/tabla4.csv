@@ -1,0 +1,57 @@
+modelo,tag,ambito,n,rmse,mae,r2,mbe
+XGBoost (cluster_0),cluster_0,Global,133671,35.5381,28.3121,0.2020,-0.1954
+XGBoost (cluster_0),cluster_0,Area Rural,44886,34.8136,27.7874,0.1753,-0.0798
+XGBoost (cluster_0),cluster_0,Area Urbano,88785,35.8987,28.5773,0.2105,-0.2538
+XGBoost (cluster_0),cluster_0,Cluster 0,133671,35.5381,28.3121,0.2020,-0.1954
+PyTorch MLP (cluster_0),cluster_0,Global,133671,35.3703,28.0717,0.2095,-1.4542
+PyTorch MLP (cluster_0),cluster_0,Area Rural,44886,34.6409,27.5376,0.1834,-1.5068
+PyTorch MLP (cluster_0),cluster_0,Area Urbano,88785,35.7334,28.3417,0.2178,-1.4276
+PyTorch MLP (cluster_0),cluster_0,Cluster 0,133671,35.3703,28.0717,0.2095,-1.4542
+XGBoost (cluster_1),cluster_1,Global,106183,40.0827,32.2243,0.2096,-0.0216
+XGBoost (cluster_1),cluster_1,Area Rural,16904,38.2529,30.7044,0.2029,-0.1988
+XGBoost (cluster_1),cluster_1,Area Urbano,89279,40.4199,32.5121,0.2005,+0.0119
+XGBoost (cluster_1),cluster_1,Cluster 1,106183,40.0827,32.2243,0.2096,-0.0216
+PyTorch MLP (cluster_1),cluster_1,Global,106183,39.8657,31.9499,0.2181,-1.5114
+PyTorch MLP (cluster_1),cluster_1,Area Rural,16904,38.0681,30.4426,0.2106,-1.6475
+PyTorch MLP (cluster_1),cluster_1,Area Urbano,89279,40.1970,32.2353,0.2092,-1.4857
+PyTorch MLP (cluster_1),cluster_1,Cluster 1,106183,39.8657,31.9499,0.2181,-1.5114
+XGBoost (cluster_2),cluster_2,Global,70678,38.6021,31.0813,0.1403,-0.0897
+XGBoost (cluster_2),cluster_2,Area Rural,353,36.3933,29.2490,0.2227,+0.4590
+XGBoost (cluster_2),cluster_2,Area Urbano,70325,38.6128,31.0905,0.1396,-0.0924
+XGBoost (cluster_2),cluster_2,Cluster 2,70678,38.6021,31.0813,0.1403,-0.0897
+PyTorch MLP (cluster_2),cluster_2,Global,70678,38.6646,31.0873,0.1375,-1.9672
+PyTorch MLP (cluster_2),cluster_2,Area Rural,353,36.4229,29.3780,0.2214,-2.6414
+PyTorch MLP (cluster_2),cluster_2,Area Urbano,70325,38.6756,31.0959,0.1368,-1.9638
+PyTorch MLP (cluster_2),cluster_2,Cluster 2,70678,38.6646,31.0873,0.1375,-1.9672
+XGBoost (cluster_3),cluster_3,Global,116455,39.5734,31.9093,0.1642,-0.0147
+XGBoost (cluster_3),cluster_3,Area Rural,15780,38.9886,31.4907,0.1549,+0.5192
+XGBoost (cluster_3),cluster_3,Area Urbano,100675,39.6642,31.9749,0.1612,-0.0984
+XGBoost (cluster_3),cluster_3,Cluster 3,116455,39.5734,31.9093,0.1642,-0.0147
+PyTorch MLP (cluster_3),cluster_3,Global,116455,39.4951,31.7619,0.1675,-1.8763
+PyTorch MLP (cluster_3),cluster_3,Area Rural,15780,38.7755,31.1685,0.1641,-1.1416
+PyTorch MLP (cluster_3),cluster_3,Area Urbano,100675,39.6067,31.8549,0.1637,-1.9914
+PyTorch MLP (cluster_3),cluster_3,Cluster 3,116455,39.4951,31.7619,0.1675,-1.8763
+XGBoost (cluster_4),cluster_4,Global,102709,43.0765,34.8150,0.1500,+0.0240
+XGBoost (cluster_4),cluster_4,Area Rural,5039,43.2871,35.1178,0.2123,+0.9914
+XGBoost (cluster_4),cluster_4,Area Urbano,97670,43.0657,34.7993,0.1429,-0.0259
+XGBoost (cluster_4),cluster_4,Cluster 4,102709,43.0765,34.8150,0.1500,+0.0240
+PyTorch MLP (cluster_4),cluster_4,Global,102709,42.9295,34.6573,0.1558,-1.5569
+PyTorch MLP (cluster_4),cluster_4,Area Rural,5039,43.0166,34.8309,0.2221,-1.4471
+PyTorch MLP (cluster_4),cluster_4,Area Urbano,97670,42.9250,34.6484,0.1485,-1.5626
+PyTorch MLP (cluster_4),cluster_4,Cluster 4,102709,42.9295,34.6573,0.1558,-1.5569
+XGBoost (cluster_5),cluster_5,Global,60016,42.3422,33.5688,0.2018,+0.0878
+XGBoost (cluster_5),cluster_5,Area Rural,5348,41.0394,32.2201,0.2189,+0.1608
+XGBoost (cluster_5),cluster_5,Area Urbano,54668,42.4675,33.7008,0.1976,+0.0806
+XGBoost (cluster_5),cluster_5,Cluster 5,60016,42.3422,33.5688,0.2018,+0.0878
+PyTorch MLP (cluster_5),cluster_5,Global,60016,42.2470,33.5678,0.2054,-2.2709
+PyTorch MLP (cluster_5),cluster_5,Area Rural,5348,40.8133,32.1416,0.2275,-2.1157
+PyTorch MLP (cluster_5),cluster_5,Area Urbano,54668,42.3847,33.7073,0.2007,-2.2861
+PyTorch MLP (cluster_5),cluster_5,Cluster 5,60016,42.2470,33.5678,0.2054,-2.2709
+XGBoost (cluster_6),cluster_6,Global,77097,42.1102,33.8417,0.2684,+0.0423
+XGBoost (cluster_6),cluster_6,Area Rural,1047,44.3370,35.6287,0.2042,-0.7933
+XGBoost (cluster_6),cluster_6,Area Urbano,76050,42.0787,33.8171,0.2688,+0.0538
+XGBoost (cluster_6),cluster_6,Cluster 6,77097,42.1102,33.8417,0.2684,+0.0423
+PyTorch MLP (cluster_6),cluster_6,Global,77097,41.9531,33.6467,0.2738,-1.6469
+PyTorch MLP (cluster_6),cluster_6,Area Rural,1047,44.7584,36.1229,0.1890,-2.5028
+PyTorch MLP (cluster_6),cluster_6,Area Urbano,76050,41.9132,33.6126,0.2745,-1.6351
+PyTorch MLP (cluster_6),cluster_6,Cluster 6,77097,41.9531,33.6467,0.2738,-1.6469

@@ -1,0 +1,173 @@
+{
+  "tag": "cluster_0",
+  "timestamp_utc": "2026-11-25T04:26:26.438354+00:00",
+  "split_meta": {
+    "mode": "cluster",
+    "cluster_id": 0,
+    "seed": 42,
+    "territory_indicators": false,
+    "n_train": 623804,
+    "n_val": 133671,
+    "n_test": 133671,
+    "y_mean_train": 228.72943115234375,
+    "y_mean_val": 228.76234436035156,
+    "y_mean_test": 228.9324188232422,
+    "n_features": 75,
+    "feature_names": [
+      "cole_area_ubicacion_Rural",
+      "cole_bilingue",
+      "cole_calendario_B",
+      "cole_calendario_Otro",
+      "cole_caracter_Académico",
+      "cole_caracter_No Aplica",
+      "cole_caracter_Técnico",
+      "cole_depto_ubicacion_Amazonas",
+      "cole_depto_ubicacion_Antioquia",
+      "cole_depto_ubicacion_Arauca",
+      "cole_depto_ubicacion_Atlantico",
+      "cole_depto_ubicacion_Bogota",
+      "cole_depto_ubicacion_Bolivar",
+      "cole_depto_ubicacion_Caldas",
+      "cole_depto_ubicacion_Caqueta",
+      "cole_depto_ubicacion_Casanare",
+      "cole_depto_ubicacion_Cauca",
+      "cole_depto_ubicacion_Cesar",
+      "cole_depto_ubicacion_Choco",
+      "cole_depto_ubicacion_Cordoba",
+      "cole_depto_ubicacion_Cundinamarca",
+      "cole_depto_ubicacion_Guainia",
+      "cole_depto_ubicacion_Guaviare",
+      "cole_depto_ubicacion_Huila",
+      "cole_depto_ubicacion_La Guajira",
+      "cole_depto_ubicacion_Magdalena",
+      "cole_depto_ubicacion_Meta",
+      "cole_depto_ubicacion_Narino",
+      "cole_depto_ubicacion_Norte Santander",
+      "cole_depto_ubicacion_Putumayo",
+      "cole_depto_ubicacion_Quindio",
+      "cole_depto_ubicacion_Risaralda",
+      "cole_depto_ubicacion_San Andres",
+      "cole_depto_ubicacion_Santander",
+      "cole_depto_ubicacion_Sucre",
+      "cole_depto_ubicacion_Tolima",
+      "cole_depto_ubicacion_Valle",
+      "cole_depto_ubicacion_Vaupes",
+      "cole_depto_ubicacion_Vichada",
+      "cole_genero_Femenino",
+      "cole_genero_Masculino",
+      "cole_jornada_Completa",
+      "cole_jornada_Noche",
+      "cole_jornada_Sabatina",
+      "cole_jornada_Tarde",
+      "cole_jornada_Unica",
+      "cole_naturaleza_No Oficial",
+      "cole_sede_principal",
+      "estu_genero_M",
+      "fami_estratovivienda",
+      "fami_educacionmadre_Educación Profesional Completa",
+      "fami_educacionmadre_Educación Profesional Incompleta",
+      "fami_educacionmadre_Ninguno",
+      "fami_educacionmadre_Postgrado",
+      "fami_educacionmadre_Primaria Completa",
+      "fami_educacionmadre_Primaria Incompleta",
+      "fami_educacionmadre_Secundaria (Bachillerato) Completa",
+      "fami_educacionmadre_Técnica O Tecnológica Completa",
+      "fami_educacionmadre_Técnica O Tecnológica Incompleta",
+      "fami_educacionpadre_Educación Profesional Completa",
+      "fami_educacionpadre_Educación Profesional Incompleta",
+      "fami_educacionpadre_Ninguno",
+      "fami_educacionpadre_Postgrado",
+      "fami_educacionpadre_Primaria Completa",
+      "fami_educacionpadre_Secundaria (Bachillerato) Completa",
+      "fami_educacionpadre_Secundaria (Bachillerato) Incompleta",
+      "fami_educacionpadre_Técnica O Tecnológica Completa",
+      "fami_educacionpadre_Técnica O Tecnológica Incompleta",
+      "fami_tieneinternet",
+      "fami_tienecomputador",
+      "fami_tieneautomovil",
+      "fami_tienelavadora",
+      "fami_tieneserviciotv",
+      "fami_cuartoshogar",
+      "fami_personashogar"
+    ],
+    "cluster_rows": {
+      "0": {
+        "train": 623804,
+        "val": 133671,
+        "test": 133671
+      }
+    }
+  },
+  "metrics": {
+    "xgboost": {
+      "model": "XGBoost (cluster_0)",
+      "global": {
+        "n": 133671,
+        "rmse": 35.538068964184376,
+        "mae": 28.312091827392578,
+        "r2": 0.20195752382278442,
+        "mbe": -0.19535352289676666
+      },
+      "por_area": {
+        "Rural": {
+          "n": 44886,
+          "rmse": 34.813643102866294,
+          "mae": 27.787433624267578,
+          "r2": 0.17525291442871094,
+          "mbe": -0.07978007942438126
+        },
+        "Urbano": {
+          "n": 88785,
+          "rmse": 35.89874608817312,
+          "mae": 28.57733917236328,
+          "r2": 0.21050411462783813,
+          "mbe": -0.25378262996673584
+        }
+      },
+      "por_cluster": {
+        "0": {
+          "n": 133671,
+          "rmse": 35.538068964184376,
+          "mae": 28.312091827392578,
+          "r2": 0.20195752382278442,
+          "mbe": -0.19535352289676666
+        }
+      }
+    },
+    "mlp": {
+      "model": "PyTorch MLP (cluster_0)",
+      "global": {
+        "n": 133671,
+        "rmse": 35.370298039434694,
+        "mae": 28.071683883666992,
+        "r2": 0.2094746232032776,
+        "mbe": -1.4541611671447754
+      },
+      "por_area": {
+        "Rural": {
+          "n": 44886,
+          "rmse": 34.64092981654343,
+          "mae": 27.537561416625977,
+          "r2": 0.18341588973999023,
+          "mbe": -1.5067824125289917
+        },
+        "Urbano": {
+          "n": 88785,
+          "rmse": 35.73337066800269,
+          "mae": 28.341711044311523,
+          "r2": 0.21776139736175537,
+          "mbe": -1.4275580644607544
+        }
+      },
+      "por_cluster": {
+        "0": {
+          "n": 133671,
+          "rmse": 35.370298039434694,
+          "mae": 28.071683883666992,
+          "r2": 0.2094746232032776,
+          "mbe": -1.4541611671447754
+        }
+      }
+    }
+  }
+}
